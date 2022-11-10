@@ -24,6 +24,17 @@
 		</div>
 		<div class="row">
 			<div class="col">
+				<div class="row justify-content-center" style="height: 100%">
+					<select id='categorySelector' class="custom-select align-self-center" style="width: 50%" onchange="categoryChange()">
+						<option value="allSelected" selected>All</option>
+						<option value="acousticness">Acousticness</option>
+						<option value="valence">Valance</option>
+						<option value="speechiness">speechiness</option>
+						<option value="energy">Energy</option>
+						<option value="liveness">Liveness</option>
+					</select>
+				</div>
+				<!-- I think a time brush or timeline slider would also be good, but not high priority yet -->
 				<div id="line-chart-area" class="flex">A line graph with the different characteristics</div>
 			</div>
 			<div class="col">
