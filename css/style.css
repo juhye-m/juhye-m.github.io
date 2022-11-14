@@ -23,6 +23,9 @@ body {
     background-color: #FFFFFC;
     color: #30323D;
     padding-top: 2cm;
+    display: block;
+    text-align: right;
+
 }
 
 .hook {
