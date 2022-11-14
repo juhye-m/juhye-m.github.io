@@ -52,11 +52,24 @@ class BarChart {
     updateVis() {
         let vis = this;
 
-        vis.x.domain()
-        vis.y.domain()
+        vis.x.domain(vis.data.map(d => d.Genre))
+        vis.y.domain([0, 432])
 
         vis.bars = vis.svg.selectAll(".bar")
             .data(vis.data)
+
+        vis.bars.exit().remove();
+console.log(vis.data)
+        vis.bars
+            .enter()
+            .append("rect")
+            .attr("class", "bar")
+            .merge(vis.bars)
+            .attr("x", d => vis.x(d.Genre))
+            .attr("height", d => vis.height - vis.y(d.Count))
+            .attr("y", d => vis.y(d.Count))
+            .attr("width", vis.x.bandwidth())
+            .attr("fill", "green" )
 
         vis.xAxis
             .transition()

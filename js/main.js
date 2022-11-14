@@ -41,11 +41,21 @@ function loadData() {
 		console.log(count)
 
 		linegraph = new LineChart("line-chart-area",data)
-		bargraph = new BarChart("chart1",data)
+
 	});
 }
 
+function loadData2() {
+	d3.csv("data/genre_data.csv", row => {
+		row.Count = +row.Count
+		return row
+	}).then(data => {
+		bargraph = new BarChart("chart1",data)
+	})
+}
+
 loadData()
+loadData2()
 
 // store category selection - for dropdown
 let selectedCategory =  document.getElementById('categorySelector').value;
