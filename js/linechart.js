@@ -4,7 +4,7 @@ class LineChart {
     constructor(parentElement, data) {
         this.parentElement = parentElement;
         this.data = data;
-        this.displayData = [];
+
 
         this.initVis();
 
@@ -43,7 +43,6 @@ class LineChart {
             .attr('class', 'axis x-axis')
             .attr('transform', `translate (0,${vis.height})`);
 
-
         vis.y = d3.scaleLinear()
             .range([vis.height, 0]);
         vis.yAxis = d3.axisLeft()
@@ -52,8 +51,17 @@ class LineChart {
             .attr('class', 'axis y-axis');
 
 // Initialize line path
-        vis.path = vis.svg.append('g')
+        vis.path1 = vis.svg.append('g')
             .append("path")
+        vis.path2 = vis.svg.append('g')
+            .append("path")
+        vis.path3 = vis.svg.append('g')
+            .append("path")
+        vis.path4 = vis.svg.append('g')
+            .append("path")
+        vis.path5 = vis.svg.append('g')
+            .append("path")
+
 
         // (Filter, aggregate, modify data)
         vis.wrangleData();
@@ -81,13 +89,14 @@ class LineChart {
 
     updateVis() {
         let vis = this;
-        console.log(d3.max(vis.data, d => d.Duration_ms))
+
+        console.log(d3.max(vis.data, d=>d.Danceability))
         console.log(d3.min(vis.data, d=>d.TopYear))
 
         // Update scale domains
 
         vis.x.domain([2010, 2021])
-        vis.y.domain([0, d3.max(vis.data, d => d.Duration_ms)])
+        vis.y.domain([0, d3.max(vis.data, d=>d.Energy)])
 
         // Update axes
         vis.svg.select(".y-axis")
@@ -99,18 +108,48 @@ class LineChart {
             .duration(800)
             .call(vis.xAxis);
 
-        vis.path
+        vis.path1
+            .datum(vis.data)
+            .attr("fill", "none")
+            .attr("stroke", "green")
+            .attr("stroke-width", 2)
+            .attr("d", d3.line()
+                .x(function(d) {return vis.x(d.TopYear) })
+                .y(function(d) {return vis.y(d.Danceability) }))
+        vis.path2
+            .datum(vis.data)
+            .attr("fill", "none")
+            .attr("stroke", "purple")
+            .attr("stroke-width", 2)
+            .attr("d", d3.line()
+                .x(function(d) {return vis.x(d.TopYear) })
+                .y(function(d) {return vis.y(d.Speechiness) }))
+        vis.path3
             .datum(vis.data)
             .attr("fill", "none")
             .attr("stroke", "steelblue")
-            .attr("stroke-width", 1.5)
+            .attr("stroke-width", 2)
             .attr("d", d3.line()
-                .x(function(d) {
-                    console.log(vis.x(d.TopYear))
-                    return vis.x(d.TopYear) })
-                .y(function(d) {
-                    console.log(vis.y(d.Duration_ms))
-                    return vis.y(d.Duration_ms) }))
+                .x(function(d) {return vis.x(d.TopYear) })
+                .y(function(d) {return vis.y(d.Energy) }))
+
+        vis.path4
+            .datum(vis.data)
+            .attr("fill", "none")
+            .attr("stroke", "red")
+            .attr("stroke-width", 2)
+            .attr("d", d3.line()
+                .x(function(d) {return vis.x(d.TopYear) })
+                .y(function(d) {return vis.y(d.Acousticness) }))
+
+        vis.path5
+            .datum(vis.data)
+            .attr("fill", "none")
+            .attr("stroke", "orange")
+            .attr("stroke-width", 2)
+            .attr("d", d3.line()
+                .x(function(d) {return vis.x(d.TopYear) })
+                .y(function(d) {return vis.y(d.Valence) }))
 
     }
 }

@@ -10,14 +10,14 @@ let parseDate = d3.timeParse("%Y");
 
 // Load CSV file - we can change this too? to be more like the recent psets?
 function loadData() {
-	d3.csv("data/fixed_data.csv", row => {
+	d3.csv("data/average_by_year.csv", row => {
 		row.Acousticness = +row.Acousticness
 		row.BPM = +row.BPM
 		row.Danceability = +row.Danceability
-		row.Duration_ms = +(row.Duration_ms/1000)
+		row.Duration = +(row.Duration/1000)
 		row.Energy = +row.Energy
 		row.Liveness = +row.Liveness
-		row.Loudness_db = +row.Loudness_db
+		row.Loudness = +row.Loudness
 		row.Popularity = +row.Popularity
 		row.Speechiness = +row.Speechiness
 		row.Valence = +row.Valence
