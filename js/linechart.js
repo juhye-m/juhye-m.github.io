@@ -1,11 +1,5 @@
-/*
- * AreaChart - Object constructor function
- * @param _parentElement 	-- the HTML element in which to draw the area chart
- * @param _data						-- the dataset 'household characteristics'
- */
 
-
-class AreaChart {
+class LineChart {
 
     constructor(parentElement, data) {
         this.parentElement = parentElement;
@@ -14,9 +8,7 @@ class AreaChart {
 
         this.initVis();
 
-
     }
-
 
     /*
      * Initialize visualization (static content; e.g. SVG area, axes, brush component)
@@ -24,6 +16,44 @@ class AreaChart {
 
     initVis() {
         let vis = this;
+        vis.margin = {top: 40, right: 40, bottom: 50, left: 50};
+        //vis.width = document.getElementById(vis.parentElement).getBoundingClientRect().width - vis.margin.left - vis.margin.right;
+        //vis.height = document.getElementById(vis.parentElement).getBoundingClientRect().height - vis.margin.top - vis.margin.bottom;
+
+        vis.width = 500
+        vis.height = 500
+
+        // init drawing area
+        vis.svg = d3.select("#" + vis.parentElement).append("svg")
+            .attr("width", vis.width + vis.margin.left + vis.margin.right)
+            .attr("height", vis.height + vis.margin.top + vis.margin.bottom)
+            .append('g')
+            .attr('transform', `translate (${vis.margin.left}, ${vis.margin.top})`);
+
+        vis.tooltip = d3.select("body").append('div')
+            .attr('class', "tooltip")
+            .attr('id', 'lineTooltip')
+
+        vis.x = d3.scaleLinear()
+            .range([0, vis.width]);
+        vis.xAxis = d3.axisBottom()
+            .scale(vis.x)
+            //.tickFormat(d3.timeFormat("%Y"));
+        vis.svg.append('g')
+            .attr('class', 'axis x-axis')
+            .attr('transform', `translate (0,${vis.height})`);
+
+
+        vis.y = d3.scaleLinear()
+            .range([vis.height, 0]);
+        vis.yAxis = d3.axisLeft()
+            .scale(vis.y)
+        vis.svg.append('g')
+            .attr('class', 'axis y-axis');
+
+// Initialize line path
+        vis.path = vis.svg.append('g')
+            .append("path")
 
         // (Filter, aggregate, modify data)
         vis.wrangleData();
@@ -36,10 +66,11 @@ class AreaChart {
 
     wrangleData() {
         let vis = this;
+        // get average values for each year
 
 
         // Update the visualization
-        // vis.updateVis();
+        vis.updateVis();
     }
 
 
@@ -50,13 +81,36 @@ class AreaChart {
 
     updateVis() {
         let vis = this;
+        console.log(d3.max(vis.data, d => d.Duration_ms))
+        console.log(d3.min(vis.data, d=>d.TopYear))
 
         // Update scale domains
 
-
-        
+        vis.x.domain([2010, 2021])
+        vis.y.domain([0, d3.max(vis.data, d => d.Duration_ms)])
 
         // Update axes
+        vis.svg.select(".y-axis")
+            .transition()
+            .duration(800)
+            .call(vis.yAxis);
+        vis.svg.select(".x-axis")
+            .transition()
+            .duration(800)
+            .call(vis.xAxis);
+
+        vis.path
+            .datum(vis.data)
+            .attr("fill", "none")
+            .attr("stroke", "steelblue")
+            .attr("stroke-width", 1.5)
+            .attr("d", d3.line()
+                .x(function(d) {
+                    console.log(vis.x(d.TopYear))
+                    return vis.x(d.TopYear) })
+                .y(function(d) {
+                    console.log(vis.y(d.Duration_ms))
+                    return vis.y(d.Duration_ms) }))
 
     }
 }

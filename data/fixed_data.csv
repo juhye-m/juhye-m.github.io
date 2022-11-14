@@ -1,4 +1,4 @@
-,Title,Artist,Genre,Release Date,Popularity,Danceability,dnce(raw ignore),Energy,nrgy(raw ignore),Loudness (dB),Speechiness,spch(ignore),Acousticness,acous(ignore),Liveness,BPM,Duration (ms),dur (ignore),Valence,val(ignore),Top Year (ignore),Top Year
+Index,Title,Artist,Genre,ReleaseDate,Popularity,Danceability,dnce(raw ignore),Energy,nrgy(raw ignore),Loudness_db,Speechiness,spch(ignore),Acousticness,acous(ignore),Liveness,BPM,Duration_ms,dur (ignore),Valence,val(ignore),Top Year (ignore),TopYear
 0,STARSTRUKK (feat. Katy Perry),3OH!3,dance pop,2009,70.0,0.61,61.0,0.81,81.0,-6.0,0.06,6.0,0.0,0.0,23.0,140.0,203000.0,203.0,0.23,23.0,2010,2010
 1,My First Kiss (feat. Ke$ha),3OH!3,dance pop,2010,68.0,0.68,68.0,0.89,89.0,-4.0,0.08,8.0,0.01,1.0,36.0,138.0,192000.0,192.0,0.83,83.0,2010,2010
 2,I Need A Dollar,Aloe Blacc,pop soul,2010,72.0,0.84,84.0,0.48,48.0,-7.0,0.03,3.0,0.2,20.0,9.0,95.0,243000.0,243.0,0.96,96.0,2010,2010
