@@ -1,6 +1,6 @@
 
 // skeleton stuff - left comments on places that need to be worked on
-let linegraph, histogram;
+let linegraph, histogram, bargraph;
 
 // need to parse date string and convert to time
 let parseDate = d3.timeParse("%Y");
@@ -33,7 +33,22 @@ let promises = [
 		row.Count = +row.Count
 		return row
 	}),
-	d3.csv("data/all_data.csv")
+	d3.csv("data/all_data.csv", row => {
+		row.Acousticness = +row.Acousticness
+		row.BPM = +row.BPM
+		row.Danceability = +row.Danceability
+		row.Duration = +(row.Duration/1000)
+		row.Energy = +row.Energy
+		row.Liveness = +row.Liveness
+		row.Loudness = +row.Loudness
+		row.Popularity = +row.Popularity
+		row.Speechiness = +row.Speechiness
+		row.Valence = +row.Valence
+		row.ReleaseDate = +row['Release Date']
+		row.TopYear = +row['Top Year']
+
+		return row
+	})
 ];
 
 Promise.all(promises)
