@@ -3,14 +3,13 @@
 
 .col {
     padding:1cm;
-
 }
 
 .titles {
     text-align: center;
 }
 h1 {
-    /* font-size:30px; */
+    font-size:30px;
     color:#1DB954;
 }
 
@@ -22,7 +21,7 @@ h2 {
 body {
     background-color: #FFFFFC;
     color: #30323D;
-    padding-top: 2cm;
+    /* padding-top: 2cm; */
     display: block;
     text-align: right;
 

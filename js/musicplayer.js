@@ -133,10 +133,10 @@ new Vue({
         this.currentTime = curmin + ":" + cursec;
       },
       updateBar(x) {
-        let progress = this.$refs.progress;
+        let progress = this.$refs.progress1;
         let maxduration = this.audio.duration;
-        let position = x - progress.offsetLeft;
-        let percentage = (100 * position) / progress.offsetWidth;
+        let position = x - progress1.offsetLeft;
+        let percentage = (100 * position) / progress1.offsetWidth;
         if (percentage > 100) {
           percentage = 100;
         }

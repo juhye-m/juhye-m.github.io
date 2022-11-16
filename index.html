@@ -7,9 +7,11 @@
 	<title>CS171 Final Project</title>
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
 	<link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" href="https://meyerweb.com/eric/tools/css/reset/reset.css"/>
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700&display=swap&subset=latin-ext"/>
+	
+	
+	<!-- <link rel="stylesheet" href="https://meyerweb.com/eric/tools/css/reset/reset.css"/> -->
 	<link rel="stylesheet" href="./css/musicplayer.css" />
 </head>
 <body>
@@ -61,18 +63,19 @@
 							  </div>
 							</div>
 						  </div>
-						  <div class="progress" ref="progress">
-							<div class="progress__top">
+						  <!-- change to progress1 because boostrap overrides progress class -->
+						  <div class="progress1" ref="progress1">
+							<div class="progress1__top">
 							  <div class="album-info" v-if="currentTrack">
 								<div class="album-info__name">{{ currentTrack.artist }}</div>
 								<div class="album-info__track">{{ currentTrack.name }}</div>
 							  </div>
-							  <div class="progress__duration">{{ duration }}</div>
+							  <div class="progress1__duration">{{ duration }}</div>
 							</div>
-							<div class="progress__bar" @click="clickProgress">
-							  <div class="progress__current" :style="{ width : barWidth }"></div>
+							<div class="progress1__bar" @click="clickProgress">
+							  <div class="progress1__current" :style="{ width : barWidth }"></div>
 							</div>
-							<div class="progress__time">{{ currentTime }}</div>
+							<div class="progress1__time">{{ currentTime }}</div>
 						  </div>
 						  <div v-cloak></div>
 						</div>
