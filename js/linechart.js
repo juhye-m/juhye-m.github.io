@@ -63,6 +63,7 @@ class LineChart {
             .append("path")
 
 
+
         // (Filter, aggregate, modify data)
         vis.wrangleData();
     }
