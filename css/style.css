@@ -1,28 +1,37 @@
 
 /* ADD YOUR STYLES HERE */
 
+
 .col {
     padding:1cm;
-
 }
 
 .titles {
+    margin-top: 3cm;
     text-align: center;
 }
 h1 {
-    /* font-size:30px; */
+    font-size:60px;
     color:#1DB954;
+    margin-bottom: 40px;
+}
+
+.spotify-icon {
+    width:2cm;
+    /* display: inline; */
 }
 
 h2 {
-    color:#191414;
+    /* color:#191414; */
+    color: #30323D;
+    font-size: 30px;
 }
 
 
 body {
     background-color: #FFFFFC;
     color: #30323D;
-    padding-top: 2cm;
+    /* padding-top: 2cm; */
     display: block;
     text-align: right;
 
@@ -30,4 +39,17 @@ body {
 
 .hook {
     margin: 1cm;
+    text-align: center;
+}
+
+#histogramTooltip {
+    background-color: lightgray;
+    color: black;
+    border: 1px black solid;
+    padding: 10px;
+    max-width: 250px;
+}
+
+h3 {
+    text-decoration: none;
 }
