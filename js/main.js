@@ -80,3 +80,6 @@ function categoryChange() {
 //    linechart_characteristics.wrangleData();
 }
 
+function getAlbumImage(trackID) {
+
+}

@@ -30,3 +30,11 @@ body {
 .hook {
     margin: 1cm;
 }
+
+#histogramTooltip {
+    background-color: lightgray;
+    color: black;
+    border: 1px black solid;
+    padding: 10px;
+    max-width: 250px;
+}
