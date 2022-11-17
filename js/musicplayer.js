@@ -23,75 +23,99 @@ new Vue({
         // CHANGE TO #1 SONG PER YEAR
         tracks: [
           {
-            name: "Mekanın Sahibi",
-            artist: "Norm Ender",
-            cover: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/1.jpg",
-            source: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/1.mp3",
-            url: "https://www.youtube.com/watch?v=z3wAjJXbYzA",
+            name: "drivers license",
+            artist: "Olivia Rodrigo",
+            cover: "https://m.media-amazon.com/images/I/41GOpp3tSJL._UX500_FMwebp_QL85_.jpg",
+            source: "assets/mp3/driverslicense.mp3",
+            url: "https://youtu.be/ZmDBbnmKpqQ",
             favorited: false
           },
           {
-            name: "Everybody Knows",
-            artist: "Leonard Cohen",
-            cover: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/2.jpg",
-            source: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/2.mp3",
-            url: "https://www.youtube.com/watch?v=Lin-a2lTelg",
-            favorited: true
-          },
-          {
-            name: "Extreme Ways",
-            artist: "Moby",
-            cover: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/3.jpg",
-            source: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/3.mp3",
-            url: "https://www.youtube.com/watch?v=ICjyAe9S54c",
+            name: "Blinding Lights",
+            artist: "The Weeknd",
+            cover: "https://m.media-amazon.com/images/I/41t3sP+X6nL._UXNaN_FMwebp_QL85_.jpg",
+            source: "assets/mp3/BlindingLights.mp3",
+            url: "https://youtu.be/4NRXx6U8ABQ",
             favorited: false
           },
           {
-            name: "Butterflies",
-            artist: "Sia",
-            cover: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/4.jpg",
-            source: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/4.mp3",
-            url: "https://www.youtube.com/watch?v=kYgGwWYOd9Y",
+            name: "Señorita",
+            artist: "Shawn Mendes & Camila Cabello",
+            cover: "https://m.media-amazon.com/images/I/51r4sILyMML._UX500_FMwebp_QL85_.jpg",
+            source: "assets/mp3/Senorita.mp3",
+            url: "https://youtu.be/Pkh8UtuejGw",
             favorited: false
           },
           {
-            name: "The Final Victory",
-            artist: "Haggard",
-            cover: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/5.jpg",
-            source: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/5.mp3",
-            url: "https://www.youtube.com/watch?v=0WlpALnQdN8",
-            favorited: true
-          },
-          {
-            name: "Genius ft. Sia, Diplo, Labrinth",
-            artist: "LSD",
-            cover: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/6.jpg",
-            source: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/6.mp3",
-            url: "https://www.youtube.com/watch?v=HhoATZ1Imtw",
+            name: "God's Plan",
+            artist: "Drake",
+            cover: "https://m.media-amazon.com/images/I/51yTr7RZK6L._UX500_FMwebp_QL85_.jpg",
+            source: "assets/mp3/GodsPlan.mp3",
+            url: "https://youtu.be/xpVfcZ0ZcFM",
             favorited: false
           },
           {
-            name: "The Comeback Kid",
-            artist: "Lindi Ortega",
-            cover: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/7.jpg",
-            source: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/7.mp3",
-            url: "https://www.youtube.com/watch?v=me6aoX0wCV8",
-            favorited: true
-          },
-          {
-            name: "Overdose",
-            artist: "Grandson",
-            cover: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/8.jpg",
-            source: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/8.mp3",
-            url: "https://www.youtube.com/watch?v=00-Rl3Jlx-o",
+            name: "Shape of You",
+            artist: "Ed Sheeran",
+            cover: "https://m.media-amazon.com/images/I/61fPYcsUGRL._UX500_FMwebp_QL85_.jpg",
+            source: "assets/mp3/ShapeofYou.mp3",
+            url: "https://youtu.be/JGwWNGJdvx8",
             favorited: false
           },
           {
-            name: "Rag'n'Bone Man",
-            artist: "Human",
-            cover: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/9.jpg",
-            source: "https://raw.githubusercontent.com/muhammederdem/mini-player/master/mp3/9.mp3",
-            url: "https://www.youtube.com/watch?v=L3wKzyIN1yk",
+            name: "One Dance",
+            artist: "Drake",
+            cover: "https://m.media-amazon.com/images/I/41xGePdQITL._UX500_FMwebp_QL85_.jpg",
+            source: "assets/mp3/OneDance.mp3",
+            url: "https://youtu.be/qL7zrWcv6XY",
+            favorited: false
+          },
+          {
+            name: "Lean On",
+            artist: "Major Lazer",
+            cover: "https://m.media-amazon.com/images/I/51Eh7q-8ucL._UX500_FMwebp_QL85_.jpg",
+            source: "assets/mp3/LeanOn.mp3",
+            url: "https://youtu.be/YqeW9_5kURI",
+            favorited: false
+          },
+          {
+            name: "Happy",
+            artist: "Pharrell Williams",
+            cover: "https://m.media-amazon.com/images/I/51ZDwgg4HFL._UX500_FMwebp_QL85_.jpg",
+            source: "assets/mp3/Happy.mp3",
+            url: "https://youtu.be/ZbZSe6N_BXs",
+            favorited: false
+          },
+          {
+            name: "Can't Hold Us",
+            artist: "Macklemore & Ryan Lewis",
+            cover: "https://m.media-amazon.com/images/I/51-mkLBVPoL._UX500_FMwebp_QL85_.jpg",
+            source: "assets/mp3/CantHoldUs.mp3",
+            url: "https://youtu.be/2zNSgSzhBfM",
+            favorited: false
+          },
+          {
+            name: "Somebody That I Used to Know",
+            artist: "Gotye",
+            cover: "https://m.media-amazon.com/images/I/51IFGiApz8L._UX500_FMwebp_QL85_.jpg",
+            source: "assets/mp3/SomebodyThatIUsedToKnow.mp3",
+            url: "https://youtu.be/8UVNT4wvIGY",
+            favorited: false
+          },
+          {
+            name: "Pumped Up Kicks",
+            artist: "Foster The People",
+            cover: "https://m.media-amazon.com/images/I/615V+KPyhiL._UX500_FMwebp_QL85_.jpg",
+            source: "assets/mp3/PumpedUpKicks.mp3",
+            url: "https://youtu.be/SDTZ7iX4vTQ",
+            favorited: false
+          },
+          {
+            name: "TiK ToK",
+            artist: "Kesha",
+            cover: "https://m.media-amazon.com/images/I/61bqP3BMkUL._UX500_FMwebp_QL85_.jpg",
+            source: "assets/mp3/TiKToK.mp3",
+            url: "https://youtu.be/iP6XpLQM2Cs",
             favorited: false
           }
         ],
