@@ -1,20 +1,30 @@
 
 /* ADD YOUR STYLES HERE */
 
+
 .col {
     padding:1cm;
 }
 
 .titles {
+    margin-top: 3cm;
     text-align: center;
 }
 h1 {
-    font-size:30px;
+    font-size:60px;
     color:#1DB954;
+    margin-bottom: 40px;
+}
+
+.spotify-icon {
+    width:2cm;
+    /* display: inline; */
 }
 
 h2 {
-    color:#191414;
+    /* color:#191414; */
+    color: #30323D;
+    font-size: 30px;
 }
 
 
@@ -29,6 +39,7 @@ body {
 
 .hook {
     margin: 1cm;
+    text-align: center;
 }
 
 #histogramTooltip {
@@ -37,4 +48,8 @@ body {
     border: 1px black solid;
     padding: 10px;
     max-width: 250px;
+}
+
+h3 {
+    text-decoration: none;
 }
