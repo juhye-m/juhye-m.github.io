@@ -29,7 +29,7 @@ class Histogram {
             .attr("transform", "translate(" + vis.margin.left + "," + vis.margin.top + ")");
 
         // Scales and axes
-        vis.x = d3.scaleTime()
+        vis.x = d3.scaleBand()
             .range([0, vis.width]);
 
         vis.y = d3.scaleLinear()
@@ -57,9 +57,11 @@ class Histogram {
 
         // filter and populate displayData
 
-
         // get the counts by year
         vis.getCountsByYear() // populates vis.countData using vis.displayData
+
+        // sort the data by release date\
+        vis.countData = vis.countData.sort((a, b) => a.year - b.year)
 
         // update vis
         vis.updateVis()
@@ -69,13 +71,24 @@ class Histogram {
         let vis = this
 
         // Create domains for scales
-        vis.x.domain(d3.extent(vis.countData, d => d.year))
-        vis.y.domain(d3.extent(vis.countData, d => d.count))
+        vis.y.domain(d3.extent(vis.countData, d => d.yearCount))
+        vis.x.domain(vis.countData.map(d => d.year))
+            .padding([.2])
 
         // Call axis functions with the new domain
         vis.svg.select(".x-axis").call(vis.xAxis);
         vis.svg.select(".y-axis").call(vis.yAxis);
 
+        // draw bars
+        vis.bars = vis.svg.selectAll(".histogram-bar")
+            .data(vis.countData, d => d)
+
+        vis.bars.enter().append("rect")
+            .attr("class", "histogram-bar")
+            .attr("x", d => vis.x(d.year))
+            .attr("y", d => vis.y(d.yearCount))
+            .attr("width", vis.x.bandwidth())
+            .attr("height", d => vis.height - vis.y(d.yearCount))
 
     }
 
@@ -87,7 +100,7 @@ class Histogram {
         let map = d3.rollup(vis.displayData, v => v.length, d => d.ReleaseDate)
 
         // convert map to array and assign to displayData
-        vis.countData = Array.from(map, ([year, count]) => ({ year, count }))
+        vis.countData = Array.from(map, ([year, yearCount]) => ({ year, yearCount }))
 
         console.log(vis.countData)
     }
