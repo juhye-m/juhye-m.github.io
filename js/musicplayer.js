@@ -20,6 +20,7 @@ new Vue({
         duration: null,
         currentTime: null,
         isTimerPlaying: false,
+        // CHANGE TO #1 SONG PER YEAR
         tracks: [
           {
             name: "Mekanın Sahibi",
