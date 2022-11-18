@@ -5,6 +5,16 @@ let linegraph, histogram, bargraph;
 // need to parse date string and convert to time
 let parseDate = d3.timeParse("%Y");
 
+// define global colors
+let LIGHTGREEN = "#b2df8a"
+let DARKGREEN = "#33a02c"
+let LIGHTBLUE = "#a6cee3"
+let DARKBLUE = "#1f78b4"
+let PINK = "#fb9a99"
+
+// define toggles / selects
+let histIncludeToggled = true
+
 // if data is top year 2021 or 2020
 // then time parse week, parseDateWeek = d3.timeParse() , and then get the year
 
@@ -80,6 +90,16 @@ function categoryChange() {
 //    linechart_characteristics.wrangleData();
 }
 
+function histToggleChange() {
+	histIncludeToggled =  document.getElementById('histogram-toggle').checked;
+	histogram.toggled()
+	histogram.wrangleData()
+}
+
 function getAlbumImage(trackID) {
+
+}
+
+function getTrackURL(trackID) {
 
 }
