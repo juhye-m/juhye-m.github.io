@@ -213,13 +213,32 @@
 			</div>
 		</div>
 
-		<div class="row justify-content-center">
-			<div class="align-self-center hook">
-				<div class="col">
-					<!-- feel free to rename these divs and classes!!!! -->
-					<div id="histogram" class="barchart row"></div>
+		<div class="row justify-content-center vis-area">
+			<!-- feel free to rename these divs and classes!!!! -->
+			<div id="histogram" class="col-7"></div>
+
+			<!-- Rounded switch -->
+			<div class="col-5">
+				<div class="histogram-panel">
+					<div class="histogram-panel-content">
+						<h2 id="histogram-panel-header">Learn more about each year!</h2>
+						<div id="histogram-panel-description">
+							<p>Click on a bar to get started...</p>
+						</div>
+					</div>
+					<div class="histogram-toggle-container">
+							<label class="switch">
+								<input id="histogram-toggle" onChange="histToggleChange()" type="checkbox" checked>
+								<span class="slider round"></span>
+							</label>
+						<div>
+							<p>Include songs where top year is the same as release year</p>
+						</div>
+					</div>
 				</div>
+
 			</div>
+
 		</div>
 	</div>
 
