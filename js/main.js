@@ -103,3 +103,12 @@ function getAlbumImage(trackID) {
 function getTrackURL(trackID) {
 
 }
+
+function getRandomImage() {
+	fetch('https://source.unsplash.com/random/300x300')
+		.then(function(response) {
+			return response.url
+		})
+
+	return 'https://source.unsplash.com/random/300x300'
+}

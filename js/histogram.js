@@ -170,9 +170,13 @@ class Histogram {
                 }
 
                 // populate side panel
-                d3.select("#histogram-panel-header").text("In the year of " + d.year + "...")
+                // d3.select("#histogram-panel-header").text("In the year of " + d.year + "...")
                 d3.select("#histogram-panel-description").html(
                     `
+                        <div class="histogram-panel-playlistPicture">
+                            <h2>Released in ${d.year}...</h2>
+                            <img src=${getRandomImage()}>
+                        </div>
                         <p>${desc}</p>
                         <p>${songsHeader}</p>
                         <div id="histogram-panel-songlist">${songsDesc}</div>
@@ -182,14 +186,15 @@ class Histogram {
             })
             .on("mouseover", function(event, d) {
                 d3.select(this)
-                    .transition()
-                    .attr('stroke-width', '1px')
-                    .attr('stroke', "black")
+                    .attr("filter", "drop-shadow(0 0 0 black)")
+                    .transition().duration(400)
+                    .attr("filter", "drop-shadow(0 0 3px black)")
             })
             .on("mouseout", function(event, d) {
                 d3.select(this)
-                    .transition()
-                    .attr('stroke-width', '0')
+                    .attr("filter", "drop-shadow(0 0 3px black)")
+                    .transition().duration(400)
+                    .attr("filter", "none")
             })
             .transition().delay((d, i) => i * 100).duration(800)
             .attr("y", d => vis.y(d.yearCount))

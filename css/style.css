@@ -183,7 +183,7 @@ input:checked + .slider:before {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+    /*align-items: center;*/
     margin-bottom: 10px;
 }
 
@@ -221,3 +221,21 @@ p.histogram-panel-songArtist {
     opacity: .6;
     transition: .4s;
 }
+
+.histogram-panel-playlistPicture {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.histogram-panel-playlistPicture img {
+    width: 100%;
+    filter: brightness(65%);
+}
+
+.histogram-panel-playlistPicture h2 {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 10;
+}
+
