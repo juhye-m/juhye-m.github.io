@@ -16,10 +16,10 @@ class Histogram {
         vis.margin = { top: 40, right: 0, bottom: 60, left: 60 };
 
         vis.width = document.getElementById(vis.parentElement).getBoundingClientRect().width - vis.margin.left - vis.margin.right;
-        vis.height = 300 - vis.margin.top - vis.margin.bottom;
+        vis.height = 600 - vis.margin.top - vis.margin.bottom;
 
-        vis.width = 500
-        vis.height = 500
+        // vis.width = 500
+        // vis.height = 500
 
         // SVG drawing area
         vis.svg = d3.select("#" + vis.parentElement).append("svg")
@@ -27,6 +27,12 @@ class Histogram {
             .attr("height", vis.height + vis.margin.top + vis.margin.bottom)
             .append("g")
             .attr("transform", "translate(" + vis.margin.left + "," + vis.margin.top + ")");
+
+        // title
+        vis.svg.append("text")
+            .text("Release Year of Top 100 Songs Every Year")
+            .attr("transform", "translate(" + vis.width/2 + ",0)")
+            .attr("text-anchor", "middle")
 
         // Scales and axes
         vis.x = d3.scaleBand()
@@ -48,6 +54,21 @@ class Histogram {
         vis.svg.append("g")
             .attr("class", "y-axis axis");
 
+        // axis labels
+        vis.svg.append("text")
+            .attr("class", "axis-label")
+            .text("Year of Release")
+            .attr("transform", "translate(" + vis.width / 2 + ", " + (vis.height + 35) + ")")
+            .attr("text-anchor", "middle")
+            .attr("font-size", "13px")
+
+        vis.svg.append("text")
+            .attr("class", "axis-label")
+            .text("Number of Songs Released")
+            .attr("transform", "translate(-35, " + vis.height / 2 + ") rotate(-90)")
+            .attr("text-anchor", "middle")
+            .attr("font-size", "13px")
+
         // append tooltip
         vis.tooltip = d3.select("body").append('div')
             .attr('class', "tooltip")
@@ -61,6 +82,12 @@ class Histogram {
         let vis = this
 
         // filter and populate displayData
+        if (histIncludeToggled) {
+            vis.displayData = vis.data
+        }
+        else {
+            vis.displayData = vis.data.filter(d => d.ReleaseDate !== d.TopYear)
+        }
 
         // get the counts by year
         vis.getCountsByYear() // populates vis.countData using vis.displayData
@@ -86,73 +113,103 @@ class Histogram {
 
         // draw bars
         vis.bars = vis.svg.selectAll(".histogram-bar")
-            .data(vis.countData, d => d)
+            .data(vis.countData, d => d.year)
 
         vis.bars.enter().append("rect")
             .attr("class", "histogram-bar")
-            .merge(vis.bars)
+            .style("fill", DARKGREEN)
             .attr("x", d => vis.x(d.year))
             .attr("y", vis.height)
             .attr("width", vis.x.bandwidth())
             .attr("height", 0)
-            .on('mouseover', function(event, d){
+            .on('click', function(e, d){
+                vis.svg.selectAll(".histogram-bar").transition().style("fill", DARKGREEN)
+
                 d3.select(this)
                     .transition()
-                    .attr('stroke-width', '1px')
-                    .attr('stroke', 'black')
-                    .style('fill', 'white');
+                    .style("fill", LIGHTGREEN)
 
-                function descriptionText(d) {
-                    let desc = ""
 
-                    if (d.yearCount === 1) {
-                        desc += "There was 1 song"
-                    }
-                    else {
-                        desc += "There were <b>" + d.yearCount + " songs</b>"
-                    }
-
-                    desc += " released that ended up in the top 100"
-
-                    if (d.year === 2021) {
-                        desc += " in 2021."
-                    }
-                    else {
-                        desc += " between " + d.year + " and 2021."
-                    }
-                    return desc
+                // write description
+                let desc = ""
+                let songsHeader = "Here are a few songs released in this year:"
+                if (d.yearCount === 1) {
+                    desc += "There was 1 song"
+                    songsHeader = "Here's the iconic song released in this year:"
+                }
+                else {
+                    desc += "There were <b>" + d.yearCount + " songs</b>"
+                }
+                desc += " released that ended up in the top 100"
+                if (d.year === 2021) {
+                    desc += " in 2021."
+                }
+                else {
+                    desc += " between " + d.year + " and 2021."
                 }
 
-                vis.tooltip
-                    .style("left", event.pageX + 20 + "px")
-                    .style("top", event.pageY + "px")
-                    .style("opacity", 0)
-                    .html(`
-                         <h3>In ${d.year}...</h3>
-                         <p>${descriptionText(d)}</p>
-                         <p></p>
-                        `)
-                    .transition()
-                    .style("opacity", 1)
+                // choose 3 random songs
+                let songs = vis.getRandomSongs(d.year)
 
+                let songsDesc = ``
+                for (let i = 0; i < songs.length; i++) {
+                    songsDesc += `<div class="histogram-panel-songItem">
+                        <div class="histogram-panel-songContent">
+                            <img class="histogram-panel-songImage" src="">
+                            <div class="histogram-panel-songText">
+                                <h3 class="histogram-panel-songTitle">${songs[i]['Title']}</h3>
+                                <p class="histogram-panel-songArtist">${songs[i]['Artist']}</p>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="histogram-panel-playButton">
+                                <a href="#"><img  src="assets/svg/play.png"></a>
+                            </div>
+                        </div>  
+                    </div>`
+                }
+
+                // populate side panel
+                // d3.select("#histogram-panel-header").text("In the year of " + d.year + "...")
+                d3.select("#histogram-panel-description").html(
+                    `
+                        <div class="histogram-panel-playlistPicture">
+                            <h2>Released in ${d.year}...</h2>
+                            <img src=${getRandomImage()}>
+                        </div>
+                        <p>${desc}</p>
+                        <p>${songsHeader}</p>
+                        <div id="histogram-panel-songlist">${songsDesc}</div>
+                
+                    `
+                )
             })
-            .on('mouseout', function(event, d){
+            .on("mouseover", function(event, d) {
                 d3.select(this)
-                    .transition()
-                    .attr('stroke-width', '0')
-                    .style("fill", "black")
-
-                vis.tooltip
-                    .style("left", 0)
-                    .style("top", 0)
-                    .html(``)
-                    .transition()
-                    .style("opacity", 0)
-
+                    .attr("filter", "drop-shadow(0 0 0 black)")
+                    .transition().duration(400)
+                    .attr("filter", "drop-shadow(0 0 3px black)")
             })
-            .transition().duration(800)
+            .on("mouseout", function(event, d) {
+                d3.select(this)
+                    .attr("filter", "drop-shadow(0 0 3px black)")
+                    .transition().duration(400)
+                    .attr("filter", "none")
+            })
+            .transition().delay((d, i) => i * 100).duration(800)
             .attr("y", d => vis.y(d.yearCount))
             .attr("height", d => vis.height - vis.y(d.yearCount))
+            .style("fill", DARKGREEN)
+
+        vis.bars
+            .transition().delay((d, i) => i * 60).duration(800)
+            .attr("y", d => vis.y(d.yearCount))
+            .attr("height", d => vis.height - vis.y(d.yearCount))
+
+
+        vis.bars.exit().remove()
+
+        console.log(this.getRandomSongs(2010))
     }
 
     // get the # songs released per year
@@ -164,7 +221,31 @@ class Histogram {
 
         // convert map to array and assign to displayData
         vis.countData = Array.from(map, ([year, yearCount]) => ({ year, yearCount }))
+    }
 
-        console.log(vis.countData)
+    toggled() {
+        let vis = this
+
+        d3.select("#histogram-panel-header").text("Learn more about each year!")
+        d3.select("#histogram-panel-description").html(
+            `<p>Click on a bar to get started...</p>`
+        )
+
+        vis.svg.selectAll(".histogram-bar").style("fill", DARKGREEN)
+    }
+
+    // get 5 random songs
+    getRandomSongs(year) {
+        let vis = this
+
+        let yearData = vis.displayData.filter(d => d.ReleaseDate === year)
+
+        const shuffled = yearData.sort(() => 0.5 - Math.random());
+
+        if (yearData.length < 3) {
+            return yearData
+        }
+
+        return shuffled.slice(0, 3)
     }
 }

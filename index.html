@@ -18,6 +18,21 @@
 	<div class="container-fluid">
 		<div class="row justify-content-center header">
 			<div class="align-self-center titles">
+				<div class="muzieknootjes">
+					<div class="noot-1">
+					&#9835; &#9833;
+				  </div>
+				  <div class="noot-2">
+					&#9833;
+				  </div>
+				  <div class="noot-3">
+					&#9839; &#9834;
+				  </div>
+				  <div class="noot-4">
+					&#9834;
+				  </div>
+				</div>
+				  
 				<h1>
 					<img class="spotify-icon" src="assets/img/spotifyicon.png">
 					Spotify Top 100: The Last Decade</h1>
@@ -200,7 +215,30 @@
 
 		<div class="row justify-content-center vis-area">
 			<!-- feel free to rename these divs and classes!!!! -->
-			<div id="histogram"></div>
+			<div id="histogram" class="col-7"></div>
+
+			<!-- Rounded switch -->
+			<div class="col-5">
+				<div class="histogram-panel">
+					<div class="histogram-panel-content">
+<!--						<h2 id="histogram-panel-header">Learn more about each year!</h2>-->
+						<div id="histogram-panel-description">
+							<p>Click on a bar to get started...</p>
+						</div>
+					</div>
+					<div class="histogram-toggle-container">
+							<label class="switch">
+								<input id="histogram-toggle" onChange="histToggleChange()" type="checkbox" checked>
+								<span class="slider round"></span>
+							</label>
+						<div>
+							<p>Include songs where top year is the same as release year</p>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
 		</div>
 	</div>
 
