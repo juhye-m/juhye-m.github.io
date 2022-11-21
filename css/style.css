@@ -313,3 +313,13 @@ p.histogram-panel-songArtist {
     left: 20px;
     z-index: 10;
 }
+
+/* timeline */
+#timeline {
+    min-width: 600px;
+}
+
+#timelineTooltip {
+    background-color: white;
+    color: black;
+}

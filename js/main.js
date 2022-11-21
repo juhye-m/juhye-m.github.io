@@ -1,6 +1,6 @@
 
 // skeleton stuff - left comments on places that need to be worked on
-let linegraph, histogram, bargraph, durationLineChart;
+let linegraph, histogram, bargraph, durationLineChart, timeline;
 
 // need to parse date string and convert to time
 let parseDate = d3.timeParse("%Y");
@@ -58,7 +58,12 @@ let promises = [
 		row.TopYear = +row['Top Year']
 
 		return row
-	})
+	}),
+	d3.csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vS9L2WBfFbB7oufMsljuKdtW0m_wD7VhwUJHr1xzlEhykIDzWrK1fpvx3QnGJ67CWXwnIwBsSkx9aT1/pub?gid=0&single=true&output=csv", row => {
+		row.Date = Date.parse(row.Date)
+
+		return row
+	}),
 ];
 
 Promise.all(promises)
@@ -75,11 +80,13 @@ function initMainPage(dataArray) {
 	let averageByYearData = dataArray[0]
 	let genreData = dataArray[1]
 	let allData = dataArray[2]
+	let timelineData = dataArray[3]
 
 	bargraph = new BarChart("chart1",genreData)
 	histogram = new Histogram("histogram", allData)
 	linegraph = new LineChart("line-chart-area", averageByYearData)
 	durationLineChart = new DurationLineChart("duration-line-chart", averageByYearData)
+	timeline = new Timeline("timeline", timelineData)
 }
 
 // store category selection - for dropdown
