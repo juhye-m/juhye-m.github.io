@@ -10,10 +10,16 @@ body {
 
   /*  font styling */
     font-family: Roboto, sans-serif;
+    margin-left: 1cm;
+    margin-right: 1cm;
   }
 
 .col {
     padding:1cm;
+}
+
+.row {
+    padding: 10px;
 }
 
 .titles {
@@ -39,6 +45,10 @@ text {
 .hook {
     margin: 1cm;
     text-align: center;
+}
+
+.typewrite {
+    color: rgb(212, 200, 218);
 }
 
 #histogramTooltip {
