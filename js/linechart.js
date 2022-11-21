@@ -37,7 +37,8 @@ class LineChart {
             .range([0, vis.width]);
         vis.xAxis = d3.axisBottom()
             .scale(vis.x)
-            //.tickFormat(d3.timeFormat("%Y"));
+            .ticks(34).tickFormat(d3.format("d"));
+
         vis.svg.append('g')
             .attr('class', 'axis x-axis')
             .attr('transform', `translate (0,${vis.height})`);
@@ -54,6 +55,21 @@ class LineChart {
             .text("Characteristics of Top 100 Songs Over Time")
             .attr("transform", "translate(" + vis.width/2 + ",0)")
             .attr("text-anchor", "middle")
+
+        // axis labels
+        vis.svg.append("text")
+            .attr("class", "axis-label")
+            .text("Average Value")
+            .attr("transform", "translate(-35, " + vis.height / 2 + ") rotate(-90)")
+            .attr("text-anchor", "middle")
+            .attr("font-size", "13px")
+
+        vis.svg.append("text")
+            .attr("class", "axis-label")
+            .text("Year")
+            .attr("transform", "translate(" + vis.width / 2 + ", " + (vis.height + 35) + ")")
+            .attr("text-anchor", "middle")
+            .attr("font-size", "13px")
 
 // Initialize line path
         vis.path1 = vis.svg.append('g')
@@ -118,44 +134,129 @@ class LineChart {
             .datum(vis.data)
             .attr("fill", "none")
             .attr("stroke", "green")
-            .attr("stroke-width", 2)
+            .attr("stroke-width", 5)
             .attr("d", d3.line()
                 .x(function(d) {return vis.x(d.TopYear) })
                 .y(function(d) {return vis.y(d.Danceability) }))
+            .on('mouseover', function(event, d){
+                vis.tooltip
+                    .style("opacity", 1)
+                    .style("left", event.pageX + 20 + "px")
+                    .style("top", event.pageY + "px")
+                    .html(`
+                 <div style="border: thin solid grey; border-radius: 5px; color: black; background: lightgrey; padding: 10px">
+                     Danceability                
+                 </div>`)
+            })
+            .on('mouseout', function(event, d){
+                vis.tooltip
+                    .style("opacity", 0)
+                    .style("left", 0)
+                    .style("top", 0)
+                    .html(``);
+            })
         vis.path2
             .datum(vis.data)
             .attr("fill", "none")
             .attr("stroke", "purple")
-            .attr("stroke-width", 2)
+            .attr("stroke-width", 5)
             .attr("d", d3.line()
                 .x(function(d) {return vis.x(d.TopYear) })
                 .y(function(d) {return vis.y(d.Speechiness) }))
+            .on('mouseover', function(event, d){
+                vis.tooltip
+                    .style("opacity", 1)
+                    .style("left", event.pageX + 20 + "px")
+                    .style("top", event.pageY + "px")
+                    .html(`
+                 <div style="border: thin solid grey; border-radius: 5px; color: black; background: lightgrey; padding: 10px">
+                     Speechiness               
+                 </div>`)
+            })
+            .on('mouseout', function(event, d){
+                vis.tooltip
+                    .style("opacity", 0)
+                    .style("left", 0)
+                    .style("top", 0)
+                    .html(``);
+            })
         vis.path3
             .datum(vis.data)
             .attr("fill", "none")
             .attr("stroke", "steelblue")
-            .attr("stroke-width", 2)
+            .attr("stroke-width", 5)
             .attr("d", d3.line()
                 .x(function(d) {return vis.x(d.TopYear) })
                 .y(function(d) {return vis.y(d.Energy) }))
+            .on('mouseover', function(event, d){
+                vis.tooltip
+                    .style("opacity", 1)
+                    .style("left", event.pageX + 20 + "px")
+                    .style("top", event.pageY + "px")
+                    .html(`
+                 <div style="border: thin solid grey; border-radius: 5px; color: black; background: lightgrey; padding: 10px">
+                     Energy               
+                 </div>`)
+            })
+            .on('mouseout', function(event, d){
+                vis.tooltip
+                    .style("opacity", 0)
+                    .style("left", 0)
+                    .style("top", 0)
+                    .html(``);
+            })
 
         vis.path4
             .datum(vis.data)
             .attr("fill", "none")
             .attr("stroke", "red")
-            .attr("stroke-width", 2)
+            .attr("stroke-width", 5)
             .attr("d", d3.line()
                 .x(function(d) {return vis.x(d.TopYear) })
                 .y(function(d) {return vis.y(d.Acousticness) }))
+            .on('mouseover', function(event, d){
+                vis.tooltip
+                    .style("opacity", 1)
+                    .style("left", event.pageX + 20 + "px")
+                    .style("top", event.pageY + "px")
+                    .html(`
+                 <div style="border: thin solid grey; border-radius: 5px; color: black; background: lightgrey; padding: 10px">
+                     Acousticness              
+                 </div>`)
+            })
+            .on('mouseout', function(event, d){
+                vis.tooltip
+                    .style("opacity", 0)
+                    .style("left", 0)
+                    .style("top", 0)
+                    .html(``);
+            })
 
         vis.path5
             .datum(vis.data)
             .attr("fill", "none")
             .attr("stroke", "orange")
-            .attr("stroke-width", 2)
+            .attr("stroke-width", 5)
             .attr("d", d3.line()
                 .x(function(d) {return vis.x(d.TopYear) })
                 .y(function(d) {return vis.y(d.Valence) }))
+            .on('mouseover', function(event, d){
+                vis.tooltip
+                    .style("opacity", 1)
+                    .style("left", event.pageX + 20 + "px")
+                    .style("top", event.pageY + "px")
+                    .html(`
+                 <div style="border: thin solid grey; border-radius: 5px; color: black; background: lightgrey; padding: 10px">
+                     Valence             
+                 </div>`)
+            })
+            .on('mouseout', function(event, d){
+                vis.tooltip
+                    .style("opacity", 0)
+                    .style("left", 0)
+                    .style("top", 0)
+                    .html(``);
+            })
 
     }
 }
