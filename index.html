@@ -173,9 +173,15 @@
 				
 			</div>
 		</div>
+<<<<<<< HEAD
 		<div class="row justify-content-center">
 			<div class="col">
 				<div class="col justify-content-center" style="height: 100%">
+=======
+		<div class="row justify-content-center vis-area">
+			<div class="col-9">
+				<div class="row justify-content-center">
+>>>>>>> e4111504973f8bec8a9c3464bcbb139064eea988
 					<select id='categorySelector' class="custom-select align-self-center" style="width: 50%" onchange="categoryChange()">
 						<option value="allSelected" selected>All</option>
 						<option value="acousticness">Acousticness</option>
@@ -188,6 +194,43 @@
 					<div class="descriptions row">Some text to describe the vis above.</div>
 					<div id="slider"></div>
 				</div>
+<<<<<<< HEAD
+=======
+				<!-- I think a time brush or timeline slider would also be good, but not high priority yet -->
+				<div class="row justify-content-center">
+					<div id="line-chart-area" class="flex"></div>
+				</div>
+			</div>
+			<div class="col">
+				<!-- feel free to rename these divs and classes!!!! -->
+				<div class="descriptions row">Some text to describe the vis to the left.</div>
+			</div>
+		</div>
+
+		<div class="row justify-content-center">
+			<div class="col-9">
+				<div class="row justify-content-center">
+					<div id="duration-line-chart"></div>
+				</div>
+			</div>
+
+			<div class="col">
+				<!-- feel free to rename these divs and classes!!!! -->
+				<div class="descriptions row">Some text to describe the vis to the left.</div>
+			</div>
+		</div>
+
+		<div class="row justify-content-center">
+			<div class="col-9">
+				<div class="row justify-content-center">
+					<div id="timeline"></div>
+				</div>
+>>>>>>> e4111504973f8bec8a9c3464bcbb139064eea988
+			</div>
+
+			<div class="col">
+				<!-- feel free to rename these divs and classes!!!! -->
+				<div class="descriptions row">Some text to describe the vis to the left.</div>
 			</div>
 		</div>
 
@@ -204,10 +247,9 @@
 
 		<div class="row justify-content-center vis-area">
 			<!-- feel free to rename these divs and classes!!!! -->
-			<div id="histogram" class="col-7"></div>
+			<div id="histogram" class="col-8"></div>
 
-			<!-- Rounded switch -->
-			<div class="col-5">
+			<div class="col-4">
 				<div class="histogram-panel">
 					<div class="histogram-panel-content">
 <!--						<h2 id="histogram-panel-header">Learn more about each year!</h2>-->
@@ -240,13 +282,18 @@
 	<!-- d3 -->
 	<script src="https://d3js.org/d3.v6.min.js"></script>
 
+	<!-- Google Sheets loader -->
+	<script src="https://www.gstatic.com/charts/loader.js"></script>
+
 	<!-- Your implementation -->
 	<script src="js/typewriter.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
 	<script src="js/musicplayer.js"></script>
 	<script src="js/linechart.js"></script>
+	<script src="js/durationLineChart.js"></script>
 	<script src="js/barchart.js"></script>
 	<script src="js/histogram.js"></script>
+	<script src="js/timeline.js"></script>
 	<script src="js/main.js"></script>
 
 </body>
