@@ -1,6 +1,6 @@
 
 // skeleton stuff - left comments on places that need to be worked on
-let linegraph, histogram, bargraph;
+let linegraph, histogram, bargraph, durationLineChart;
 
 // need to parse date string and convert to time
 let parseDate = d3.timeParse("%Y");
@@ -79,6 +79,7 @@ function initMainPage(dataArray) {
 	bargraph = new BarChart("chart1",genreData)
 	histogram = new Histogram("histogram", allData)
 	linegraph = new LineChart("line-chart-area", averageByYearData)
+	durationLineChart = new DurationLineChart("duration-line-chart", averageByYearData)
 }
 
 // store category selection - for dropdown

@@ -7,6 +7,9 @@ body {
     /* background-color: black; */
     background-color: #191414;
     color: white;
+
+  /*  font styling */
+    font-family: Roboto, sans-serif;
   }
 
 .col {
@@ -22,6 +25,10 @@ h1 {
     color:#0acf4f;
     color: #33a02c;
     margin-bottom: 40px;
+}
+
+text {
+    fill: white;
 }
 
 .spotify-icon {
@@ -188,6 +195,7 @@ input:checked + .slider:before {
     cursor: pointer;
 }
 
+
 .histogram-panel {
     background-color: rgba(0, 0, 0);
     border-radius: 20px;
@@ -203,6 +211,10 @@ input:checked + .slider:before {
     color: white;
 }
 
+.histogram-panel-content  h3 {
+    color: white;
+}
+
 .histogram-panel-content  h2 {
     font-size: 20px;
     color: white;
@@ -214,9 +226,7 @@ input:checked + .slider:before {
     color: rgba(255, 255, 255, 0.8);
 }
 
-.histogram-panel-content {
 
-}
 
 .histogram-toggle-container {
     display: flex;
