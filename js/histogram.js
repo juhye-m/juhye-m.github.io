@@ -140,7 +140,7 @@ class Histogram {
                 else {
                     desc += "There were <b>" + d.yearCount + " songs</b>"
                 }
-                desc += " released that ended up in the top 100"
+                desc += " released this year that ended up in the top 100"
                 if (d.year === 2021) {
                     desc += " in 2021."
                 }

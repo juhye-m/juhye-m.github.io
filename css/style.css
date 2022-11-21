@@ -193,7 +193,7 @@ input:checked + .slider:before {
     border-radius: 20px;
     padding: 20px;
     text-align: left;
-    max-width: 500px;
+    max-width: 300px;
     min-height: 150px;
     display: flex;
     flex-direction: column;
@@ -286,6 +286,9 @@ p.histogram-panel-songArtist {
 
 .histogram-panel-playlistPicture {
     position: relative;
+
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 10px;
 }
 
