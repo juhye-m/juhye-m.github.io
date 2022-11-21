@@ -112,6 +112,10 @@ class LineChart {
     updateVis() {
         let vis = this;
 
+        // current value of dropdown
+        // selectedCategory
+
+
         console.log(d3.max(vis.data, d=>d.Danceability))
         console.log(d3.min(vis.data, d=>d.TopYear))
 
@@ -130,6 +134,7 @@ class LineChart {
             .duration(800)
             .call(vis.xAxis);
 
+        // make function of this so that we can show all
         vis.path1
             .datum(vis.data)
             .attr("fill", "none")
@@ -137,7 +142,7 @@ class LineChart {
             .attr("stroke-width", 5)
             .attr("d", d3.line()
                 .x(function(d) {return vis.x(d.TopYear) })
-                .y(function(d) {return vis.y(d.Danceability) }))
+                .y(function(d) {return vis.y(d[selectedCategory]) }))
             .on('mouseover', function(event, d){
                 vis.tooltip
                     .style("opacity", 1)
@@ -155,108 +160,108 @@ class LineChart {
                     .style("top", 0)
                     .html(``);
             })
-        vis.path2
-            .datum(vis.data)
-            .attr("fill", "none")
-            .attr("stroke", "purple")
-            .attr("stroke-width", 5)
-            .attr("d", d3.line()
-                .x(function(d) {return vis.x(d.TopYear) })
-                .y(function(d) {return vis.y(d.Speechiness) }))
-            .on('mouseover', function(event, d){
-                vis.tooltip
-                    .style("opacity", 1)
-                    .style("left", event.pageX + 20 + "px")
-                    .style("top", event.pageY + "px")
-                    .html(`
-                 <div style="border: thin solid grey; border-radius: 5px; color: black; background: lightgrey; padding: 10px">
-                     Speechiness               
-                 </div>`)
-            })
-            .on('mouseout', function(event, d){
-                vis.tooltip
-                    .style("opacity", 0)
-                    .style("left", 0)
-                    .style("top", 0)
-                    .html(``);
-            })
-        vis.path3
-            .datum(vis.data)
-            .attr("fill", "none")
-            .attr("stroke", "steelblue")
-            .attr("stroke-width", 5)
-            .attr("d", d3.line()
-                .x(function(d) {return vis.x(d.TopYear) })
-                .y(function(d) {return vis.y(d.Energy) }))
-            .on('mouseover', function(event, d){
-                vis.tooltip
-                    .style("opacity", 1)
-                    .style("left", event.pageX + 20 + "px")
-                    .style("top", event.pageY + "px")
-                    .html(`
-                 <div style="border: thin solid grey; border-radius: 5px; color: black; background: lightgrey; padding: 10px">
-                     Energy               
-                 </div>`)
-            })
-            .on('mouseout', function(event, d){
-                vis.tooltip
-                    .style("opacity", 0)
-                    .style("left", 0)
-                    .style("top", 0)
-                    .html(``);
-            })
+        // vis.path2
+        //     .datum(vis.data)
+        //     .attr("fill", "none")
+        //     .attr("stroke", "purple")
+        //     .attr("stroke-width", 5)
+        //     .attr("d", d3.line()
+        //         .x(function(d) {return vis.x(d.TopYear) })
+        //         .y(function(d) {return vis.y(d.Speechiness) }))
+        //     .on('mouseover', function(event, d){
+        //         vis.tooltip
+        //             .style("opacity", 1)
+        //             .style("left", event.pageX + 20 + "px")
+        //             .style("top", event.pageY + "px")
+        //             .html(`
+        //          <div style="border: thin solid grey; border-radius: 5px; color: black; background: lightgrey; padding: 10px">
+        //              Speechiness               
+        //          </div>`)
+        //     })
+        //     .on('mouseout', function(event, d){
+        //         vis.tooltip
+        //             .style("opacity", 0)
+        //             .style("left", 0)
+        //             .style("top", 0)
+        //             .html(``);
+        //     })
+        // vis.path3
+        //     .datum(vis.data)
+        //     .attr("fill", "none")
+        //     .attr("stroke", "steelblue")
+        //     .attr("stroke-width", 5)
+        //     .attr("d", d3.line()
+        //         .x(function(d) {return vis.x(d.TopYear) })
+        //         .y(function(d) {return vis.y(d.Energy) }))
+        //     .on('mouseover', function(event, d){
+        //         vis.tooltip
+        //             .style("opacity", 1)
+        //             .style("left", event.pageX + 20 + "px")
+        //             .style("top", event.pageY + "px")
+        //             .html(`
+        //          <div style="border: thin solid grey; border-radius: 5px; color: black; background: lightgrey; padding: 10px">
+        //              Energy               
+        //          </div>`)
+        //     })
+        //     .on('mouseout', function(event, d){
+        //         vis.tooltip
+        //             .style("opacity", 0)
+        //             .style("left", 0)
+        //             .style("top", 0)
+        //             .html(``);
+        //     })
 
-        vis.path4
-            .datum(vis.data)
-            .attr("fill", "none")
-            .attr("stroke", "red")
-            .attr("stroke-width", 5)
-            .attr("d", d3.line()
-                .x(function(d) {return vis.x(d.TopYear) })
-                .y(function(d) {return vis.y(d.Acousticness) }))
-            .on('mouseover', function(event, d){
-                vis.tooltip
-                    .style("opacity", 1)
-                    .style("left", event.pageX + 20 + "px")
-                    .style("top", event.pageY + "px")
-                    .html(`
-                 <div style="border: thin solid grey; border-radius: 5px; color: black; background: lightgrey; padding: 10px">
-                     Acousticness              
-                 </div>`)
-            })
-            .on('mouseout', function(event, d){
-                vis.tooltip
-                    .style("opacity", 0)
-                    .style("left", 0)
-                    .style("top", 0)
-                    .html(``);
-            })
+        // vis.path4
+        //     .datum(vis.data)
+        //     .attr("fill", "none")
+        //     .attr("stroke", "red")
+        //     .attr("stroke-width", 5)
+        //     .attr("d", d3.line()
+        //         .x(function(d) {return vis.x(d.TopYear) })
+        //         .y(function(d) {return vis.y(d.Acousticness) }))
+        //     .on('mouseover', function(event, d){
+        //         vis.tooltip
+        //             .style("opacity", 1)
+        //             .style("left", event.pageX + 20 + "px")
+        //             .style("top", event.pageY + "px")
+        //             .html(`
+        //          <div style="border: thin solid grey; border-radius: 5px; color: black; background: lightgrey; padding: 10px">
+        //              Acousticness              
+        //          </div>`)
+        //     })
+        //     .on('mouseout', function(event, d){
+        //         vis.tooltip
+        //             .style("opacity", 0)
+        //             .style("left", 0)
+        //             .style("top", 0)
+        //             .html(``);
+        //     })
 
-        vis.path5
-            .datum(vis.data)
-            .attr("fill", "none")
-            .attr("stroke", "orange")
-            .attr("stroke-width", 5)
-            .attr("d", d3.line()
-                .x(function(d) {return vis.x(d.TopYear) })
-                .y(function(d) {return vis.y(d.Valence) }))
-            .on('mouseover', function(event, d){
-                vis.tooltip
-                    .style("opacity", 1)
-                    .style("left", event.pageX + 20 + "px")
-                    .style("top", event.pageY + "px")
-                    .html(`
-                 <div style="border: thin solid grey; border-radius: 5px; color: black; background: lightgrey; padding: 10px">
-                     Valence             
-                 </div>`)
-            })
-            .on('mouseout', function(event, d){
-                vis.tooltip
-                    .style("opacity", 0)
-                    .style("left", 0)
-                    .style("top", 0)
-                    .html(``);
-            })
+        // vis.path5
+        //     .datum(vis.data)
+        //     .attr("fill", "none")
+        //     .attr("stroke", "orange")
+        //     .attr("stroke-width", 5)
+        //     .attr("d", d3.line()
+        //         .x(function(d) {return vis.x(d.TopYear) })
+        //         .y(function(d) {return vis.y(d.Valence) }))
+        //     .on('mouseover', function(event, d){
+        //         vis.tooltip
+        //             .style("opacity", 1)
+        //             .style("left", event.pageX + 20 + "px")
+        //             .style("top", event.pageY + "px")
+        //             .html(`
+        //          <div style="border: thin solid grey; border-radius: 5px; color: black; background: lightgrey; padding: 10px">
+        //              Valence             
+        //          </div>`)
+        //     })
+        //     .on('mouseout', function(event, d){
+        //         vis.tooltip
+        //             .style("opacity", 0)
+        //             .style("left", 0)
+        //             .style("top", 0)
+        //             .html(``);
+        //     })
 
     }
 }

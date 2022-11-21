@@ -95,7 +95,7 @@ console.log(selectedCategory)
 
 function categoryChange() {
    selectedCategory =  document.getElementById('categorySelector').value;
-//    linechart_characteristics.wrangleData();
+   linegraph.wrangleData();
 }
 
 function histToggleChange() {
