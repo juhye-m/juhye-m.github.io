@@ -7,6 +7,8 @@
 	<title>CS171 Final Project</title>
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.4.0/nouislider.css" integrity="sha512-DGB74Gyw93qON+V0QxSRs1er6sqoPyFoy23HBL5LN7MRJBcjeCU22zega+vOEGE0XQLoVrv4ExcaesSTwZQA2w==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
 	<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
 	<link rel="stylesheet" href="css/style.css">
 	
@@ -256,29 +258,47 @@
 			</div>
 		</div>
 
-
 		<div class="row justify-content-center vis-area">
 			<!-- feel free to rename these divs and classes!!!! -->
-			<div id="histogram" class="col-8"></div>
+			<div class="col-7">
+				<div id="histogram">
 
-			<div class="col-4">
-				<div class="histogram-panel">
-					<div class="histogram-panel-content">
-<!--						<h2 id="histogram-panel-header">Learn more about each year!</h2>-->
-						<div id="histogram-panel-description">
-							<p>Click on a bar to get started...</p>
+				</div>
+				<div class="row justify-content-center">
+					<div class="histogram-interactions-container">
+						<div>
+							<p class="interaction-options-text">Include the top 100 songs of each year within:</p>
+							<div class="histogram-slider-container">
+								<div id="histLowerYear" class="hist-slider-label"></div>
+								<div id="histogramSlider"></div>
+								<div id="histUpperYear" class="hist-slider-label"></div>
+							</div>
 						</div>
-					</div>
-					<div class="histogram-toggle-container">
+						<div class="histogram-toggle-container">
 							<label class="switch">
 								<input id="histogram-toggle" onChange="histToggleChange()" type="checkbox" checked>
 								<span class="slider round"></span>
 							</label>
-						<div>
-							<p>Include songs where top year is the same as release year</p>
+							<div>
+								<p class="interaction-options-text">Include songs where top year is the same as release year</p>
+							</div>
 						</div>
 					</div>
 				</div>
+			</div>
+
+			<div class="col-5">
+
+				<div class="histogram-panel">
+					<div class="histogram-panel-content">
+<!--						<h2 id="histogram-panel-header">Learn more about each year!</h2>-->
+						<div id="histogram-panel-description">
+							<p class="filler-text">Click on a bar to get started...</p>
+						</div>
+					</div>
+
+				</div>
+
 
 			</div>
 
@@ -290,6 +310,12 @@
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+
+	<!-- noUiSlider -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.4.0/nouislider.min.js"
+			integrity="sha512-mZXUH8DAODwCHioWP3gltQwa953LbABMlzTYwYkKqv8eNxOk37B1HgNNuCMfFxgrpW5C34WJbxPDcM58+s1dJA=="
+			crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 	<!-- d3 -->
 	<script src="https://d3js.org/d3.v6.min.js"></script>

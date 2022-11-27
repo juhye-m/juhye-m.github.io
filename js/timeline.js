@@ -113,6 +113,12 @@ class Timeline {
                 d3.select(this)
                     .transition()
                     .attr("opacity", 0.7)
+
+                vis.tooltip
+                    .style("opacity", 0)
+                    .style("left", 0)
+                    .style("top", 0)
+                    .html(``);
             })
 
 

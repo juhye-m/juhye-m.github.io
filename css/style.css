@@ -5,7 +5,7 @@ body {
     align-items: center;
     min-height: 100vh;
     /* background-color: black; */
-    background-color: #191414;
+    background-color: #1f1919;
     color: white;
 
   /*  font styling */
@@ -205,21 +205,32 @@ input:checked + .slider:before {
     cursor: pointer;
 }
 
+#histogram svg {
+    overflow: visible
+}
 
 .histogram-panel {
-    background-color: rgba(0, 0, 0);
+    background-color: rgba(255, 255, 255, 0.05);
     border-radius: 20px;
     padding: 20px;
     text-align: left;
-    max-width: 300px;
-    min-height: 150px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-left: 30px;
-    margin-right: 30px;
+    margin: 30px 0;
     color: white;
 }
+
+.filler-text {
+    text-decoration-line: underline;
+    text-decoration-style: wavy;
+    margin-bottom: 0;
+}
+
+/*.filler-text:hover {*/
+/*    color: rgba(255, 255, 255, 0.74);*/
+/*    cursor: pointer;*/
+/*}*/
 
 .histogram-panel-content  h3 {
     color: white;
@@ -236,8 +247,6 @@ input:checked + .slider:before {
     color: rgba(255, 255, 255, 0.8);
 }
 
-
-
 .histogram-toggle-container {
     display: flex;
     align-content: center;
@@ -251,34 +260,33 @@ input:checked + .slider:before {
     margin-bottom: 0;
 }
 
-.histogram-toggle-container p{
+.interaction-options-text {
     font-size: 12px;
     color: rgba(255, 255, 255, 0.4);
     margin-bottom: 0;
 }
 
-#histogram-panel-songlist {
-
+.histogram-panel-songContainer {
+    margin-bottom: 15px;
 }
 
 .histogram-panel-songItem {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    /*align-items: center;*/
-    margin-bottom: 10px;
+    align-items: center;
 }
 
 .histogram-panel-songContent {
     display: flex;
     flex-direction: row;
     gap: 9px;
-    align-items: center;
+    /*align-items: center;*/
 }
 
 .histogram-panel-songImage {
-    height: 30px;
-    width: 30px;
+    height: 35px;
+    width: 35px;
 }
 
 h3.histogram-panel-songTitle {
@@ -291,6 +299,13 @@ p.histogram-panel-songArtist {
     font-size: 12px;
     margin-bottom: 0;
     color: #868686;
+}
+
+p.histogram-panel-songTopYear {
+    font-size: 10px;
+    margin-bottom: 0;
+    color: #afafaf;
+    margin-left: calc(35px + 9px)
 }
 
 .histogram-panel-playButton img {
@@ -315,6 +330,7 @@ p.histogram-panel-songArtist {
 .histogram-panel-playlistPicture img {
     width: 100%;
     filter: brightness(65%);
+    min-height: 50px;
 }
 
 .histogram-panel-playlistPicture h2 {
@@ -322,6 +338,57 @@ p.histogram-panel-songArtist {
     top: 20px;
     left: 20px;
     z-index: 10;
+    margin-bottom: 20px;
+}
+
+.histogram-slider-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    gap: 20px;
+}
+
+#histogramSlider {
+    height: 10px;
+    flex: 1;
+}
+
+#histogramSlider, #histogramSlider .noUi-handle {
+    box-shadow: none;
+}
+
+/* Hide markers on slider handles */
+#histogramSlider .noUi-handle::before,
+#histogramSlider .noUi-handle::after {
+    display: none;
+}
+
+#histogramSlider .noUi-connect {
+    background: #1f78b4;
+}
+
+.noUi-target {
+    border: none !important;
+}
+
+#histogramSlider .noUi-handle {
+    height: 18px;
+    width: 18px;
+    top: -5px;
+    right: -9px; /* half the width */
+    border-radius: 9px;
+}
+
+.hist-slider-label {
+    width: 38px;
+    font-size: 13px;
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 2px 5px;
+    border-radius: 3px;
+    text-align: center;
 }
 
 /* timeline */

@@ -3,6 +3,7 @@ class Histogram {
     constructor(parentElement, data) {
         this.data = data
         this.parentElement = parentElement
+        this.filteredData = data
         this.displayData = data
         this.countData = []
 
@@ -13,10 +14,10 @@ class Histogram {
         let vis = this
 
         // create svg
-        vis.margin = { top: 40, right: 0, bottom: 60, left: 60 };
+        vis.margin = { top: 40, right: 40, bottom: 60, left: 60 };
 
         vis.width = document.getElementById(vis.parentElement).getBoundingClientRect().width - vis.margin.left - vis.margin.right;
-        vis.height = 600 - vis.margin.top - vis.margin.bottom;
+        vis.height = 750 - vis.margin.top - vis.margin.bottom;
 
         // vis.width = 500
         // vis.height = 500
@@ -29,9 +30,8 @@ class Histogram {
             .attr("transform", "translate(" + vis.margin.left + "," + vis.margin.top + ")");
 
         // title
-        vis.svg.append("text")
-            .text("Release Year of Top 100 Songs Every Year")
-            .attr("transform", "translate(" + vis.width/2 + ",0)")
+        vis.title = vis.svg.append("text")
+            .attr("transform", "translate(" + vis.width/2 + ", -10)")
             .attr("text-anchor", "middle")
 
         // Scales and axes
@@ -74,6 +74,45 @@ class Histogram {
             .attr('class', "tooltip")
             .attr('id', 'histogramTooltip')
 
+        // append slider
+        vis.slider = document.getElementById('histogramSlider');
+        vis.lowerYear = document.getElementById('histLowerYear')
+        vis.upperYear = document.getElementById('histUpperYear')
+        vis.lowerYear.innerHTML = '2010'
+        vis.upperYear.innerHTML = '2022'
+
+        noUiSlider.create(vis.slider, {
+            connect: true,
+            range: {
+                'min': [2010],
+                'max': [2021]
+            },
+            step: 1,
+            start: [2010, 2021],
+            behaviour: 'tap-drag',
+            format: {
+                to: (v) => parseInt(v),
+                from: (v) => parseInt(v)
+            }
+        });
+
+        vis.slider.noUiSlider.on('slide', function (values, handle) {
+
+            vis.toggled()
+
+            let chosenYears = vis.slider.noUiSlider.get()
+            console.log(chosenYears)
+            let lowerYear = chosenYears[0]
+            let upperYear = chosenYears[1]
+
+            vis.lowerYear.innerHTML = lowerYear
+            vis.upperYear.innerHTML = upperYear
+
+            vis.filteredData = vis.data.filter(d => d['TopYear']>= lowerYear && d['TopYear'] <= upperYear)
+
+            vis.wrangleData()
+        });
+
         // wrangle data
         vis.wrangleData()
     }
@@ -83,17 +122,22 @@ class Histogram {
 
         // filter and populate displayData
         if (histIncludeToggled) {
-            vis.displayData = vis.data
+            vis.displayData = vis.filteredData
         }
         else {
-            vis.displayData = vis.data.filter(d => d.ReleaseDate !== d.TopYear)
+            vis.displayData = vis.filteredData.filter(d => d.ReleaseDate !== d.TopYear)
+
         }
+
+        vis.displayData = vis.displayData.filter(d => d.ReleaseDate <= d.TopYear)
 
         // get the counts by year
         vis.getCountsByYear() // populates vis.countData using vis.displayData
 
-        // sort the data by release date\
+        // sort the data by release date
         vis.countData = vis.countData.sort((a, b) => a.year - b.year)
+
+        console.log(vis.countData)
 
         // update vis
         vis.updateVis()
@@ -101,6 +145,17 @@ class Histogram {
 
     updateVis() {
         let vis = this
+
+        // title
+        let extent = d3.extent(vis.filteredData, d => d['TopYear'])
+
+        if (extent[0] === extent[1]) {
+            vis.title.text("When were the Top 100 songs in " + extent[0] + " released?")
+        }
+        else {
+            vis.title.text("When were the Top 100 songs between " + extent[0] + " and " + extent[1] + " released?")
+        }
+
 
         // Create domains for scales
         vis.y.domain([0, d3.max(vis.countData, d => d.yearCount)])
@@ -153,20 +208,27 @@ class Histogram {
 
                 let songsDesc = ``
                 for (let i = 0; i < songs.length; i++) {
-                    songsDesc += `<div class="histogram-panel-songItem">
-                        <div class="histogram-panel-songContent">
-                            <img class="histogram-panel-songImage" src="">
-                            <div class="histogram-panel-songText">
-                                <h3 class="histogram-panel-songTitle">${songs[i]['Title']}</h3>
-                                <p class="histogram-panel-songArtist">${songs[i]['Artist']}</p>
+                    songsDesc += `<div class="histogram-panel-songContainer">
+                        <div class="histogram-panel-songItem">
+                            <div class="histogram-panel-songContent">
+                                <img class="histogram-panel-songImage" src="${songs[i]['ImageURL']}">
+                                <div class="histogram-panel-songText">
+                                    <h3 class="histogram-panel-songTitle">${songs[i]['Title']}</h3>
+                                    <p class="histogram-panel-songArtist">${songs[i]['Artist']}</p>
+                                    
+                                </div>
                             </div>
+                            <div>
+                                <div class="histogram-panel-playButton">
+                                    <a href="${songs[i]['SpotifyURL']}"><img src="assets/svg/play.png"></a>
+                                </div>
+                            </div>  
                         </div>
                         <div>
-                            <div class="histogram-panel-playButton">
-                                <a href="#"><img  src="assets/svg/play.png"></a>
-                            </div>
-                        </div>  
-                    </div>`
+                            <p class="histogram-panel-songTopYear">Top 100 in ${songs[i]['TopYear']}</p>
+                        </div>
+                    </div>
+                    `
                 }
 
                 // populate side panel
@@ -175,7 +237,7 @@ class Histogram {
                     `
                         <div class="histogram-panel-playlistPicture">
                             <h2>Released in ${d.year}...</h2>
-                            <img src=${getRandomImage()}>
+                            <img src=${getRandomImage(d.year)}>
                         </div>
                         <p>${desc}</p>
                         <p>${songsHeader}</p>
@@ -186,15 +248,16 @@ class Histogram {
             })
             .on("mouseover", function(event, d) {
                 d3.select(this)
-                    .attr("filter", "drop-shadow(0 0 0 black)")
-                    .transition().duration(400)
-                    .attr("filter", "drop-shadow(0 0 3px black)")
+                    .attr("stroke", "white")
+                    .transition().duration(200)
+                    .attr('stroke-width', '1px')
             })
             .on("mouseout", function(event, d) {
                 d3.select(this)
                     .attr("filter", "drop-shadow(0 0 3px black)")
-                    .transition().duration(400)
+                    .transition().duration(200)
                     .attr("filter", "none")
+                    .attr("stroke-width", '0')
             })
             .transition().delay((d, i) => i * 100).duration(800)
             .attr("y", d => vis.y(d.yearCount))
@@ -202,14 +265,18 @@ class Histogram {
             .style("fill", DARKGREEN)
 
         vis.bars
-            .transition().delay((d, i) => i * 60).duration(800)
+            .transition().duration(800)
+            .attr("x", d => vis.x(d.year))
+            .attr("width", vis.x.bandwidth())
             .attr("y", d => vis.y(d.yearCount))
             .attr("height", d => vis.height - vis.y(d.yearCount))
 
-
-        vis.bars.exit().remove()
-
-        console.log(this.getRandomSongs(2010))
+        vis.bars.exit()
+            .transition()
+            .duration(400)
+            .attr("y", vis.height)
+            .attr("height", 0)
+            .remove()
     }
 
     // get the # songs released per year
