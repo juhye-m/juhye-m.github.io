@@ -9,6 +9,7 @@ class DIYSong {
             {'feature': 'acousticness', 'range': [0, 1], 'start': [0], 'sliderId': 'acousticSlider', 'color': DARKGREEN, 'step': 0.05, 'format': {to: v => parseFloat(v).toFixed(2), from: v => v}},
             {'feature': 'speechiness', 'range': [0, 1], 'start': [0], 'sliderId': 'speechSlider', 'color': DARKBLUE, 'step': 0.05, 'format': {to: v => parseFloat(v).toFixed(2), from: v => v}},
             {'feature': 'duration', 'range': [0, 360], 'start': [0], 'sliderId': 'durationSlider', 'color': ORANGE, 'step': 5, 'format': {to: (v) => parseInt(v) + " seconds", from: (v) => parseInt(v)} },
+            {'feature': 'releaseDate', 'range': [1960, 2021], 'start': [1960], 'sliderId': 'releaseDateSlider', 'color': YELLOW, 'step': 1, 'format': {to: (v) => parseInt(v), from: (v) => parseInt(v)} },
         ]
 
         this.initVis()
@@ -50,6 +51,9 @@ class DIYSong {
             document.getElementById("diy" + properName + "Value").innerHTML = "0.00"
             if (featureName === "duration") {
                 document.getElementById("diy" + properName + "Value").innerHTML = 0 + " seconds"
+            }
+            else if(featureName === "releaseDate") {
+                document.getElementById("diy" + properName + "Value").innerHTML = '1960'
             }
 
             vis[featureName + 'Slider'].noUiSlider.on('slide', function (values, handle) {
@@ -121,6 +125,7 @@ class DIYSong {
             tempSum += getSquareStDiff(vis.data[i].Duration, values['duration'], "duration")**2
             tempSum += getSquareStDiff(vis.data[i].Valence, values['valence'], "valence")**2
             tempSum += getSquareStDiff(vis.data[i].Speechiness, values['speechiness'], "speechiness")**2
+            tempSum += getSquareStDiff(vis.data[i].ReleaseDate, values['releaseDate'], "releaseDate")**2
 
             tempObj['similarity'] = tempSum
 

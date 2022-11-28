@@ -15,6 +15,8 @@ let LIGHTBLUE = "#a6cee3"
 let DARKBLUE = "#1f78b4"
 let PINK = "#fb9a99"
 let ORANGE = "#ffa98a"
+let YELLOW = "#ffec8a"
+
 
 // define toggles / selects
 let histIncludeToggled = true;
@@ -104,6 +106,9 @@ function initMainPage(dataArray) {
 	durationLineChart = new DurationLineChart("duration-line-chart", averageByYearData)
 	timeline = new Timeline("timeline", timelineData)
 
+	// init tooltip
+
+
 	let createYourOwnSong = new DIYSong(allData)
 }
 
@@ -120,14 +125,6 @@ function histToggleChange() {
 	histIncludeToggled =  document.getElementById('histogram-toggle').checked;
 	histogram.toggled()
 	histogram.wrangleData()
-}
-
-function getAlbumImage(trackID) {
-
-}
-
-function getTrackURL(trackID) {
-
 }
 
 function getRandomImage(year) {
@@ -149,4 +146,11 @@ function getRandomImage(year) {
 	}
 
 	return randomImages[index]
+}
+
+function initTooltip() {
+	d3.select("#feature-tooltip")
+		.on("mouseover", function() {
+
+		})
 }

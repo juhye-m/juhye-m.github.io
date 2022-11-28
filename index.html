@@ -15,6 +15,7 @@
 	
 	<!-- <link rel="stylesheet" href="https://meyerweb.com/eric/tools/css/reset/reset.css"/> -->
 	<link rel="stylesheet" href="./css/musicplayer.css" />
+
 </head>
 <body>
 	<div class="container-fluid">
@@ -221,13 +222,13 @@
 		</div>
 
 		<div class="row justify-content-center">
-			<div class="col-9">
+			<div class="col-5">
 				<div class="row justify-content-center">
 					<div id="timeline"></div>
 				</div>
 			</div>
 
-			<div class="col">
+			<div class="col-7">
 				<!-- feel free to rename these divs and classes!!!! -->
 				<div class="descriptions row">
 					When we look at the timeline of when short form media features were released on different platforms, we can see that
@@ -310,10 +311,14 @@
 					<p>You can try creating a viral hit yourself.</p>
 				</div>
 				<div class="row diy-song-vis-container">
-					<div class="col-7 dj-panel">
+					<div class="col-7 dj-panel" id="dj-panel">
+						<div id="feature-tooltip"></div>
 						<div>
 							<div class="diy-song-slider-header-container">
-								<div class="diy-song-slider-header">Energy</div>
+								<div class="diy-song-slider-header-icon">
+									<div class="diy-song-slider-header">Energy</div>
+									<img class="question-icon" src="assets/img/question.png" data-tooltip='energy'>
+								</div>
 								<div class="diy-song-slider-label" id="diyEnergyValue"></div>
 							</div>
 							<div id="energySlider" class="diy-song-slider"></div>
@@ -321,7 +326,10 @@
 						</div>
 						<div>
 							<div class="diy-song-slider-header-container">
-								<div class="diy-song-slider-header">Danceability</div>
+								<div class="diy-song-slider-header-icon">
+									<div class="diy-song-slider-header">Danceability</div>
+									<img class="question-icon" src="assets/img/question.png" data-tooltip='danceability'>
+								</div>
 								<div class="diy-song-slider-label" id="diyDanceabilityValue"></div>
 							</div>
 
@@ -330,7 +338,10 @@
 						</div>
 						<div>
 							<div class="diy-song-slider-header-container">
-								<div class="diy-song-slider-header">Valence</div>
+								<div class="diy-song-slider-header-icon">
+									<div class="diy-song-slider-header">Valence</div>
+									<img class="question-icon" src="assets/img/question.png" data-tooltip='valence'>
+								</div>
 								<div class="diy-song-slider-label" id="diyValenceValue"></div>
 							</div>
 							<div id="valenceSlider" class="diy-song-slider"></div>
@@ -338,7 +349,10 @@
 						</div>
 						<div>
 							<div class="diy-song-slider-header-container">
-								<div class="diy-song-slider-header">Acousticness</div>
+								<div class="diy-song-slider-header-icon">
+									<div class="diy-song-slider-header">Acousticness</div>
+									<img class="question-icon" src="assets/img/question.png" data-tooltip='acousticness'>
+								</div>
 								<div class="diy-song-slider-label" id="diyAcousticnessValue"></div>
 							</div>
 							<div id="acousticSlider" class="diy-song-slider"></div>
@@ -346,17 +360,33 @@
 						</div>
 						<div>
 							<div class="diy-song-slider-header-container">
-								<div class="diy-song-slider-header">Speechiness</div>
+								<div class="diy-song-slider-header-icon">
+									<div class="diy-song-slider-header">Speechiness</div>
+									<img class="question-icon" src="assets/img/question.png" data-tooltip='speechiness'>
+								</div>
 								<div class="diy-song-slider-label" id="diySpeechinessValue"></div>
 							</div>
 							<div id="speechSlider" class="diy-song-slider"></div>
 						</div>
 						<div>
 							<div class="diy-song-slider-header-container">
-								<div class="diy-song-slider-header">Duration</div>
+								<div class="diy-song-slider-header-icon">
+									<div class="diy-song-slider-header">Duration</div>
+									<img class="question-icon" src="assets/img/question.png" data-tooltip='duration'>
+								</div>
 								<div class="diy-song-slider-label" id="diyDurationValue"></div>
 							</div>
 							<div id="durationSlider" class="diy-song-slider"></div>
+						</div>
+						<div>
+							<div class="diy-song-slider-header-container">
+								<div class="diy-song-slider-header-icon">
+									<div class="diy-song-slider-header">Release Year</div>
+									<img class="question-icon" src="assets/img/question.png" data-tooltip='releaseYear'>
+								</div>
+								<div class="diy-song-slider-label" id="diyReleaseDateValue"></div>
+							</div>
+							<div id="releaseDateSlider" class="diy-song-slider"></div>
 						</div>
 						<div class="row justify-content-center">
 							<button id="generateSongButton">Generate your song</button>
@@ -364,6 +394,7 @@
 					</div>
 					<div class="col-5">
 						<div id="diy-song-output-container">
+							<p class="filler-text">Try dragging the sliders to the left to generate your own song!</p>
 						</div>
 					</div>
 				</div>
@@ -394,6 +425,7 @@
 
 	<!-- Your implementation -->
 	<script src="js/typewriter.js"></script>
+
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
 	<script src="js/musicplayer.js"></script>
 	<script src="js/linechart.js"></script>
@@ -402,6 +434,7 @@
 	<script src="js/histogram.js"></script>
 	<script src="js/timeline.js"></script>
 	<script src="js/diysong.js"></script>
+	<script src="js/tooltips.js"></script>
 	<script src="js/main.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.4.0/nouislider.min.js"
 			integrity="sha512-mZXUH8DAODwCHioWP3gltQwa953LbABMlzTYwYkKqv8eNxOk37B1HgNNuCMfFxgrpW5C34WJbxPDcM58+s1dJA=="
