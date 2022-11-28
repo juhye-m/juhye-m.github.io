@@ -79,7 +79,7 @@ class Histogram {
         vis.lowerYear = document.getElementById('histLowerYear')
         vis.upperYear = document.getElementById('histUpperYear')
         vis.lowerYear.innerHTML = '2010'
-        vis.upperYear.innerHTML = '2022'
+        vis.upperYear.innerHTML = '2021'
 
         noUiSlider.create(vis.slider, {
             connect: true,
@@ -101,7 +101,6 @@ class Histogram {
             vis.toggled()
 
             let chosenYears = vis.slider.noUiSlider.get()
-            console.log(chosenYears)
             let lowerYear = chosenYears[0]
             let upperYear = chosenYears[1]
 
@@ -137,7 +136,8 @@ class Histogram {
         // sort the data by release date
         vis.countData = vis.countData.sort((a, b) => a.year - b.year)
 
-        console.log(vis.countData)
+        // title
+        vis.extent = d3.extent(vis.filteredData, d => d['TopYear'])
 
         // update vis
         vis.updateVis()
@@ -146,14 +146,13 @@ class Histogram {
     updateVis() {
         let vis = this
 
-        // title
-        let extent = d3.extent(vis.filteredData, d => d['TopYear'])
 
-        if (extent[0] === extent[1]) {
-            vis.title.text("When were the Top 100 songs in " + extent[0] + " released?")
+
+        if (vis.extent[0] === vis.extent[1]) {
+            vis.title.text("When were the Top 100 songs in " + vis.extent[0] + " released?")
         }
         else {
-            vis.title.text("When were the Top 100 songs between " + extent[0] + " and " + extent[1] + " released?")
+            vis.title.text("When were the Top 100 songs between " + vis.extent[0] + " and " + vis.extent[1] + " released?")
         }
 
 
@@ -178,6 +177,7 @@ class Histogram {
             .attr("width", vis.x.bandwidth())
             .attr("height", 0)
             .on('click', function(e, d){
+                console.log(vis.extent)
                 vis.svg.selectAll(".histogram-bar").transition().style("fill", DARKGREEN)
 
                 d3.select(this)
@@ -199,8 +199,12 @@ class Histogram {
                 if (d.year === 2021) {
                     desc += " in 2021."
                 }
+                else if (vis.extent[0] === vis.extent[1]) {
+                    desc += " in " + vis.extent[0] + "."
+                }
                 else {
-                    desc += " between " + d.year + " and 2021."
+
+                    desc += " between " + vis.extent[0] + " and " + vis.extent[1] + "."
                 }
 
                 // choose 3 random songs

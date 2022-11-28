@@ -303,6 +303,73 @@
 			</div>
 
 		</div>
+		<div class="row justify-content-center">
+			<div class="col diy-song-section-container">
+				<div class="row diy-song-header-container">
+					<h2>So, can you make a top 100 hit song?</h2>
+					<p>You can try creating a viral hit yourself.</p>
+				</div>
+				<div class="row diy-song-vis-container">
+					<div class="col-7 dj-panel">
+						<div>
+							<div class="diy-song-slider-header-container">
+								<div class="diy-song-slider-header">Energy</div>
+								<div class="diy-song-slider-label" id="diyEnergyValue"></div>
+							</div>
+							<div id="energySlider" class="diy-song-slider"></div>
+
+						</div>
+						<div>
+							<div class="diy-song-slider-header-container">
+								<div class="diy-song-slider-header">Danceability</div>
+								<div class="diy-song-slider-label" id="diyDanceabilityValue"></div>
+							</div>
+
+							<div id="danceSlider" class="diy-song-slider"></div>
+
+						</div>
+						<div>
+							<div class="diy-song-slider-header-container">
+								<div class="diy-song-slider-header">Valence</div>
+								<div class="diy-song-slider-label" id="diyValenceValue"></div>
+							</div>
+							<div id="valenceSlider" class="diy-song-slider"></div>
+
+						</div>
+						<div>
+							<div class="diy-song-slider-header-container">
+								<div class="diy-song-slider-header">Acousticness</div>
+								<div class="diy-song-slider-label" id="diyAcousticnessValue"></div>
+							</div>
+							<div id="acousticSlider" class="diy-song-slider"></div>
+
+						</div>
+						<div>
+							<div class="diy-song-slider-header-container">
+								<div class="diy-song-slider-header">Speechiness</div>
+								<div class="diy-song-slider-label" id="diySpeechinessValue"></div>
+							</div>
+							<div id="speechSlider" class="diy-song-slider"></div>
+						</div>
+						<div>
+							<div class="diy-song-slider-header-container">
+								<div class="diy-song-slider-header">Duration</div>
+								<div class="diy-song-slider-label" id="diyDurationValue"></div>
+							</div>
+							<div id="durationSlider" class="diy-song-slider"></div>
+						</div>
+						<div class="row justify-content-center">
+							<button id="generateSongButton">Generate your song</button>
+						</div>
+					</div>
+					<div class="col-5">
+						<div id="diy-song-output-container">
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
 	</div>
 
 
@@ -310,6 +377,8 @@
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+	<script src='https://unpkg.com/simple-statistics@7.8.0/dist/simple-statistics.min.js'></script>
 
 
 	<!-- noUiSlider -->
@@ -332,6 +401,7 @@
 	<script src="js/barchart.js"></script>
 	<script src="js/histogram.js"></script>
 	<script src="js/timeline.js"></script>
+	<script src="js/diysong.js"></script>
 	<script src="js/main.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.4.0/nouislider.min.js"
 			integrity="sha512-mZXUH8DAODwCHioWP3gltQwa953LbABMlzTYwYkKqv8eNxOk37B1HgNNuCMfFxgrpW5C34WJbxPDcM58+s1dJA=="

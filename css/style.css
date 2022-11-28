@@ -298,14 +298,14 @@ h3.histogram-panel-songTitle {
 p.histogram-panel-songArtist {
     font-size: 12px;
     margin-bottom: 0;
-    color: #868686;
+    color: #afafaf;
 }
 
 p.histogram-panel-songTopYear {
     font-size: 10px;
     margin-bottom: 0;
-    color: #afafaf;
-    margin-left: calc(35px + 9px)
+    margin-left: calc(35px + 9px);
+    color: #868686;
 }
 
 .histogram-panel-playButton img {
@@ -369,7 +369,7 @@ p.histogram-panel-songTopYear {
     background: #1f78b4;
 }
 
-.noUi-target {
+#histogramSlider .noUi-target {
     border: none !important;
 }
 
@@ -399,4 +399,147 @@ p.histogram-panel-songTopYear {
 #timelineTooltip {
     background-color: white;
     color: black;
+}
+
+/* diy song */
+.diy-song-section-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.diy-song-header-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.diy-song-vis-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex: 1;
+}
+
+.diy-song-vis-container > div {
+    flex: 1;
+}
+
+.diy-song-slider {
+    height: 10px;
+    flex: 1;
+    margin: 20px 10px;
+}
+
+.diy-song-slider, .diy-song-slider .noUi-handle {
+    box-shadow: none;
+}
+
+/* Hide markers on slider handles */
+.diy-song-slider .noUi-handle::before,
+.diy-song-slider .noUi-handle::after {
+    display: none;
+}
+
+.diy-song-slider .noUi-connect {
+    background: #1f78b4;
+}
+
+.diy-song-slider .noUi-target {
+    border: none !important;
+}
+
+.diy-song-slider .noUi-handle {
+    height: 18px;
+    width: 18px;
+    top: -5px;
+    right: -9px; /* half the width */
+    border-radius: 9px;
+}
+
+.diy-song-slider-header-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.diy-song-slider-label {
+    font-size: 13px;
+    color: #ffffff;
+    padding: 2px 5px;
+    border-radius: 3px;
+    text-align: center;
+}
+
+#generateSongButton {
+    background-color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+#generateSongButton:hover {
+    background-color: #bbbbbb;
+    border: none;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+#diy-song-output-container {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 20px;
+}
+
+#diy-song-output-container  h3 {
+    color: white;
+
+}
+
+.diy-panel-songPicture {
+
+}
+
+.diy-panel-songPicture {
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+}
+
+.diy-panel-songPicture > img {
+    width: 100%;
+    max-width: 300px;
+    min-height: 50px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.diy-panel-songPicture h2 {
+    font-size: 17px;
+}
+
+.diy-panel-songPicture h3 {
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.diy-panel-songPicture h4 {
+    font-size: 13px;
+    color: #afafaf;
+}
+
+.top-song-description {
+    font-size: 12px;
+    color: #868686;
+}
+
+.top-song-title-artist {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.panel-subheader {
+    margin: 25px 0;
+    font-size: 15px;
+    color: #afafaf;
 }

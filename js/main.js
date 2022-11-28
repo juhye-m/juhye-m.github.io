@@ -14,6 +14,7 @@ let DARKGREEN = "#33a02c"
 let LIGHTBLUE = "#a6cee3"
 let DARKBLUE = "#1f78b4"
 let PINK = "#fb9a99"
+let ORANGE = "#ffa98a"
 
 // define toggles / selects
 let histIncludeToggled = true;
@@ -67,17 +68,17 @@ let promises = [
 
 		return row
 	}),
-	fetch('https://api.unsplash.com/photos/random?client_id=mDk2A8Pk4OzkR-cdNX0xnp0QeBTD6D0sVrUT11jZjPE&count=22')
-		.then(function(response) {
-			return response.json();
-		})
-		.then(function(data) {
-			let imageArrTemp = []
-			for (let i = 0; i < data.length; i++) {
-				imageArrTemp.push(data[i]['urls']['raw'] + "&w=300&h=300&crop=entropy&fit=clamp")
-			}
-			return imageArrTemp
-		})
+	// fetch('https://api.unsplash.com/photos/random?client_id=mDk2A8Pk4OzkR-cdNX0xnp0QeBTD6D0sVrUT11jZjPE&count=26')
+	// 	.then(function(response) {
+	// 		return response.json();
+	// 	})
+	// 	.then(function(data) {
+	// 		let imageArrTemp = []
+	// 		for (let i = 0; i < data.length; i++) {
+	// 			imageArrTemp.push(data[i]['urls']['raw'] + "&w=300&h=300&crop=entropy&fit=clamp")
+	// 		}
+	// 		return imageArrTemp
+	// 	})
 ];
 
 Promise.all(promises)
@@ -102,6 +103,8 @@ function initMainPage(dataArray) {
 	linegraph = new LineChart("line-chart-area", averageByYearData)
 	durationLineChart = new DurationLineChart("duration-line-chart", averageByYearData)
 	timeline = new Timeline("timeline", timelineData)
+
+	let createYourOwnSong = new DIYSong(allData)
 }
 
 // store category selection - for dropdown
@@ -128,6 +131,22 @@ function getTrackURL(trackID) {
 }
 
 function getRandomImage(year) {
-	let index = 2022 - year
+	let index;
+	if (year === 1965) {
+		index = 25
+	}
+	else if (year === 1994) {
+		index = 24
+	}
+	else if (year === 2007) {
+		index = 23
+	}
+	else if (year === 2009){
+		index = 22
+	}
+	else {
+		index = 2022 - year
+	}
+
 	return randomImages[index]
 }
