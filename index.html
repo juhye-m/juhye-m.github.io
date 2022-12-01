@@ -15,10 +15,23 @@
 	
 	<!-- <link rel="stylesheet" href="https://meyerweb.com/eric/tools/css/reset/reset.css"/> -->
 	<link rel="stylesheet" href="./css/musicplayer.css" />
+	<link rel="stylesheet" href="node_modules/fullpage.js/dist/fullpage.min.css">
+
+	<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/alvarotrigo/fullPage.js/master/jquery.fullPage.css" />
+	<link rel="stylesheet" type="text/css" href="jquery.fullPage.css" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="vendors/jquery.easings.min.js"></script>
+	<script type="text/javascript" src="jquery.fullPage.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#fullpage').fullpage();
+		});
+	</script>
 
 </head>
 <body>
-	<div class="container-fluid">
+<div id="fullpage">
+	<div class="section container-fluid">
 		<div class="row justify-content-center header">
 			<div class="align-self-center titles">
 				<div class="muzieknootjes">
@@ -51,7 +64,7 @@
 			</div>
 		</div>
 
-		<div class="row justify-content-center">
+		<div class="row justify-content-center section">
 			
 			<div class="align-self-center hook">
 				<div id="hookVis" class="flex">
@@ -185,7 +198,7 @@
 			</div>
 		</div>
 
-		<div class="row justify-content-center vis-area">
+		<div class="row justify-content-center vis-area section">
 			<div class="col-9">
 				<div class="col justify-content-center">
 					<select id='categorySelector' class="custom-select align-self-center" style="width: 50%" onchange="categoryChange()">
@@ -206,7 +219,7 @@
 		</div>
 
 
-		<div class="row justify-content-center">
+		<div class="row justify-content-center section">
 			<div class="col-9">
 				<div class="row justify-content-center">
 					<div id="duration-line-chart"></div>
@@ -221,7 +234,7 @@
 			</div>
 		</div>
 
-		<div class="row justify-content-center">
+		<div class="row justify-content-center section">
 			<div class="col-5">
 				<div class="row justify-content-center">
 					<div id="timeline"></div>
@@ -239,7 +252,7 @@
 			</div>
 		</div>
 
-		<div class="row justify-content-center">
+		<div class="row justify-content-center section">
 			<div class="col">
 				<div id="chart" class="barchart row"></div>
 					<div id="chart1" class="barchart1 col"></div>
@@ -259,7 +272,7 @@
 			</div>
 		</div>
 
-		<div class="row justify-content-center vis-area">
+		<div class="row justify-content-center vis-area section">
 			<!-- feel free to rename these divs and classes!!!! -->
 			<div class="col-7">
 				<div id="histogram">
@@ -304,7 +317,7 @@
 			</div>
 
 		</div>
-		<div class="row justify-content-center">
+		<div class="row justify-content-center section">
 			<div class="col diy-song-section-container">
 				<div class="row diy-song-header-container">
 					<h2>So, can you make a top 100 hit song?</h2>
@@ -411,6 +424,9 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 	<script src='https://unpkg.com/simple-statistics@7.8.0/dist/simple-statistics.min.js'></script>
 
+	<script type="text/javascript" src="https://cdn.rawgit.com/alvarotrigo/fullPage.js/master/jquery.fullPage.js"></script>
+	<script> $(document).ready(function() { $('#fullpage').fullpage(); });</script>
+
 
 	<!-- noUiSlider -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.4.0/nouislider.min.js"
@@ -424,8 +440,9 @@
 	<script src="https://www.gstatic.com/charts/loader.js"></script>
 
 	<!-- Your implementation -->
-	<script src="js/typewriter.js"></script>
 
+	<script src="js/typewriter.js"></script>
+	<script type="text/javascript" src="../dist/fullpage.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
 	<script src="js/musicplayer.js"></script>
 	<script src="js/linechart.js"></script>
@@ -436,10 +453,12 @@
 	<script src="js/diysong.js"></script>
 	<script src="js/tooltips.js"></script>
 	<script src="js/main.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.4.0/nouislider.min.js"
-			integrity="sha512-mZXUH8DAODwCHioWP3gltQwa953LbABMlzTYwYkKqv8eNxOk37B1HgNNuCMfFxgrpW5C34WJbxPDcM58+s1dJA=="
-			crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="node_modules/fullpage.js/dist/fullpage.min.js"></script>
+	<script type="text/javascript" src="https://cdn.rawgit.com/alvarotrigo/fullPage.js/master/jquery.fullPage.js"></script>
+	<script>$(document).ready(function() { $('#fullpage').fullpage(); });</script>
 
-
+</div>
 </body>
+
+
 </html>
