@@ -6,32 +6,30 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>CS171 Final Project</title>
 
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<!--	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">-->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.4.0/nouislider.css" integrity="sha512-DGB74Gyw93qON+V0QxSRs1er6sqoPyFoy23HBL5LN7MRJBcjeCU22zega+vOEGE0XQLoVrv4ExcaesSTwZQA2w==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
-	<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+<!--	 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">-->
 	<link rel="stylesheet" href="css/style.css">
-	
-	
+
+
 	<!-- <link rel="stylesheet" href="https://meyerweb.com/eric/tools/css/reset/reset.css"/> -->
 	<link rel="stylesheet" href="./css/musicplayer.css" />
-	<link rel="stylesheet" href="node_modules/fullpage.js/dist/fullpage.min.css">
+<!--	<link rel="stylesheet" type="text/css" href="node_modules/fullpage.js/dist/fullpage.min.css">-->
 
-	<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/alvarotrigo/fullPage.js/master/jquery.fullPage.css" />
-	<link rel="stylesheet" type="text/css" href="jquery.fullPage.css" />
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<script src="vendors/jquery.easings.min.js"></script>
-	<script type="text/javascript" src="jquery.fullPage.min.js"></script>
-	<script type="text/javascript">
-		$(document).ready(function() {
-			$('#fullpage').fullpage();
-		});
-	</script>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.15/fullpage.css" />
+<!--	<link rel="stylesheet" type="text/css" href="jquery.fullPage.css" />-->
+
+<!--	<script type="text/javascript" src="jquery.fullPage.min.js"></script>-->
+<!--	<script type="text/javascript">-->
+<!--		$(document).ready(function() {-->
+<!--			$('#fullpage').fullpage();-->
+<!--		});-->
+<!--	</script>-->
 
 </head>
 <body>
-<div id="fullpage">
-	<div class="section container-fluid">
+	<div id="fullpage" class="container-fluid">
 		<div class="row justify-content-center header section">
 			<div class="align-self-center titles">
 				<div class="muzieknootjes">
@@ -199,49 +197,30 @@
 		</div>
 
 		<div class="row justify-content-center vis-area section">
-			<div class="col-9">
-				<div class="col justify-content-center">
-					<!-- <select id='categorySelector' class="custom-select align-self-center" style="width: 50%" onchange="categoryChange()">
-						<option value="allSelected" selected>All</option>
-						<option value="Acousticness">Acousticness</option>
-						<option value="Valence">Valance</option>
-						<option value="Speechiness">Speechiness</option>
-						<option value="Energy">Energy</option>
-						<option value="Liveness">Liveness</option>
-					</select> -->
-					<div id="slider" class="col"></div>
-					<div id="line-chart-area" class="row"></div>
-					<div id="legend"></div>
-					<div class="descriptions row">Some text to describe the vis above.</div>
-
-				</div>
-			</div>
-		</div>
-
-
-		<div class="row justify-content-center section">
-			<div class="col-9">
-				<div class="row justify-content-center">
-					<div id="duration-line-chart"></div>
-				</div>
-			</div>
-
 			<div class="col">
-				<!-- feel free to rename these divs and classes!!!! -->
-				<div class="descriptions row">
-					In the past years, the average popular song durations has on average decreased. Why might this be?
-				</div>
+				<div id="slider" class="col"></div>
+				<div id="line-chart-area" class="row"></div>
+				<div id="legend"></div>
+				<div class="descriptions row">Some text to describe the vis above.</div>
+			</div>
+		</div>
+
+
+		<div class="row section">
+			<div id="duration-line-chart"></div>
+			<div class="descriptions row">
+				In the past years, the average popular song durations has on average decreased. Why might this be?
 			</div>
 		</div>
 
 		<div class="row justify-content-center section">
-			<div class="col-5">
+			<div class="col">
 				<div class="row justify-content-center">
 					<div id="timeline"></div>
 				</div>
 			</div>
 
-			<div class="col-7">
+			<div class="col">
 				<!-- feel free to rename these divs and classes!!!! -->
 				<div class="descriptions row">
 					When we look at the timeline of when short form media features were released on different platforms, we can see that
@@ -272,161 +251,158 @@
 			</div>
 		</div>
 
-		<div class="row justify-content-center vis-area section">
-			<!-- feel free to rename these divs and classes!!!! -->
-			<div class="col-7">
-				<div id="histogram">
+		<div class="section">
+			<div class="row">
+				<!-- feel free to rename these divs and classes!!!! -->
+				<div class="col">
+					<div id="histogram">
 
-				</div>
-				<div class="row justify-content-center">
-					<div class="histogram-interactions-container">
-						<div>
-							<p class="interaction-options-text">Include the top 100 songs of each year within:</p>
-							<div class="histogram-slider-container">
-								<div id="histLowerYear" class="hist-slider-label"></div>
-								<div id="histogramSlider"></div>
-								<div id="histUpperYear" class="hist-slider-label"></div>
-							</div>
-						</div>
-						<div class="histogram-toggle-container">
-							<label class="switch">
-								<input id="histogram-toggle" onChange="histToggleChange()" type="checkbox" checked>
-								<span class="slider round"></span>
-							</label>
+					</div>
+						<div class="histogram-interactions-container">
 							<div>
-								<p class="interaction-options-text">Include songs where top year is the same as release year</p>
+								<p class="interaction-options-text">Include the top 100 songs of each year within:</p>
+								<div class="histogram-slider-container">
+									<div id="histLowerYear" class="hist-slider-label"></div>
+									<div id="histogramSlider"></div>
+									<div id="histUpperYear" class="hist-slider-label"></div>
+								</div>
+							</div>
+							<div class="histogram-toggle-container">
+								<label class="switch">
+									<input id="histogram-toggle" onChange="histToggleChange()" type="checkbox" checked>
+									<span class="slider round"></span>
+								</label>
+								<div>
+									<p class="interaction-options-text">Include songs where top year is the same as release year</p>
+								</div>
+							</div>
+					</div>
+				</div>
+
+				<div class="col">
+					<div class="histogram-panel">
+						<div class="histogram-panel-content">
+	<!--						<h2 id="histogram-panel-header">Learn more about each year!</h2>-->
+							<div id="histogram-panel-description">
+								<p class="filler-text">Click on a bar to get started...</p>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-
-			<div class="col-5">
-
-				<div class="histogram-panel">
-					<div class="histogram-panel-content">
-<!--						<h2 id="histogram-panel-header">Learn more about each year!</h2>-->
-						<div id="histogram-panel-description">
-							<p class="filler-text">Click on a bar to get started...</p>
-						</div>
-					</div>
-
-				</div>
-
-
-			</div>
-
 		</div>
-		<div class="row justify-content-center section">
-			<div class="col diy-song-section-container">
-				<div class="row diy-song-header-container">
-					<h2>So, can you make a top 100 hit song?</h2>
-					<p>You can try creating a viral hit yourself.</p>
-				</div>
-				<div class="row diy-song-vis-container">
-					<div class="col-7 dj-panel" id="dj-panel">
-						<div id="feature-tooltip"></div>
-						<div>
-							<div class="diy-song-slider-header-container">
-								<div class="diy-song-slider-header-icon">
-									<div class="diy-song-slider-header">Energy</div>
-									<img class="question-icon" src="assets/img/question.png" data-tooltip='energy'>
-								</div>
-								<div class="diy-song-slider-label" id="diyEnergyValue"></div>
-							</div>
-							<div id="energySlider" class="diy-song-slider"></div>
-
-						</div>
-						<div>
-							<div class="diy-song-slider-header-container">
-								<div class="diy-song-slider-header-icon">
-									<div class="diy-song-slider-header">Danceability</div>
-									<img class="question-icon" src="assets/img/question.png" data-tooltip='danceability'>
-								</div>
-								<div class="diy-song-slider-label" id="diyDanceabilityValue"></div>
-							</div>
-
-							<div id="danceSlider" class="diy-song-slider"></div>
-
-						</div>
-						<div>
-							<div class="diy-song-slider-header-container">
-								<div class="diy-song-slider-header-icon">
-									<div class="diy-song-slider-header">Valence</div>
-									<img class="question-icon" src="assets/img/question.png" data-tooltip='valence'>
-								</div>
-								<div class="diy-song-slider-label" id="diyValenceValue"></div>
-							</div>
-							<div id="valenceSlider" class="diy-song-slider"></div>
-
-						</div>
-						<div>
-							<div class="diy-song-slider-header-container">
-								<div class="diy-song-slider-header-icon">
-									<div class="diy-song-slider-header">Acousticness</div>
-									<img class="question-icon" src="assets/img/question.png" data-tooltip='acousticness'>
-								</div>
-								<div class="diy-song-slider-label" id="diyAcousticnessValue"></div>
-							</div>
-							<div id="acousticSlider" class="diy-song-slider"></div>
-
-						</div>
-						<div>
-							<div class="diy-song-slider-header-container">
-								<div class="diy-song-slider-header-icon">
-									<div class="diy-song-slider-header">Speechiness</div>
-									<img class="question-icon" src="assets/img/question.png" data-tooltip='speechiness'>
-								</div>
-								<div class="diy-song-slider-label" id="diySpeechinessValue"></div>
-							</div>
-							<div id="speechSlider" class="diy-song-slider"></div>
-						</div>
-						<div>
-							<div class="diy-song-slider-header-container">
-								<div class="diy-song-slider-header-icon">
-									<div class="diy-song-slider-header">Duration</div>
-									<img class="question-icon" src="assets/img/question.png" data-tooltip='duration'>
-								</div>
-								<div class="diy-song-slider-label" id="diyDurationValue"></div>
-							</div>
-							<div id="durationSlider" class="diy-song-slider"></div>
-						</div>
-						<div>
-							<div class="diy-song-slider-header-container">
-								<div class="diy-song-slider-header-icon">
-									<div class="diy-song-slider-header">Release Year</div>
-									<img class="question-icon" src="assets/img/question.png" data-tooltip='releaseYear'>
-								</div>
-								<div class="diy-song-slider-label" id="diyReleaseDateValue"></div>
-							</div>
-							<div id="releaseDateSlider" class="diy-song-slider"></div>
-						</div>
-						<div class="row justify-content-center">
-							<button id="generateSongButton">Generate your song</button>
-						</div>
+		<div class="section">
+			<div class="row">
+				<div class="col diy-song-section-container">
+					<div class="row diy-song-header-container">
+						<h2>So, can you make a top 100 hit song?</h2>
+						<p>You can try creating a viral hit yourself.</p>
 					</div>
-					<div class="col-5">
-						<div id="diy-song-output-container">
-							<p class="filler-text">Try dragging the sliders to the left to generate your own song!</p>
+					<div class="row diy-song-vis-container">
+						<div class="col dj-panel" id="dj-panel">
+							<div id="feature-tooltip"></div>
+							<div>
+								<div class="diy-song-slider-header-container">
+									<div class="diy-song-slider-header-icon">
+										<div class="diy-song-slider-header">Energy</div>
+										<img class="question-icon" src="assets/img/question.png" data-tooltip='energy'>
+									</div>
+									<div class="diy-song-slider-label" id="diyEnergyValue"></div>
+								</div>
+								<div id="energySlider" class="diy-song-slider"></div>
+
+							</div>
+							<div>
+								<div class="diy-song-slider-header-container">
+									<div class="diy-song-slider-header-icon">
+										<div class="diy-song-slider-header">Danceability</div>
+										<img class="question-icon" src="assets/img/question.png" data-tooltip='danceability'>
+									</div>
+									<div class="diy-song-slider-label" id="diyDanceabilityValue"></div>
+								</div>
+
+								<div id="danceSlider" class="diy-song-slider"></div>
+
+							</div>
+							<div>
+								<div class="diy-song-slider-header-container">
+									<div class="diy-song-slider-header-icon">
+										<div class="diy-song-slider-header">Valence</div>
+										<img class="question-icon" src="assets/img/question.png" data-tooltip='valence'>
+									</div>
+									<div class="diy-song-slider-label" id="diyValenceValue"></div>
+								</div>
+								<div id="valenceSlider" class="diy-song-slider"></div>
+
+							</div>
+							<div>
+								<div class="diy-song-slider-header-container">
+									<div class="diy-song-slider-header-icon">
+										<div class="diy-song-slider-header">Acousticness</div>
+										<img class="question-icon" src="assets/img/question.png" data-tooltip='acousticness'>
+									</div>
+									<div class="diy-song-slider-label" id="diyAcousticnessValue"></div>
+								</div>
+								<div id="acousticSlider" class="diy-song-slider"></div>
+
+							</div>
+							<div>
+								<div class="diy-song-slider-header-container">
+									<div class="diy-song-slider-header-icon">
+										<div class="diy-song-slider-header">Speechiness</div>
+										<img class="question-icon" src="assets/img/question.png" data-tooltip='speechiness'>
+									</div>
+									<div class="diy-song-slider-label" id="diySpeechinessValue"></div>
+								</div>
+								<div id="speechSlider" class="diy-song-slider"></div>
+							</div>
+							<div>
+								<div class="diy-song-slider-header-container">
+									<div class="diy-song-slider-header-icon">
+										<div class="diy-song-slider-header">Duration</div>
+										<img class="question-icon" src="assets/img/question.png" data-tooltip='duration'>
+									</div>
+									<div class="diy-song-slider-label" id="diyDurationValue"></div>
+								</div>
+								<div id="durationSlider" class="diy-song-slider"></div>
+							</div>
+							<div>
+								<div class="diy-song-slider-header-container">
+									<div class="diy-song-slider-header-icon">
+										<div class="diy-song-slider-header">Release Year</div>
+										<img class="question-icon" src="assets/img/question.png" data-tooltip='releaseYear'>
+									</div>
+									<div class="diy-song-slider-label" id="diyReleaseDateValue"></div>
+								</div>
+								<div id="releaseDateSlider" class="diy-song-slider"></div>
+							</div>
+							<div class="row justify-content-center">
+								<button id="generateSongButton">Generate your song</button>
+							</div>
+						</div>
+						<div class="col diy-output-col">
+							<div id="diy-song-output-container">
+								<p class="filler-text">Try dragging the sliders to the left to generate your own song!</p>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-
 		</div>
 	</div>
 
 
 	<!-- embedding JS libraries -->
+<!--	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>-->
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 	<script src='https://unpkg.com/simple-statistics@7.8.0/dist/simple-statistics.min.js'></script>
 
-	<script type="text/javascript" src="https://cdn.rawgit.com/alvarotrigo/fullPage.js/master/jquery.fullPage.js"></script>
-	<script> $(document).ready(function() { $('#fullpage').fullpage(); });</script>
 
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.15/fullpage.js"></script>
+	<script> $(document).ready(function() { $('#fullpage').fullpage({licenseKey: 'gplv3-license'}); });</script>
+<!--	<script src="node_modules/fullpage.js/dist/fullpage.min.js"></script>-->
 
 	<!-- noUiSlider -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.4.0/nouislider.min.js"
@@ -442,7 +418,6 @@
 	<!-- Your implementation -->
 
 	<script src="js/typewriter.js"></script>
-	<script type="text/javascript" src="../dist/fullpage.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
 	<script src="js/musicplayer.js"></script>
 	<script src="js/linechart.js"></script>
@@ -453,11 +428,6 @@
 	<script src="js/diysong.js"></script>
 	<script src="js/tooltips.js"></script>
 	<script src="js/main.js"></script>
-	<script src="node_modules/fullpage.js/dist/fullpage.min.js"></script>
-	<script type="text/javascript" src="https://cdn.rawgit.com/alvarotrigo/fullPage.js/master/jquery.fullPage.js"></script>
-	<script>$(document).ready(function() { $('#fullpage').fullpage(); });</script>
-
-</div>
 </body>
 
 
