@@ -2,6 +2,9 @@
 // skeleton stuff - left comments on places that need to be worked on
 let linegraph, histogram, bargraph, durationLineChart, timeline;
 
+// random images
+let randomImages = []
+
 // need to parse date string and convert to time
 let parseDate = d3.timeParse("%Y");
 
@@ -11,9 +14,12 @@ let DARKGREEN = "#33a02c"
 let LIGHTBLUE = "#a6cee3"
 let DARKBLUE = "#1f78b4"
 let PINK = "#fb9a99"
+let ORANGE = "#ffa98a"
+let YELLOW = "#ffec8a"
+
 
 // define toggles / selects
-let histIncludeToggled = true
+let histIncludeToggled = true;
 
 // if data is top year 2021 or 2020
 // then time parse week, parseDateWeek = d3.timeParse() , and then get the year
@@ -64,6 +70,17 @@ let promises = [
 
 		return row
 	}),
+	// fetch('https://api.unsplash.com/photos/random?client_id=mDk2A8Pk4OzkR-cdNX0xnp0QeBTD6D0sVrUT11jZjPE&count=26')
+	// 	.then(function(response) {
+	// 		return response.json();
+	// 	})
+	// 	.then(function(data) {
+	// 		let imageArrTemp = []
+	// 		for (let i = 0; i < data.length; i++) {
+	// 			imageArrTemp.push(data[i]['urls']['raw'] + "&w=300&h=300&crop=entropy&fit=clamp")
+	// 		}
+	// 		return imageArrTemp
+	// 	})
 ];
 
 Promise.all(promises)
@@ -81,12 +98,18 @@ function initMainPage(dataArray) {
 	let genreData = dataArray[1]
 	let allData = dataArray[2]
 	let timelineData = dataArray[3]
+	randomImages = dataArray[4]
 
 	bargraph = new BarChart("chart1",genreData)
 	histogram = new Histogram("histogram", allData)
 	linegraph = new LineChart("line-chart-area", averageByYearData)
 	durationLineChart = new DurationLineChart("duration-line-chart", averageByYearData)
 	timeline = new Timeline("timeline", timelineData)
+
+	// init tooltip
+
+
+	let createYourOwnSong = new DIYSong(allData)
 }
 
 // store category selection - for dropdown
@@ -104,19 +127,30 @@ function histToggleChange() {
 	histogram.wrangleData()
 }
 
-function getAlbumImage(trackID) {
+function getRandomImage(year) {
+	let index;
+	if (year === 1965) {
+		index = 25
+	}
+	else if (year === 1994) {
+		index = 24
+	}
+	else if (year === 2007) {
+		index = 23
+	}
+	else if (year === 2009){
+		index = 22
+	}
+	else {
+		index = 2022 - year
+	}
 
+	return randomImages[index]
 }
 
-function getTrackURL(trackID) {
+function initTooltip() {
+	d3.select("#feature-tooltip")
+		.on("mouseover", function() {
 
-}
-
-function getRandomImage() {
-	fetch('https://source.unsplash.com/random/300x300')
-		.then(function(response) {
-			return response.url
 		})
-
-	return 'https://source.unsplash.com/random/300x300'
 }
