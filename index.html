@@ -54,7 +54,6 @@
 		</div>
 
 		<div class="section">
-			
 			<div class="align-self-center hook">
 				<div id="hookVis" class="flex">
 
@@ -182,77 +181,83 @@
 						</defs>
 					  </svg>
 				</div>
-
-
 			</div>
 		</div>
 
-		<div class="row justify-content-center vis-area section">
-			<div class="col">
-				<div id="slider" class="col"></div>
-				<div id="line-chart-area" class="row"></div>
-				<div id="legend"></div>
-				<div class="descriptions row">Some text to describe the vis above.</div>
+		<div class="section">
+			<div class="row justify-content-center">
+				<div class="col">
+					<div id="slider" class="col"></div>
+					<div id="line-chart-area" class="row"></div>
+					<div id="legend"></div>
+					<div class="descriptions row">Some text to describe the vis above.</div>
+				</div>
 			</div>
 		</div>
 
 
-		<div class="row section justify-content-top">
-			<div id="duration-line-chart"></div>
-			<div>
-				<div class="toggle-container">
-					<label class="switch">
-						<input id="duration-toggle" onchange="durationToggleChange()" type="checkbox">
-						<span class="slider round"></span>
-					</label>
-					<div>
-						<p class="interaction-options-text">Overlay timeline of some interesting events</p>
+		<div class="section">
+			<div class="row justify-content-top">
+				<div id="duration-line-chart"></div>
+				<div>
+					<div class="toggle-container">
+						<label class="switch">
+							<input id="duration-toggle" onchange="durationToggleChange()" type="checkbox">
+							<span class="slider round"></span>
+						</label>
+						<div>
+							<p class="interaction-options-text">Overlay timeline of some interesting events</p>
+						</div>
+					</div>
+					<div class="descriptions row">
+						In the past years, the average popular song durations has on average decreased. Why might this be?
+					</div>
+					<div class="duration-button-container">
+						<button id="duration-btn" class="button" onclick="durationButtonClick()">Dive deeper...</button>
+					</div>
+					<div id="duration-explanation">
+						The average song duration of the top 100 songs decreased by nearly 30 seconds between 2017 and 2019. If we do the math, that's nearly a 12% drop.
 					</div>
 				</div>
-				<div class="descriptions row">
-					In the past years, the average popular song durations has on average decreased. Why might this be?
-				</div>
-				<div class="duration-button-container">
-					<button id="duration-btn" class="button" onclick="durationButtonClick()">Dive deeper...</button>
-				</div>
-				<div id="duration-explanation">
-					The average song duration of the top 100 songs decreased by nearly 30 seconds between 2017 and 2019. If we do the math, that's nearly a 12% drop.
-				</div>
 			</div>
 		</div>
 
-		<div class="row justify-content-center section">
-			<div>
+		<div class="section">
+			<div class="row justify-content-center">
 				<div>
-					<div id="timeline"></div>
+					<div>
+						<div id="timeline"></div>
+					</div>
+
 				</div>
 
-			</div>
+				<div class="col explanation-col">
+					<div class="timeline-select-container">
+						<label for="timeline-select">See events in: </label>
+						<select name="timeline" id="timeline-select" onchange="timelineCategoryChange()">
+							<option value="all">All categories</option>
+							<option value="video">Short-form video</option>
+							<option value="music">Music streaming</option>
+						</select>
+					</div>
+					<div class="descriptions row">
+						When we look at the timeline of when short form media features were released on different platforms, we can see that
+						short form media has become more ubiquitous in the past 5 or so years, which is also when
+						the average song duration of popular songs has been decreasing more noticeably.
+						This might point to a larger societal trend of demand for fast, easy consumption of media.
+					</div>
 
-			<div class="col explanation-col">
-				<div class="timeline-select-container">
-					<label for="timeline-select">See events in: </label>
-					<select name="timeline" id="timeline-select" onchange="timelineCategoryChange()">
-						<option value="all">All categories</option>
-						<option value="video">Short-form video</option>
-						<option value="music">Music streaming</option>
-					</select>
 				</div>
-				<div class="descriptions row">
-					When we look at the timeline of when short form media features were released on different platforms, we can see that
-					short form media has become more ubiquitous in the past 5 or so years, which is also when
-					the average song duration of popular songs has been decreasing more noticeably.
-					This might point to a larger societal trend of demand for fast, easy consumption of media.
-				</div>
-
 			</div>
 		</div>
 
-		<div class="row justify-content-center section">
-			<div class="col">
-				<div id="chart" class="barchart row"></div>
-					<div id="chart1" class="barchart1 col"></div>
-				<div class="descriptions row">Some text to describe the vis above.</div>
+		<div class="section">
+			<div class="row justify-content-center">
+				<div class="col">
+					<div id="chart" class="barchart row"></div>
+						<div id="chart1" class="barchart1 col"></div>
+					<div class="descriptions row">Some text to describe the vis above.</div>
+				</div>
 			</div>
 		</div>
 
