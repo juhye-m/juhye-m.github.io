@@ -178,11 +178,11 @@ class Timeline {
                     .transition()
                     .attr("opacity", 0.7)
 
-                // vis.tooltip
-                //     .style("opacity", 0)
-                //     .style("left", 0)
-                //     .style("top", 0)
-                //     .html(``);
+                vis.tooltip
+                    .style("opacity", 0)
+                    .style("left", 0)
+                    .style("top", 0)
+                    .html(``);
             })
             .transition().duration(800)
             .attr("opacity", 0.7)
