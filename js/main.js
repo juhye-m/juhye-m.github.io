@@ -20,6 +20,8 @@ let YELLOW = "#ffec8a"
 
 // define toggles / selects
 let histIncludeToggled = true;
+let selectedTimelineCategory = "all"
+let durationOverlayToggled = false
 
 // if data is top year 2021 or 2020
 // then time parse week, parseDateWeek = d3.timeParse() , and then get the year
@@ -103,28 +105,20 @@ function initMainPage(dataArray) {
 	bargraph = new BarChart("chart1",genreData)
 	histogram = new Histogram("histogram", allData)
 	linegraph = new LineChart("line-chart-area", averageByYearData)
-	durationLineChart = new DurationLineChart("duration-line-chart", averageByYearData)
+	durationLineChart = new DurationLineChart("duration-line-chart", averageByYearData, timelineData)
 	timeline = new Timeline("timeline", timelineData)
-
-	// init tooltip
-
-
 	let createYourOwnSong = new DIYSong(allData)
-}
-
-// store category selection - for dropdown
-let selectedCategory =  document.getElementById('categorySelector').value;
-console.log(selectedCategory)
-
-function categoryChange() {
-   selectedCategory =  document.getElementById('categorySelector').value;
-   linegraph.wrangleData();
 }
 
 function histToggleChange() {
 	histIncludeToggled =  document.getElementById('histogram-toggle').checked;
 	histogram.toggled()
 	histogram.wrangleData()
+}
+
+function durationToggleChange() {
+	durationOverlayToggled =  document.getElementById('duration-toggle').checked;
+	durationLineChart.wrangleData()
 }
 
 function getRandomImage(year) {
@@ -148,9 +142,11 @@ function getRandomImage(year) {
 	return randomImages[index]
 }
 
-function initTooltip() {
-	d3.select("#feature-tooltip")
-		.on("mouseover", function() {
+function timelineCategoryChange() {
+	selectedTimelineCategory = document.getElementById("timeline-select").value;
+	timeline.wrangleData()
+}
 
-		})
+function durationButtonClick() {
+	durationLineChart.clicked()
 }

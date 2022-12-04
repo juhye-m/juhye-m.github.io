@@ -30,10 +30,18 @@ body {
     flex-direction: column;
 }
 
+.justify-content-top {
+    align-items: flex-start;
+}
+
 div > svg {
     margin-left: auto;
     margin-right: auto;
     display: block;
+}
+
+.explanation-col{
+    z-index: 0
 }
 
 .titles {
@@ -232,6 +240,7 @@ input:checked + .slider:before {
     justify-content: space-between;
     margin: 30px 0;
     color: white;
+    width: 250px;
 }
 
 .filler-text {
@@ -263,23 +272,24 @@ input:checked + .slider:before {
     color: rgba(255, 255, 255, 0.8);
 }
 
-.histogram-toggle-container {
+.toggle-container {
     display: flex;
-    align-content: center;
+    justify-content: flex-start;
     flex-direction: row;
     align-items: center;
     gap: 12px;
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
-.histogram-toggle-container label {
+.toggle-container label {
     margin-bottom: 0;
 }
 
 .interaction-options-text {
     font-size: 12px;
     color: rgba(255, 255, 255, 0.4);
-    margin-bottom: 0;
+    margin: 0;
 }
 
 .histogram-panel-songContainer {
@@ -410,7 +420,7 @@ p.histogram-panel-songTopYear {
 /* timeline */
 
 .event-tooltip-container {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgb(49, 49, 49);
     padding: 20px;
     border: 1px rgba(255, 255, 255, 0.4) solid;
     border-radius: 20px;
@@ -437,6 +447,15 @@ p.histogram-panel-songTopYear {
     font-size: 17px;
     margin: 0;
     flex: 0;
+    font-weight: normal;
+}
+
+.event-tooltip-eventName p {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 0;
+    margin-top: 0;
+    font-weight: normal;
 }
 
 .event-tooltip-eventDetails p {
@@ -445,6 +464,19 @@ p.histogram-panel-songTopYear {
     margin-bottom: 0;
     margin-top: 8px;
 }
+
+.timeline-select-container {
+    margin-bottom: 30px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.timeline-select-container select {
+    font-size: 12px;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+
 
 /* diy song */
 .diy-song-section-container {
@@ -625,4 +657,70 @@ p.histogram-panel-songTopYear {
     margin: 25px 0;
     font-size: 15px;
     color: #afafaf;
+}
+
+/* duration */
+
+.button {
+    background-color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+.button:hover {
+    background-color: #bbbbbb;
+    border: none;
+    transition: 0.3s;
+    cursor: pointer
+}
+
+#duration-btn {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #33a02c;
+    font-size: 14px;
+    color: white;
+}
+
+#duration-btn:hover {
+    opacity: 0.6;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+#duration-explanation {
+    color: #b2df8a;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(1, 0.25);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1, 1);
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        transform: scale(1, 1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1, 0);
+    }
+}
+
+.toFadeIn {
+    animation: 1s ease-out 0s 1 fadeIn forwards;
+}
+
+.toFadeOut {
+    animation: 1s ease-out 0s 1 fadeOut forwards;
 }

@@ -16,7 +16,7 @@ class Histogram {
         // create svg
         vis.margin = { top: 40, right: 40, bottom: 60, left: 60 };
 
-        vis.width = 700 - vis.margin.left - vis.margin.right;
+        vis.width = 550 - vis.margin.left - vis.margin.right;
         vis.height = 750 - vis.margin.top - vis.margin.bottom;
 
         // vis.width = 500

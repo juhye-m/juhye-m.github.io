@@ -15,22 +15,13 @@
 
 	<!-- <link rel="stylesheet" href="https://meyerweb.com/eric/tools/css/reset/reset.css"/> -->
 	<link rel="stylesheet" href="./css/musicplayer.css" />
-<!--	<link rel="stylesheet" type="text/css" href="node_modules/fullpage.js/dist/fullpage.min.css">-->
 
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.15/fullpage.css" />
-<!--	<link rel="stylesheet" type="text/css" href="jquery.fullPage.css" />-->
-
-<!--	<script type="text/javascript" src="jquery.fullPage.min.js"></script>-->
-<!--	<script type="text/javascript">-->
-<!--		$(document).ready(function() {-->
-<!--			$('#fullpage').fullpage();-->
-<!--		});-->
-<!--	</script>-->
 
 </head>
 <body>
 	<div id="fullpage" class="container-fluid">
-		<div class="row justify-content-center header section">
+		<div class="section">
 			<div class="align-self-center titles">
 				<div class="muzieknootjes">
 					<div class="noot-1">
@@ -62,7 +53,7 @@
 			</div>
 		</div>
 
-		<div class="row justify-content-center section">
+		<div class="section">
 			
 			<div class="align-self-center hook">
 				<div id="hookVis" class="flex">
@@ -206,28 +197,54 @@
 		</div>
 
 
-		<div class="row section">
+		<div class="row section justify-content-top">
 			<div id="duration-line-chart"></div>
-			<div class="descriptions row">
-				In the past years, the average popular song durations has on average decreased. Why might this be?
+			<div>
+				<div class="toggle-container">
+					<label class="switch">
+						<input id="duration-toggle" onchange="durationToggleChange()" type="checkbox">
+						<span class="slider round"></span>
+					</label>
+					<div>
+						<p class="interaction-options-text">Overlay timeline of some interesting events</p>
+					</div>
+				</div>
+				<div class="descriptions row">
+					In the past years, the average popular song durations has on average decreased. Why might this be?
+				</div>
+				<div class="duration-button-container">
+					<button id="duration-btn" class="button" onclick="durationButtonClick()">Dive deeper...</button>
+				</div>
+				<div id="duration-explanation">
+					The average song duration of the top 100 songs decreased by nearly 30 seconds between 2017 and 2019. If we do the math, that's nearly a 12% drop.
+				</div>
 			</div>
 		</div>
 
 		<div class="row justify-content-center section">
-			<div class="col">
-				<div class="row justify-content-center">
+			<div>
+				<div>
 					<div id="timeline"></div>
 				</div>
+
 			</div>
 
-			<div class="col">
-				<!-- feel free to rename these divs and classes!!!! -->
+			<div class="col explanation-col">
+				<div class="timeline-select-container">
+					<label for="timeline-select">See events in: </label>
+					<select name="timeline" id="timeline-select" onchange="timelineCategoryChange()">
+						<option value="all">All categories</option>
+						<option value="video">Short-form video</option>
+						<option value="music">Music streaming</option>
+					</select>
+				</div>
 				<div class="descriptions row">
 					When we look at the timeline of when short form media features were released on different platforms, we can see that
 					short form media has become more ubiquitous in the past 5 or so years, which is also when
 					the average song duration of popular songs has been decreasing more noticeably.
 					This might point to a larger societal trend of demand for fast, easy consumption of media.
 				</div>
+
 			</div>
 		</div>
 
@@ -235,18 +252,6 @@
 			<div class="col">
 				<div id="chart" class="barchart row"></div>
 					<div id="chart1" class="barchart1 col"></div>
-					<div class="card row">
-						<div class="card-header" id="card-header">
-						</div>
-						<ul class="list-group list-group-flush">
-							<li class="list-group-item" id="info2"></li>
-							<li class="list-group-item" id="info3"></li>
-							<li class="list-group-item" id="info4"></li>
-							<li class="list-group-item" id="info5"></li>
-							<li class="list-group-item" id="info6"></li>
-							<li class="list-group-item" id="info7"></li>
-						</ul>
-					</div>
 				<div class="descriptions row">Some text to describe the vis above.</div>
 			</div>
 		</div>
@@ -267,7 +272,7 @@
 									<div id="histUpperYear" class="hist-slider-label"></div>
 								</div>
 							</div>
-							<div class="histogram-toggle-container">
+							<div class="toggle-container">
 								<label class="switch">
 									<input id="histogram-toggle" onChange="histToggleChange()" type="checkbox" checked>
 									<span class="slider round"></span>
@@ -377,7 +382,7 @@
 								<div id="releaseDateSlider" class="diy-song-slider"></div>
 							</div>
 							<div class="row justify-content-center">
-								<button id="generateSongButton">Generate your song</button>
+								<button id="generateSongButton" class="button">Generate your song</button>
 							</div>
 						</div>
 						<div class="col diy-output-col">
@@ -393,16 +398,16 @@
 
 
 	<!-- embedding JS libraries -->
-<!--	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>-->
+	<!--	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>-->
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 	<script src='https://unpkg.com/simple-statistics@7.8.0/dist/simple-statistics.min.js'></script>
 
 
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.15/fullpage.js"></script>
-	<script> $(document).ready(function() { $('#fullpage').fullpage({licenseKey: 'gplv3-license'}); });</script>
-<!--	<script src="node_modules/fullpage.js/dist/fullpage.min.js"></script>-->
+	<!-- Fullpage -->
+<!--	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.15/fullpage.js"></script>-->
+<!--	<script> $(document).ready(function() { $('#fullpage').fullpage({licenseKey: 'gplv3-license'}); });</script>-->
 
 	<!-- noUiSlider -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.4.0/nouislider.min.js"
