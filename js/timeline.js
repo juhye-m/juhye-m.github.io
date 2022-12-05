@@ -14,7 +14,7 @@ class Timeline {
         // create svg
         vis.margin = { top: 40, right: 0, bottom: 60, left: 60 };
 
-        vis.width = 300 - vis.margin.left - vis.margin.right;
+        vis.width = 260 - vis.margin.left - vis.margin.right;
         vis.height = 800 - vis.margin.top - vis.margin.bottom;
 
         // SVG drawing area
@@ -27,9 +27,9 @@ class Timeline {
 
         // title
         vis.svg.append("text")
-            .text("Timeline of Relevant Events")
-            .attr("transform", "translate(" + vis.width/2 + ", -20)")
-            .attr("text-anchor", "middle")
+            .text("Timeline of Interesting Events")
+            .attr("transform", "translate(-35, -20)")
+            .attr("text-anchor", "beginning")
 
         // Scales and axes
         vis.y = d3.scaleTime()

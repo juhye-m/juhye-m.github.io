@@ -535,7 +535,7 @@ p.histogram-panel-songTopYear {
 }
 
 .timeline-select-container {
-    margin-bottom: 30px;
+    margin-bottom: 50px;
     font-size: 12px;
     color: rgba(0, 0, 0, 0.4);
 }
@@ -557,6 +557,8 @@ p.histogram-panel-songTopYear {
 .sources {
     font-size: 9px;
     color: rgba(0,0,0,0.4);
+    margin-top: 50px;
+    display: none;
 }
 
 .sources a {

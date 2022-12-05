@@ -144,26 +144,34 @@ function getRandomImage(year) {
 
 function timelineCategoryChange() {
 	selectedTimelineCategory = document.getElementById("timeline-select").value;
+	let sources = document.getElementById("sources")
 
 	// change explanation display
-
 	if (selectedTimelineCategory === "music") {
 		document.getElementById("music").style.display = "block"
 		document.getElementById("music").className = "transition-content explanation toFadeIn"
 		document.getElementById("video").style.display = "none"
 		document.getElementById("explanation-filler").style.display = "none"
+
+		sources.style.display = "block"
+		sources.className = "toFadeIn sources"
 	}
 	else if (selectedTimelineCategory === "video") {
 		document.getElementById("music").style.display = "none"
 		document.getElementById("video").style.display = "block"
 		document.getElementById("video").className = "transition-content explanation toFadeIn"
 		document.getElementById("explanation-filler").style.display = "none"
+
+		sources.style.display = "block"
+		sources.className = "toFadeIn sources"
 	}
 	else {
 		document.getElementById("music").style.display = "none"
 		document.getElementById("video").style.display = "none"
 		document.getElementById("explanation-filler").style.display = "block"
-		document.getElementById("explanation-filler").className = "toFadeIn"
+		document.getElementById("explanation-filler").className = "toFadeIn filler-text"
+
+		sources.style.display = "none"
 	}
 
 	timeline.wrangleData()
