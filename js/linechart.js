@@ -138,24 +138,40 @@ class LineChart {
             .attr("d", d3.line()
                 .x(function(d) {return vis.x(d.TopYear) })
                 .y(function(d) {return vis.y(d.Danceability) }))
-            .on('mouseover', function(event, d){
+            .on("mouseover", function(event, d) {
+                d3.select(this)
+                    .transition()
+                    .attr("opacity", 1)
+                    .attr("cursor", "pointer")
+
                 vis.tooltip
-                    .style("opacity", 1)
+                    .style("opacity", 0)
+                    .style("position", "absolute")
                     .style("left", event.pageX + 20 + "px")
                     .style("top", event.pageY + "px")
+                    .style("z-index", 2)
                     .html(`
-                 <div style="border: thin solid grey; border-radius: 5px; color: black; background: lightgrey; padding: 10px">
+                    <div style="border: thin solid grey; border-radius: 5px; color: black; background: lightgrey; padding: 10px">
                      Danceability: Describes how suitable a track is for dancing based on a combination of musical 
                      elements including tempo, rhythm stability, beat strength, and overall regularity.              
-                 </div>`)
+                 </div>        
+                    `)
+                    .transition()
+                    .style("opacity", 1)
+
             })
-            .on('mouseout', function(event, d){
+            .on("mouseout", function(event, d) {
+                d3.select(this)
+                    .transition()
+                    .attr("opacity", 0.7)
+
                 vis.tooltip
                     .style("opacity", 0)
                     .style("left", 0)
                     .style("top", 0)
                     .html(``);
             })
+
         vis.path2
             .datum(vis.data)
             .attr("fill", "none")

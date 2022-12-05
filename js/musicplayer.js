@@ -28,6 +28,7 @@ new Vue({
             cover: "https://m.media-amazon.com/images/I/41GOpp3tSJL._UX500_FMwebp_QL85_.jpg",
             source: "assets/mp3/driverslicense.mp3",
             url: "https://youtu.be/ZmDBbnmKpqQ",
+            year: "2021",
             favorited: false
           },
           {
@@ -36,6 +37,7 @@ new Vue({
             cover: "https://m.media-amazon.com/images/I/41t3sP+X6nL._UXNaN_FMwebp_QL85_.jpg",
             source: "assets/mp3/BlindingLights.mp3",
             url: "https://youtu.be/4NRXx6U8ABQ",
+            year: "2020",
             favorited: false
           },
           {
@@ -44,6 +46,7 @@ new Vue({
             cover: "https://m.media-amazon.com/images/I/51r4sILyMML._UX500_FMwebp_QL85_.jpg",
             source: "assets/mp3/Senorita.mp3",
             url: "https://youtu.be/Pkh8UtuejGw",
+            year: "2019",
             favorited: false
           },
           {
@@ -52,6 +55,7 @@ new Vue({
             cover: "https://m.media-amazon.com/images/I/51yTr7RZK6L._UX500_FMwebp_QL85_.jpg",
             source: "assets/mp3/GodsPlan.mp3",
             url: "https://youtu.be/xpVfcZ0ZcFM",
+            year: "2018",
             favorited: false
           },
           {
@@ -60,6 +64,7 @@ new Vue({
             cover: "https://m.media-amazon.com/images/I/61fPYcsUGRL._UX500_FMwebp_QL85_.jpg",
             source: "assets/mp3/ShapeofYou.mp3",
             url: "https://youtu.be/JGwWNGJdvx8",
+            year: "2017",
             favorited: false
           },
           {
@@ -68,6 +73,7 @@ new Vue({
             cover: "https://m.media-amazon.com/images/I/41xGePdQITL._UX500_FMwebp_QL85_.jpg",
             source: "assets/mp3/OneDance.mp3",
             url: "https://youtu.be/qL7zrWcv6XY",
+            year: "2016",
             favorited: false
           },
           {
@@ -76,6 +82,7 @@ new Vue({
             cover: "https://m.media-amazon.com/images/I/51Eh7q-8ucL._UX500_FMwebp_QL85_.jpg",
             source: "assets/mp3/LeanOn.mp3",
             url: "https://youtu.be/YqeW9_5kURI",
+            year: "2015",
             favorited: false
           },
           {
@@ -84,6 +91,7 @@ new Vue({
             cover: "https://m.media-amazon.com/images/I/51ZDwgg4HFL._UX500_FMwebp_QL85_.jpg",
             source: "assets/mp3/Happy.mp3",
             url: "https://youtu.be/ZbZSe6N_BXs",
+            year: "2014",
             favorited: false
           },
           {
@@ -92,6 +100,7 @@ new Vue({
             cover: "https://m.media-amazon.com/images/I/51-mkLBVPoL._UX500_FMwebp_QL85_.jpg",
             source: "assets/mp3/CantHoldUs.mp3",
             url: "https://youtu.be/2zNSgSzhBfM",
+            year: "2013",
             favorited: false
           },
           {
@@ -100,6 +109,7 @@ new Vue({
             cover: "https://m.media-amazon.com/images/I/51IFGiApz8L._UX500_FMwebp_QL85_.jpg",
             source: "assets/mp3/SomebodyThatIUsedToKnow.mp3",
             url: "https://youtu.be/8UVNT4wvIGY",
+            year: "2012",
             favorited: false
           },
           {
@@ -108,6 +118,7 @@ new Vue({
             cover: "https://m.media-amazon.com/images/I/615V+KPyhiL._UX500_FMwebp_QL85_.jpg",
             source: "assets/mp3/PumpedUpKicks.mp3",
             url: "https://youtu.be/SDTZ7iX4vTQ",
+            year: "2011",
             favorited: false
           },
           {
@@ -116,6 +127,7 @@ new Vue({
             cover: "https://m.media-amazon.com/images/I/61bqP3BMkUL._UX500_FMwebp_QL85_.jpg",
             source: "assets/mp3/TiKToK.mp3",
             url: "https://youtu.be/iP6XpLQM2Cs",
+            year: "2010",
             favorited: false
           }
         ],
