@@ -104,7 +104,7 @@ function initMainPage(dataArray) {
 
 	bargraph = new BarChart("chart1",genreData)
 	histogram = new Histogram("histogram", allData)
-	linegraph = new LineChart("line-chart-area", averageByYearData)
+	linegraph = new LineChart("line-chart-area", averageByYearData, allData)
 	durationLineChart = new DurationLineChart("duration-line-chart", averageByYearData, timelineData)
 	timeline = new Timeline("timeline", timelineData)
 	let createYourOwnSong = new DIYSong(allData)
