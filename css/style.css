@@ -496,7 +496,8 @@ p.histogram-panel-songTopYear {
 .timeline-select-container select {
     font-size: 12px;
     color: white;
-    background-color: rgba(0, 0, 0, 1);
+    background-color: rgba(0, 0, 0, 0.4);
+    border: none;
 }
 
 /* diy song */
