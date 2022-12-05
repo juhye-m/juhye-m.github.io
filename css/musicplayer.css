@@ -3,6 +3,12 @@
   box-sizing: border-box;
 }
 
+.topYear {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 1cm;
+}
+
 .icon {
   display: inline-block;
   width: 1em;

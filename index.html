@@ -70,7 +70,7 @@
 				<div id="hookVis" class="flex">
 
 					<div class="hook-title">
-						Number One Song of [2021]
+						Number One Songs from 2021 to 2010
 						<br>
 						Click the left or right arrow and press play to explore
 						the #1 top song of each year!
@@ -88,7 +88,9 @@
 					  -->
 					<!-- MUSIC PLAYER VIS ADAPTED FROM https://codepen.io/JavaScriptJunkie/pen/qBWrRyg -->
 					<div class="wrapper" id="app">
+						<!-- <span class="topYear">{{ currentTrack.year }}</span> -->
 						<div class="player">
+							<div class="topYear">Year {{ currentTrack.year }}</div>
 						  <div class="player__top">
 							<div class="player-cover">
 							  <transition-group :name="transitionName">
