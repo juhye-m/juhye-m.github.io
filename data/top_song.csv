@@ -2,12 +2,12 @@ Year,Title,Artist,Genre,Speechiness,Acousticness,Liveness,Danceability,Energy,Lo
 2021,drivers license,Olivia Rodrigo,pop,0.0578,0.768,0.106,0.561,0.431,-8.81,0.137,242013,143.875
 2020,Blinding Lights,The Weeknd,canadian contemporary r&b,0.0598,0.00146,0.0897,0.514,0.73,-5.934,0.334,200040,171.005
 2019,Señorita,"Shawn Mendes, Camila Cabello",canadian pop,0.029,0.0392,0.0828,0.759,0.548,-6.049,0.749,190800,116.967
-2018,God's Plan,Drake
-2017,Shape of You,Ed Sheeran
-2016,One Dance,Drake
-2015,Lean On,Major Lazer
-2014,Happy,Pharrell Williams
-2013,Can't Hold Us,"Macklemore, Ryan Lewis"
-2012,Somebody That I Used To Know,Gotye
-2011,Pumped Up Kicks,Foster The People
-2010,TiK ToK,Ke$ha
+2018,God's Plan,Drake,canadian hip hop,0.109,0.0332,0.552,0.754,0.449,-9.211,0.357,198973,77.169
+2017,Shape of You,Ed Sheeran,pop,0.0802,0.581,0.0931,0.825,0.652,-3.183,0.931,233713,95.977
+2016,One Dance,Drake,canadian hip hop,0.0536,0.00776,0.329,0.792,0.625,-5.609,0.37,173987,103.967
+2015,Lean On,Major Lazer,dance pop,0.0625,0.00346,0.565,0.723,0.809,-3.081,0.274,176561,98.007
+2014,Happy,Pharrell Williams,hip hop,0.183,0.219,0.0908,0.647,0.822,-4.662,0.962,232720,160.019
+2013,Can't Hold Us,"Macklemore, Ryan Lewis",dance pop,0.0786,0.0291,0.0862,0.641,0.922,-4.457,0.847,258343,146.078
+2012,Somebody That I Used To Know,Gotye,australian pop,0.037,0.591,0.0992,0.864,0.495,-7.036,0.72,244973,129.062
+2011,Pumped Up Kicks,Foster The People,indietronica,0.0292,0.145,0.0956,0.733,0.71,-5.849,0.965,239600,127.975
+2010,TiK ToK,Ke$ha,dance pop,0.142,0.0991,0.289,0.755,0.837,-2.718,0.714,199693,120.028

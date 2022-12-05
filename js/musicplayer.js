@@ -66,9 +66,9 @@ new Vue({
             url: "https://youtu.be/xpVfcZ0ZcFM",
             year: "2018",
             favorited: false,
-            genre: "Pop",
-						danceability: "0.561",
-						energy: "0.431"
+            genre: "Canadian Hip Hop",
+						danceability: "0.754",
+						energy: "0.449"
           },
           {
             name: "Shape of You",
@@ -79,8 +79,8 @@ new Vue({
             year: "2017",
             favorited: false,
             genre: "Pop",
-						danceability: "0.561",
-						energy: "0.431"
+						danceability: "0.825",
+						energy: "0.652"
           },
           {
             name: "One Dance",
@@ -90,9 +90,9 @@ new Vue({
             url: "https://youtu.be/qL7zrWcv6XY",
             year: "2016",
             favorited: false,
-            genre: "Pop",
-						danceability: "0.561",
-						energy: "0.431"
+            genre: "Canadian Hip Hop",
+						danceability: "0.792",
+						energy: "0.625"
           },
           {
             name: "Lean On",
@@ -102,9 +102,9 @@ new Vue({
             url: "https://youtu.be/YqeW9_5kURI",
             year: "2015",
             favorited: false,
-            genre: "Pop",
-						danceability: "0.561",
-						energy: "0.431"
+            genre: "Dance Pop",
+						danceability: "0.723",
+						energy: "0.809"
           },
           {
             name: "Happy",
@@ -114,9 +114,9 @@ new Vue({
             url: "https://youtu.be/ZbZSe6N_BXs",
             year: "2014",
             favorited: false,
-            genre: "Pop",
-						danceability: "0.561",
-						energy: "0.431"
+            genre: "Hip Hop",
+						danceability: "0.647",
+						energy: "0.822"
           },
           {
             name: "Can't Hold Us",
@@ -126,9 +126,9 @@ new Vue({
             url: "https://youtu.be/2zNSgSzhBfM",
             year: "2013",
             favorited: false,
-            genre: "Pop",
-						danceability: "0.561",
-						energy: "0.431"
+            genre: "Dance Pop",
+						danceability: "0.641",
+						energy: "0.922"
           },
           {
             name: "Somebody That I Used to Know",
@@ -138,9 +138,9 @@ new Vue({
             url: "https://youtu.be/8UVNT4wvIGY",
             year: "2012",
             favorited: false,
-            genre: "Pop",
-						danceability: "0.561",
-						energy: "0.431"
+            genre: "Australian Pop",
+						danceability: "0.864",
+						energy: "0.495"
           },
           {
             name: "Pumped Up Kicks",
@@ -150,9 +150,9 @@ new Vue({
             url: "https://youtu.be/SDTZ7iX4vTQ",
             year: "2011",
             favorited: false,
-            genre: "Pop",
-						danceability: "0.561",
-						energy: "0.431"
+            genre: "Indietronica",
+						danceability: "0.733",
+						energy: "0.71"
           },
           {
             name: "TiK ToK",
@@ -162,9 +162,9 @@ new Vue({
             url: "https://youtu.be/iP6XpLQM2Cs",
             year: "2010",
             favorited: false,
-            genre: "Pop",
-						danceability: "0.561",
-						energy: "0.431"
+            genre: "Dance Pop",
+						danceability: "0.755",
+						energy: "0.837"
           }
         ],
         currentTrack: null,
