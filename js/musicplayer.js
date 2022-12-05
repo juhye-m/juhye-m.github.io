@@ -29,7 +29,10 @@ new Vue({
             source: "assets/mp3/driverslicense.mp3",
             url: "https://youtu.be/ZmDBbnmKpqQ",
             year: "2021",
-            favorited: false
+            favorited: false,
+            genre: "Pop",
+						danceability: "0.561",
+						energy: "0.431"
           },
           {
             name: "Blinding Lights",
@@ -38,7 +41,10 @@ new Vue({
             source: "assets/mp3/BlindingLights.mp3",
             url: "https://youtu.be/4NRXx6U8ABQ",
             year: "2020",
-            favorited: false
+            favorited: false,
+            genre: "Pop",
+						danceability: "0.561",
+						energy: "0.431"
           },
           {
             name: "Señorita",
@@ -47,7 +53,10 @@ new Vue({
             source: "assets/mp3/Senorita.mp3",
             url: "https://youtu.be/Pkh8UtuejGw",
             year: "2019",
-            favorited: false
+            favorited: false,
+            genre: "Pop",
+						danceability: "0.561",
+						energy: "0.431"
           },
           {
             name: "God's Plan",
@@ -56,7 +65,10 @@ new Vue({
             source: "assets/mp3/GodsPlan.mp3",
             url: "https://youtu.be/xpVfcZ0ZcFM",
             year: "2018",
-            favorited: false
+            favorited: false,
+            genre: "Pop",
+						danceability: "0.561",
+						energy: "0.431"
           },
           {
             name: "Shape of You",
@@ -65,7 +77,10 @@ new Vue({
             source: "assets/mp3/ShapeofYou.mp3",
             url: "https://youtu.be/JGwWNGJdvx8",
             year: "2017",
-            favorited: false
+            favorited: false,
+            genre: "Pop",
+						danceability: "0.561",
+						energy: "0.431"
           },
           {
             name: "One Dance",
@@ -74,7 +89,10 @@ new Vue({
             source: "assets/mp3/OneDance.mp3",
             url: "https://youtu.be/qL7zrWcv6XY",
             year: "2016",
-            favorited: false
+            favorited: false,
+            genre: "Pop",
+						danceability: "0.561",
+						energy: "0.431"
           },
           {
             name: "Lean On",
@@ -83,7 +101,10 @@ new Vue({
             source: "assets/mp3/LeanOn.mp3",
             url: "https://youtu.be/YqeW9_5kURI",
             year: "2015",
-            favorited: false
+            favorited: false,
+            genre: "Pop",
+						danceability: "0.561",
+						energy: "0.431"
           },
           {
             name: "Happy",
@@ -92,7 +113,10 @@ new Vue({
             source: "assets/mp3/Happy.mp3",
             url: "https://youtu.be/ZbZSe6N_BXs",
             year: "2014",
-            favorited: false
+            favorited: false,
+            genre: "Pop",
+						danceability: "0.561",
+						energy: "0.431"
           },
           {
             name: "Can't Hold Us",
@@ -101,7 +125,10 @@ new Vue({
             source: "assets/mp3/CantHoldUs.mp3",
             url: "https://youtu.be/2zNSgSzhBfM",
             year: "2013",
-            favorited: false
+            favorited: false,
+            genre: "Pop",
+						danceability: "0.561",
+						energy: "0.431"
           },
           {
             name: "Somebody That I Used to Know",
@@ -110,7 +137,10 @@ new Vue({
             source: "assets/mp3/SomebodyThatIUsedToKnow.mp3",
             url: "https://youtu.be/8UVNT4wvIGY",
             year: "2012",
-            favorited: false
+            favorited: false,
+            genre: "Pop",
+						danceability: "0.561",
+						energy: "0.431"
           },
           {
             name: "Pumped Up Kicks",
@@ -119,7 +149,10 @@ new Vue({
             source: "assets/mp3/PumpedUpKicks.mp3",
             url: "https://youtu.be/SDTZ7iX4vTQ",
             year: "2011",
-            favorited: false
+            favorited: false,
+            genre: "Pop",
+						danceability: "0.561",
+						energy: "0.431"
           },
           {
             name: "TiK ToK",
@@ -128,7 +161,10 @@ new Vue({
             source: "assets/mp3/TiKToK.mp3",
             url: "https://youtu.be/iP6XpLQM2Cs",
             year: "2010",
-            favorited: false
+            favorited: false,
+            genre: "Pop",
+						danceability: "0.561",
+						energy: "0.431"
           }
         ],
         currentTrack: null,

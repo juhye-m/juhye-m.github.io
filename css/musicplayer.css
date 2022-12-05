@@ -6,7 +6,11 @@
 .topYear {
   text-align: center;
   font-size: 30px;
-  margin-bottom: 1cm;
+  margin-bottom: 0.8cm;
+}
+
+.topsong-characteristics {
+  margin-bottom: 20px;
 }
 
 .icon {

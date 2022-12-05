@@ -43,7 +43,9 @@
 					<div class="title-container">
 						<div><img class="spotify-icon" src="assets/img/spotifyicon.png"></div>
 						<h1>A Prescription for Popularity</h1>
+						<br>
 					</div>
+					<h2>A Look Behind Spotify's Top 100</h2>
 				</div>
 
 				<h2>
@@ -72,14 +74,15 @@
 				<div id="hookVis" class="flex">
 
 					<div class="hook-title">
-						Number One Songs from 2021 to 2010
-						<br>
-						Click the left or right arrow and press play to explore
-						the #1 top song of each year!
-						<br>
-						Hover over each song's album art to see the characteristics of the song.
-						<br>
-						Then scroll down to see what these characteristics look like on average for each year!
+						<h1>Number One Songs from 2021 to 2010</h1>
+						<!-- <br> -->
+						<p>Click the left or right arrow and press play to explore
+							the #1 top song of each year!</p>
+						<p>Then scroll down to see what these characteristics look like on average for each year!</p>
+						<!-- <br> -->
+						<!-- Hover over each song's album art to see the characteristics of the song.
+						<br> -->
+						
 						<!-- Number One Song of {{  }} -->
 					</div>
 					<!-- Tooltip - 
@@ -89,10 +92,16 @@
 						hover to learn more about the song characteristics
 					  -->
 					<!-- MUSIC PLAYER VIS ADAPTED FROM https://codepen.io/JavaScriptJunkie/pen/qBWrRyg -->
+					<div class="col">
 					<div class="wrapper" id="app">
 						<!-- <span class="topYear">{{ currentTrack.year }}</span> -->
 						<div class="player">
 							<div class="topYear">Year {{ currentTrack.year }}</div>
+							<div class="topsong-characteristics">
+								Genre: {{ currentTrack.genre }},
+								Danceability: {{ currentTrack.danceability }},
+								Energy: {{ currentTrack.energy }}
+							</div>
 						  <div class="player__top">
 							<div class="player-cover">
 							  <transition-group :name="transitionName">
@@ -145,6 +154,14 @@
 						  <div v-cloak></div>
 						</div>
 					  </div>
+					</div>
+
+					<div class="col" id="characterstics-top-song">
+						<!-- Genre: Pop 
+						Danceability: 0.561
+						Energy: 0.431 -->
+
+					</div>
 				  
 					  <svg width="0" height="0" xmlns="http://www.w3.org/2000/svg" hidden xmlns:xlink="http://www.w3.org/1999/xlink">
 						<defs>
