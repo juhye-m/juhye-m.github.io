@@ -151,10 +151,10 @@ class LineChart {
                     .style("top", event.pageY + "px")
                     .style("z-index", 2)
                     .html(`
-                    <div style="border: thin solid grey; border-radius: 5px; color: black; background: lightgrey; padding: 10px">
+                       <div style="border: thin solid grey; border-radius: 5px; color: black; background: lightgrey; padding: 10px">
                      Danceability: Describes how suitable a track is for dancing based on a combination of musical 
                      elements including tempo, rhythm stability, beat strength, and overall regularity.              
-                 </div>        
+                 </div>
                     `)
                     .transition()
                     .style("opacity", 1)
