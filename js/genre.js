@@ -1,7 +1,3 @@
-// // https://bl.ocks.org/officeofjane/a70f4b44013d06b9c0a973f163d8ab7a
-// // https://observablehq.com/@d3/bubble-chart
-
-
 class BubbleChart {
     constructor(parentElement, data) {
         this.parentElement = parentElement;
@@ -18,7 +14,7 @@ class BubbleChart {
         vis.height = 600 - vis.margin.top - vis.margin.bottom;
 
         // center the circles
-        // vis.center = { x:vis.width/2, y: vis.height/2 };
+        vis.center = { x:vis.width/2, y: vis.height/2 };
 
         // position force for bubbles layout
         // vis.forceStrength = 0.03;
@@ -78,9 +74,9 @@ class BubbleChart {
         // // // we don't want force simulation yet because there are no nodes yet
         // vis.simulation.stop();
         
-        const colorScale = d3.scaleOrdinal()
-        .domain(["0","1", "2", "3","4", "5"]) //change
-        .range(["#0074D9", "#7FDBFF", "#39CCCC", "#3D9970", "#AAAAAA"]);
+        vis.colorScale = d3.scaleOrdinal()
+        .domain(["0","1", "2", "3","4", "5"])
+        .range(d3.schemeSet3);
 
         this.wrangleData();
     }
@@ -124,9 +120,11 @@ class BubbleChart {
     vis.bubbles = vis.circles
     .append('circle')
     // .attr("class","bubble")
-    .attr('r', 10)
     .attr("class","circlez")
-    .style("fill","rgb(34, 178, 130)")
+    .attr("fill",function(d){return vis.colorScale(d.id)})
+    .attr("cx", function(d,i){return 30 + i*60})
+    .attr("cy", 150)
+    .attr("r", 19)
     // .attr("cx",d=> {
     //     return d.x
     // })
@@ -135,7 +133,7 @@ class BubbleChart {
     // });
 
     // .attr('r', function(d){console.log(bubbleRadius(d)); console.log(hi); return bubbleRadius(d)})
-    // .attr('fill',function(d){console.log(colorScale(d)); return colorScale(d)})
+    // .attr('fill',fungit ction(d){console.log(colorScale(d)); return colorScale(d)})
 
     // labels
     vis.labels = vis.circles
