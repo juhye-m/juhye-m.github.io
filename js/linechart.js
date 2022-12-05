@@ -181,6 +181,10 @@ class LineChart {
                 .x(function(d) {return vis.x(d.TopYear) })
                 .y(function(d) {return vis.y(d.Speechiness) }))
             .on('mouseover', function(event, d){
+                d3.select(this)
+                    .transition()
+                    .attr("opacity", 1)
+                    .attr("cursor", "pointer")
                 vis.tooltip
                     .style("opacity", 1)
                     .style("left", event.pageX + 20 + "px")
@@ -192,6 +196,9 @@ class LineChart {
                  </div>`)
             })
             .on('mouseout', function(event, d){
+                d3.select(this)
+                    .transition()
+                    .attr("opacity", 0.7)
                 vis.tooltip
                     .style("opacity", 0)
                     .style("left", 0)
@@ -207,6 +214,10 @@ class LineChart {
                 .x(function(d) {return vis.x(d.TopYear) })
                 .y(function(d) {return vis.y(d.Energy) }))
             .on('mouseover', function(event, d){
+                d3.select(this)
+                    .transition()
+                    .attr("opacity", 1)
+                    .attr("cursor", "pointer")
                 vis.tooltip
                     .style("opacity", 1)
                     .style("left", event.pageX + 20 + "px")
@@ -219,6 +230,9 @@ class LineChart {
                  </div>`)
             })
             .on('mouseout', function(event, d){
+                d3.select(this)
+                    .transition()
+                    .attr("opacity", 0.7)
                 vis.tooltip
                     .style("opacity", 0)
                     .style("left", 0)
@@ -235,6 +249,10 @@ class LineChart {
                 .x(function(d) {return vis.x(d.TopYear) })
                 .y(function(d) {return vis.y(d.Acousticness) }))
             .on('mouseover', function(event, d){
+                d3.select(this)
+                    .transition()
+                    .attr("opacity", 1)
+                    .attr("cursor", "pointer")
                 vis.tooltip
                     .style("opacity", 1)
                     .style("left", event.pageX + 20 + "px")
@@ -245,6 +263,9 @@ class LineChart {
                  </div>`)
             })
             .on('mouseout', function(event, d){
+                d3.select(this)
+                    .transition()
+                    .attr("opacity", 0.7)
                 vis.tooltip
                     .style("opacity", 0)
                     .style("left", 0)
@@ -261,6 +282,10 @@ class LineChart {
                 .x(function(d) {return vis.x(d.TopYear) })
                 .y(function(d) {return vis.y(d.Valence) }))
             .on('mouseover', function(event, d){
+                d3.select(this)
+                    .transition()
+                    .attr("opacity", 1)
+                    .attr("cursor", "pointer")
                 vis.tooltip
                     .style("opacity", 1)
                     .style("left", event.pageX + 20 + "px")
@@ -273,6 +298,9 @@ class LineChart {
                  </div>`)
             })
             .on('mouseout', function(event, d){
+                d3.select(this)
+                    .transition()
+                    .attr("opacity", 0.7)
                 vis.tooltip
                     .style("opacity", 0)
                     .style("left", 0)
