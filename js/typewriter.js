@@ -42,14 +42,6 @@ TxtType.prototype.tick = function() {
     }, delta);
 };
 
-// function cursorAnimation() {
-//     $('#cursor').animate({
-//         opacity: 0
-//     }, 'fast', 'swing').animate({
-//         opacity: 1
-//     }, 'fast', 'swing');
-// }
-
 window.onload = function() {
     var elements = document.getElementsByClassName('typewrite');
     // setInterval ('cursorAnimation()', 600);

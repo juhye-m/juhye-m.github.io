@@ -74,55 +74,6 @@ class Timeline {
         // Call axis functions with the new domain
         vis.svg.select(".y-axis").transition().duration(800).call(vis.yAxis);
 
-
-        // // Draw a rectangular bar
-        // vis.svg.append("rect")
-        //     .attr("x", 30)
-        //     .attr("y", vis.y(Date.parse("1/1/2017")))
-        //     .attr("height", vis.y(Date.parse("1-1-2019")) - vis.y(Date.parse("1-1-2017")))
-        //     .attr("width", 8)
-        //     .style("fill", ORANGE)
-        //     .attr("opacity", "0.4")
-        //     .on("mouseover", function(event, d) {
-        //         d3.select(this)
-        //             .transition()
-        //             .attr("opacity", 1)
-        //             .attr("cursor", "pointer")
-        //
-        //         vis.tooltip
-        //             .style("opacity", 0)
-        //             .style("position", "absolute")
-        //             .style("left", event.pageX + 20 + "px")
-        //             .style("top", event.pageY + "px")
-        //             .html(`
-        //                 <div class="event-tooltip-container">
-        //                     <div class="event-tooltip-header">
-        //                         <div class="event-tooltip-eventName">
-        //                             <h3>Declining duration<h3>
-        //                         </div>
-        //                     </div>
-        //                     <div class="event-tooltip-eventDetails">
-        //                         <p>We see a sharp decline in song duration between 2017 and 2019 of nearly 30 seconds.</p>
-        //                     </div>
-        //                 </div>
-        //
-        //             `)
-        //             .transition()
-        //             .style("opacity", 1)
-        //
-        //     })
-        //     .on("mouseout", function(event, d) {
-        //         d3.select(this)
-        //             .transition()
-        //             .attr("opacity", 0.4)
-        //
-        //         vis.tooltip
-        //             .style("opacity", 0)
-        //             .style("left", 0)
-        //             .style("top", 0)
-        //             .html(``);
-        //     })
-
         // draw bars
         vis.items = vis.svg.selectAll(".timeline-item")
             .data(vis.displayData, d => d.Event)

@@ -1,13 +1,6 @@
 // ADAPTED from https://codepen.io/JavaScriptJunkie/pen/qBWrRyg
 // Credit:  Mini Music Player - Muhammed Erdem, ADAPTATION by JuHye Mun
 
-/*
-design by Voicu Apostol.
-design: https://dribbble.com/shots/3533847-Mini-Music-Player
-I can't find any open music api or mp3 api so i have to download all musics as mp3 file.
-You can fork on github: https://github.com/muhammederdem/mini-player
-*/
-
 console.log("musicplayer enter")
 
 new Vue({
@@ -20,7 +13,7 @@ new Vue({
         duration: null,
         currentTime: null,
         isTimerPlaying: false,
-        // CHANGE TO #1 SONG PER YEAR
+
         tracks: [
           {
             name: "drivers license",

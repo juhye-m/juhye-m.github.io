@@ -40,10 +40,6 @@ let promises = [
 		row.Valence = +row.Valence
 		//row.ReleaseDate = +row.ReleaseDate
 		row.TopYear = +row.TopYear
-
-
-		// row.year = parseDate(row.year);
-
 		return row
 	}),
 	d3.csv("data/genre_data.csv", row => {

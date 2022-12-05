@@ -13,20 +13,6 @@ class BubbleChart {
         vis.width = document.getElementById(vis.parentElement).getBoundingClientRect().width - vis.margin.left - vis.margin.right;
         vis.height = 600 - vis.margin.top - vis.margin.bottom;
 
-        // center the circles
-        // vis.center = { x:vis.width/2, y: vis.height/2 };
-
-        // position force for bubbles layout
-        // vis.forceStrength = 0.03;
-   
-        // define the radius based on the count of genres
-        // function bubbleRadius 
-
-        // charge dependent on size of the bubble
-        // function charge(d) {
-        //     return Math.pow(bubbleRadius(d), 2.0) * 0.01
-        // }
-
         // init drawing area
         vis.svg = d3.select("#" + vis.parentElement).append("svg")
             .attr("width", vis.width + vis.margin.left + vis.margin.right)
@@ -41,11 +27,12 @@ class BubbleChart {
             .attr("transform", "translate(" + vis.width/2 + ",0)")
             .attr("text-anchor", "middle")
 
-
+        // tooltip
         vis.tooltip = d3.select("body").append('div')
         .attr('class', "tooltip")
         .attr('id', 'genreTooltip')
         
+        // color scale for each circle
         vis.colorScale = d3.scaleOrdinal()
         .domain(["0","1", "2", "3","4", "5"])
         .range(d3.schemeSet3);
@@ -62,6 +49,7 @@ class BubbleChart {
         let vis = this;
         vis.maxSize = d3.max(vis.data, d => d.Count);
 
+    // calculate size and radius based on count value later
        vis.radiusScale = d3.scaleSqrt()
         .domain([0, vis.maxSize])
         .range([0, 200])
@@ -71,10 +59,9 @@ class BubbleChart {
     .enter()
     .append('g')
 
- 
+    // nodes
     vis.bubbles = vis.circles
     .append('circle')
-    // .attr("class","bubble")
     .attr("class","circlez")
     .attr("fill",function(d){return vis.colorScale(d.id)})
     .attr("r", function(d){return vis.radiusScale(d.Count)})
@@ -84,6 +71,7 @@ class BubbleChart {
     .attr("cy", d=> {
         return d.y
     })
+    // tooltip for count on hover
     .on("mouseover", function(event, d) {
         d3.select(this)
             .transition()
@@ -130,7 +118,6 @@ class BubbleChart {
         return d.y
     });
 
-    
 
     }
 
