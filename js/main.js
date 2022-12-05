@@ -102,7 +102,7 @@ function initMainPage(dataArray) {
 	let timelineData = dataArray[3]
 	randomImages = dataArray[4]
 
-	// bargraph = new BarChart("chart1",genreData)
+	bargraph = new BarChart("chart1",genreData)
 	histogram = new Histogram("histogram", allData)
 	linegraph = new LineChart("line-chart-area", averageByYearData)
 	durationLineChart = new DurationLineChart("duration-line-chart", averageByYearData, timelineData)
