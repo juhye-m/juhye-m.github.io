@@ -1,10 +1,10 @@
 
 class LineChart {
 
-    constructor(parentElement, data) {
+    constructor(parentElement, data, allData) {
         this.parentElement = parentElement;
         this.data = data;
-
+        this.allData = allData
 
         this.initVis();
 
@@ -17,9 +17,9 @@ class LineChart {
     initVis() {
         let vis = this;
         vis.margin = {top: 40, right: 40, bottom: 50, left: 50};
-        // vis.width = document.getElementById(vis.parentElement).getBoundingClientRect().width - vis.margin.left - vis.margin.right;
+        vis.width = document.getElementById(vis.parentElement).getBoundingClientRect().width - vis.margin.left - vis.margin.right;
         vis.height = 600 - vis.margin.top - vis.margin.bottom;
-        vis.width = 750
+        // vis.width = 600
         //vis.height = 500
 
         // init drawing area
@@ -71,7 +71,7 @@ class LineChart {
             .attr("text-anchor", "middle")
             .attr("font-size", "13px")
 
-// Initialize line path
+        // Initialize line path
         vis.path1 = vis.svg.append('g')
             .append("path")
         vis.path2 = vis.svg.append('g')
@@ -112,13 +112,10 @@ class LineChart {
     updateVis() {
         let vis = this;
 
-        console.log(d3.max(vis.data, d=>d.Danceability))
-        console.log(d3.min(vis.data, d=>d.TopYear))
-
         // Update scale domains
 
         vis.x.domain([2010, 2021])
-        vis.y.domain([0, d3.max(vis.data, d=>d.Energy)])
+        vis.y.domain([0, 1])
 
         // Update axes
         vis.svg.select(".y-axis")
@@ -135,6 +132,7 @@ class LineChart {
             .attr("fill", "none")
             .attr("stroke", "green")
             .attr("stroke-width", 5)
+            .attr("opacity", 0.7)
             .attr("d", d3.line()
                 .x(function(d) {return vis.x(d.TopYear) })
                 .y(function(d) {return vis.y(d.Danceability) }))
@@ -151,10 +149,8 @@ class LineChart {
                     .style("top", event.pageY + "px")
                     .style("z-index", 2)
                     .html(`
-                       <div style="border: thin solid grey; border-radius: 5px; color: black; background: lightgrey; padding: 10px">
-                     Danceability: Describes how suitable a track is for dancing based on a combination of musical 
-                     elements including tempo, rhythm stability, beat strength, and overall regularity.              
-                 </div>
+                      <div class="feature-tooltip-container">
+                        Danceability: ${getFeatureTooltip("danceability")}</div>
                     `)
                     .transition()
                     .style("opacity", 1)
@@ -171,73 +167,113 @@ class LineChart {
                     .style("top", 0)
                     .html(``);
             })
+            .on("click", function(e, d) {
+                let panel = document.getElementById("char-output-panel")
+
+                // get top 3 songs
+                vis.getTopSongsByFeature("danceability")
+
+                panel.innerHTML = vis.getHTMLforTopThree(vis.getTopSongsByFeature("danceability"), "danceability")
+            })
 
         vis.path2
             .datum(vis.data)
             .attr("fill", "none")
             .attr("stroke", "purple")
             .attr("stroke-width", 5)
+            .attr("opacity", 0.7)
             .attr("d", d3.line()
                 .x(function(d) {return vis.x(d.TopYear) })
                 .y(function(d) {return vis.y(d.Speechiness) }))
-            .on('mouseover', function(event, d){
+            .on("mouseover", function(event, d) {
                 d3.select(this)
                     .transition()
                     .attr("opacity", 1)
                     .attr("cursor", "pointer")
+
                 vis.tooltip
-                    .style("opacity", 1)
+                    .style("opacity", 0)
+                    .style("position", "absolute")
                     .style("left", event.pageX + 20 + "px")
                     .style("top", event.pageY + "px")
+                    .style("z-index", 2)
                     .html(`
-                 <div style="border: thin solid grey; border-radius: 5px; color: black; background: lightgrey; padding: 10px">
-                     Speechiness: This detects the presence of spoken words in a track. The more exclusively speech-like
-                      the recording (e.g. talk show, audio book, poetry), the closer to 1.0 the attribute value.               
-                 </div>`)
+                      <div class="feature-tooltip-container">
+                        Speechiness: ${getFeatureTooltip("speechiness")}              
+                    </div>
+                    `)
+                    .transition()
+                    .style("opacity", 1)
+
             })
-            .on('mouseout', function(event, d){
+            .on("mouseout", function(event, d) {
                 d3.select(this)
                     .transition()
                     .attr("opacity", 0.7)
+
                 vis.tooltip
                     .style("opacity", 0)
                     .style("left", 0)
                     .style("top", 0)
                     .html(``);
             })
+            .on("click", function(e, d) {
+                let panel = document.getElementById("char-output-panel")
+
+                // get top 3 songs
+                vis.getTopSongsByFeature("speechiness")
+
+                panel.innerHTML = vis.getHTMLforTopThree(vis.getTopSongsByFeature("speechiness"), "speechiness")
+            })
+
         vis.path3
             .datum(vis.data)
             .attr("fill", "none")
             .attr("stroke", "steelblue")
             .attr("stroke-width", 5)
+            .attr("opacity", 0.7)
             .attr("d", d3.line()
                 .x(function(d) {return vis.x(d.TopYear) })
                 .y(function(d) {return vis.y(d.Energy) }))
-            .on('mouseover', function(event, d){
+            .on("mouseover", function(event, d) {
                 d3.select(this)
                     .transition()
                     .attr("opacity", 1)
                     .attr("cursor", "pointer")
+
                 vis.tooltip
-                    .style("opacity", 1)
+                    .style("opacity", 0)
+                    .style("position", "absolute")
                     .style("left", event.pageX + 20 + "px")
                     .style("top", event.pageY + "px")
+                    .style("z-index", 2)
                     .html(`
-                 <div style="border: thin solid grey; border-radius: 5px; color: black; background: lightgrey; padding: 10px">
-                     Energy: Represents a perceptual measure of intensity and activity. Typically, energetic tracks 
-                     feel fast, loud, and noisy. For example, death metal has high energy, while a Bach prelude 
-                     scores low on the scale.               
-                 </div>`)
+                      <div class="feature-tooltip-container">
+                        Energy: ${getFeatureTooltip('energy')}              
+                    </div>
+                    `)
+                    .transition()
+                    .style("opacity", 1)
+
             })
-            .on('mouseout', function(event, d){
+            .on("mouseout", function(event, d) {
                 d3.select(this)
                     .transition()
                     .attr("opacity", 0.7)
+
                 vis.tooltip
                     .style("opacity", 0)
                     .style("left", 0)
                     .style("top", 0)
                     .html(``);
+            })
+            .on("click", function(e, d) {
+                let panel = document.getElementById("char-output-panel")
+
+                // get top 3 songs
+                vis.getTopSongsByFeature("energy")
+
+                panel.innerHTML = vis.getHTMLforTopThree(vis.getTopSongsByFeature("energy"), "energy")
             })
 
         vis.path4
@@ -245,32 +281,49 @@ class LineChart {
             .attr("fill", "none")
             .attr("stroke", "red")
             .attr("stroke-width", 5)
+            .attr("opacity", 0.7)
             .attr("d", d3.line()
                 .x(function(d) {return vis.x(d.TopYear) })
                 .y(function(d) {return vis.y(d.Acousticness) }))
-            .on('mouseover', function(event, d){
+            .on("mouseover", function(event, d) {
                 d3.select(this)
                     .transition()
                     .attr("opacity", 1)
                     .attr("cursor", "pointer")
+
                 vis.tooltip
-                    .style("opacity", 1)
+                    .style("opacity", 0)
+                    .style("position", "absolute")
                     .style("left", event.pageX + 20 + "px")
                     .style("top", event.pageY + "px")
+                    .style("z-index", 2)
                     .html(`
-                 <div style="border: thin solid grey; border-radius: 5px; color: black; background: lightgrey; padding: 10px">
-                     Acousticness: A confidence measure from 0.0 to 1.0 of whether the track is acoustic.              
-                 </div>`)
+                      <div class="feature-tooltip-container">
+                        Acousticness: ${getFeatureTooltip("acousticness")}              
+                    </div>
+                    `)
+                    .transition()
+                    .style("opacity", 1)
+
             })
-            .on('mouseout', function(event, d){
+            .on("mouseout", function(event, d) {
                 d3.select(this)
                     .transition()
                     .attr("opacity", 0.7)
+
                 vis.tooltip
                     .style("opacity", 0)
                     .style("left", 0)
                     .style("top", 0)
                     .html(``);
+            })
+            .on("click", function(e, d) {
+                let panel = document.getElementById("char-output-panel")
+
+                // get top 3 songs
+                vis.getTopSongsByFeature("acousticness")
+
+                panel.innerHTML = vis.getHTMLforTopThree(vis.getTopSongsByFeature("acousticness"), "acousticness")
             })
 
         vis.path5
@@ -278,35 +331,111 @@ class LineChart {
             .attr("fill", "none")
             .attr("stroke", "orange")
             .attr("stroke-width", 5)
+            .attr("opacity", 0.7)
             .attr("d", d3.line()
                 .x(function(d) {return vis.x(d.TopYear) })
                 .y(function(d) {return vis.y(d.Valence) }))
-            .on('mouseover', function(event, d){
+            .on("mouseover", function(event, d) {
                 d3.select(this)
                     .transition()
                     .attr("opacity", 1)
                     .attr("cursor", "pointer")
+
                 vis.tooltip
-                    .style("opacity", 1)
+                    .style("opacity", 0)
+                    .style("position", "absolute")
                     .style("left", event.pageX + 20 + "px")
                     .style("top", event.pageY + "px")
+                    .style("z-index", 2)
                     .html(`
-                 <div style="border: thin solid grey; border-radius: 5px; color: black; background: lightgrey; padding: 10px">
-                     Valence: Describes the musical positiveness conveyed by a track. Tracks with high valence sound 
-                     more positive (e.g. happy, cheerful, euphoric), while tracks with low valence sound more negative 
-                     (e.g. sad, depressed, angry).             
-                 </div>`)
+                      <div class="feature-tooltip-container">
+                        Valence: ${getFeatureTooltip("valence")}              
+                    </div>
+                    `)
+                    .transition()
+                    .style("opacity", 1)
+
             })
-            .on('mouseout', function(event, d){
+            .on("mouseout", function(event, d) {
                 d3.select(this)
                     .transition()
                     .attr("opacity", 0.7)
+
                 vis.tooltip
                     .style("opacity", 0)
                     .style("left", 0)
                     .style("top", 0)
                     .html(``);
             })
+            .on("click", function(e, d) {
+                let panel = document.getElementById("char-output-panel")
 
+                // get top 3 songs
+                vis.getTopSongsByFeature("valence")
+
+                panel.innerHTML = vis.getHTMLforTopThree(vis.getTopSongsByFeature("valence"), "valence")
+            })
+
+    }
+
+    getTopSongsByFeature(featureName)  {
+        let vis = this
+
+        let firstLetter = featureName.charAt(0).toUpperCase()
+        let remainingLetters = featureName.substring(1)
+        let properName = firstLetter + remainingLetters
+
+        let filteredArr = vis.allData.sort((a, b) => b[properName] - a[properName])
+        let topThree = []
+
+        for (let i=0; i<3; i++) {
+            topThree.push(filteredArr[i])
+        }
+
+        return topThree
+    }
+
+    getHTMLforTopThree(arr, featureName) {
+        let firstLetter = featureName.charAt(0).toUpperCase()
+        let remainingLetters = featureName.substring(1)
+        let properName = firstLetter + remainingLetters
+
+        let output = `
+            <div class="char-song-container">
+                <div class="char-song-header">
+                    <h2>${properName}</h2>
+                    <p>${getFeatureTooltip(featureName)}</p>  
+                </div>
+                <div class="panel-subheader">The top three songs with the highest values in ${properName} are....</div>
+            `
+        for (let i=0; i<arr.length; i++) {
+            console.log(arr[i])
+            output += `
+                    <div class="histogram-panel-songContainer">
+                        <div class="histogram-panel-songItem">
+                            <div class="histogram-panel-songContent">
+                                <img class="histogram-panel-songImage" src="${arr[i]['ImageURL']}">
+                                <div class="histogram-panel-songText">
+                                    <h3 class="histogram-panel-songTitle">${arr[i]['Title']}</h3>
+                                    <p class="histogram-panel-songArtist">${arr[i]['Artist']}</p>
+                                    
+                                </div>
+                            </div>
+                            <div>
+                                <div class="histogram-panel-playButton">
+                                    <a href="${arr[i]['SpotifyURL']}"><img src="assets/svg/play.png"></a>
+                                </div>
+                            </div>  
+                        </div>
+                        <div>
+                            <p class="histogram-panel-songTopYear">${properName + ": " + parseFloat(arr[i][properName]).toFixed(2)} &middot; Top 100 in ${arr[i]['TopYear']}</p>
+                        </div>
+                    </div>
+                `
+        }
+
+        output += `</div>`
+
+        return output
     }
 }

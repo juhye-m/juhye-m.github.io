@@ -154,7 +154,7 @@ class DurationLineChart {
                 .attr("width", 5)
                 .attr("y", vis.height)
                 .attr("height", 0)
-                .style("fill", 'white')
+                .style("fill", 'black')
                 .attr("opacity", 0.2)
                 .on("mouseover", function(event, d) {
                     d3.select(this)

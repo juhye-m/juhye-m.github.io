@@ -105,7 +105,7 @@ function initMainPage(dataArray) {
 
 	// bargraph = new BarChart("chart1",genreData)
 	histogram = new Histogram("histogram", allData)
-	linegraph = new LineChart("line-chart-area", averageByYearData)
+	linegraph = new LineChart("line-chart-area", averageByYearData, allData)
 	durationLineChart = new DurationLineChart("duration-line-chart", averageByYearData, timelineData)
 	timeline = new Timeline("timeline", timelineData)
 	genrechart = new BubbleChart("genrechart",genreData)
@@ -146,6 +146,36 @@ function getRandomImage(year) {
 
 function timelineCategoryChange() {
 	selectedTimelineCategory = document.getElementById("timeline-select").value;
+	let sources = document.getElementById("sources")
+
+	// change explanation display
+	if (selectedTimelineCategory === "music") {
+		document.getElementById("music").style.display = "block"
+		document.getElementById("music").className = "transition-content explanation toFadeIn"
+		document.getElementById("video").style.display = "none"
+		document.getElementById("explanation-filler").style.display = "none"
+
+		sources.style.display = "block"
+		sources.className = "toFadeIn sources"
+	}
+	else if (selectedTimelineCategory === "video") {
+		document.getElementById("music").style.display = "none"
+		document.getElementById("video").style.display = "block"
+		document.getElementById("video").className = "transition-content explanation toFadeIn"
+		document.getElementById("explanation-filler").style.display = "none"
+
+		sources.style.display = "block"
+		sources.className = "toFadeIn sources"
+	}
+	else {
+		document.getElementById("music").style.display = "none"
+		document.getElementById("video").style.display = "none"
+		document.getElementById("explanation-filler").style.display = "block"
+		document.getElementById("explanation-filler").className = "toFadeIn filler-text"
+
+		sources.style.display = "none"
+	}
+
 	timeline.wrangleData()
 }
 
