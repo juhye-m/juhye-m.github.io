@@ -64,7 +64,7 @@ class BubbleChart {
 
        vis.radiusScale = d3.scaleSqrt()
         .domain([0, vis.maxSize])
-        .range([0, 100])
+        .range([0, 200])
 
     vis.circles = vis.svg.selectAll('circles')
     .data(vis.data)
