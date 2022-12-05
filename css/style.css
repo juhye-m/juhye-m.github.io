@@ -2,15 +2,17 @@
 body {
     height: 100vh;
 
-    background-color: #1f1919;
-    color: white;
+    background-color: ghostwhite;
+    color: black;
 
   /*  font styling */
-    font-family: Roboto, sans-serif;
+    font-family: "Open Sans";
 
     display: flex;
     align-items: center;
 }
+
+
 
 .section {
     padding-left: 20px;
@@ -47,15 +49,28 @@ div > svg {
 .titles {
     margin-top: 3cm;
     text-align: center;
+    font-family: "Open Sans";
 }
 h1 {
     font-size: 60px;
     color: #0acf4f;
     margin-bottom: 40px;
+    font-family: "Open Sans";
 }
 
 text {
-    fill: white;
+    fill: black;
+    font-family: "Open Sans";
+}
+
+.transition {
+    font-family: "Open Sans";
+    font-weight: bolder;
+    font-size: 25px;
+    text-align: center;
+    padding: 40px;
+    margin: 20px;
+    background-color: lightgreen;
 }
 
 .spotify-icon {
@@ -69,7 +84,7 @@ text {
 }
 
 .typewrite {
-    color: rgb(212, 200, 218);
+    color: #0acf4f;
 }
 
 #histogramTooltip {
@@ -83,6 +98,7 @@ text {
 h3 {
     text-decoration: none;
     color:#6b6b71
+    font-family: "Open Sans";
 }
 
 /* flying music notes background */

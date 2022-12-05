@@ -145,7 +145,8 @@ class LineChart {
                     .style("top", event.pageY + "px")
                     .html(`
                  <div style="border: thin solid grey; border-radius: 5px; color: black; background: lightgrey; padding: 10px">
-                     Danceability                
+                     Danceability: Describes how suitable a track is for dancing based on a combination of musical 
+                     elements including tempo, rhythm stability, beat strength, and overall regularity.              
                  </div>`)
             })
             .on('mouseout', function(event, d){
@@ -170,7 +171,8 @@ class LineChart {
                     .style("top", event.pageY + "px")
                     .html(`
                  <div style="border: thin solid grey; border-radius: 5px; color: black; background: lightgrey; padding: 10px">
-                     Speechiness               
+                     Speechiness: This detects the presence of spoken words in a track. The more exclusively speech-like
+                      the recording (e.g. talk show, audio book, poetry), the closer to 1.0 the attribute value.               
                  </div>`)
             })
             .on('mouseout', function(event, d){
@@ -195,7 +197,9 @@ class LineChart {
                     .style("top", event.pageY + "px")
                     .html(`
                  <div style="border: thin solid grey; border-radius: 5px; color: black; background: lightgrey; padding: 10px">
-                     Energy               
+                     Energy: Represents a perceptual measure of intensity and activity. Typically, energetic tracks 
+                     feel fast, loud, and noisy. For example, death metal has high energy, while a Bach prelude 
+                     scores low on the scale.               
                  </div>`)
             })
             .on('mouseout', function(event, d){
@@ -221,7 +225,7 @@ class LineChart {
                     .style("top", event.pageY + "px")
                     .html(`
                  <div style="border: thin solid grey; border-radius: 5px; color: black; background: lightgrey; padding: 10px">
-                     Acousticness              
+                     Acousticness: A confidence measure from 0.0 to 1.0 of whether the track is acoustic.              
                  </div>`)
             })
             .on('mouseout', function(event, d){
@@ -247,7 +251,9 @@ class LineChart {
                     .style("top", event.pageY + "px")
                     .html(`
                  <div style="border: thin solid grey; border-radius: 5px; color: black; background: lightgrey; padding: 10px">
-                     Valence             
+                     Valence: Describes the musical positiveness conveyed by a track. Tracks with high valence sound 
+                     more positive (e.g. happy, cheerful, euphoric), while tracks with low valence sound more negative 
+                     (e.g. sad, depressed, angry).             
                  </div>`)
             })
             .on('mouseout', function(event, d){
