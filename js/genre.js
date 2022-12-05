@@ -1,7 +1,6 @@
 // // https://bl.ocks.org/officeofjane/a70f4b44013d06b9c0a973f163d8ab7a
 // // https://observablehq.com/@d3/bubble-chart
 
-
 // // bubbleChart creation function; instantiate new bubble chart given a DOM element to display it in and a dataset to visualise
 // function genreChart() {
 // const width = 940;
@@ -13,11 +12,7 @@
 // // position force for bubbles layout
 // const forceStrength = 0.03;
 
-// // these will be set in createNodes and chart functions
-// // let svg = null;
-// // let bubbles = null;
-// // let labels = null;
-// // let nodes = [];
+
 
 // // charge is dependent on size of the bubble, so bigger towards the middle
 // function charge(d) {

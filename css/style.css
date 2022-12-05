@@ -2,16 +2,21 @@
 body {
     height: 100vh;
 
-    background-color: ghostwhite;
-
-    /* color: whitesmoke; */
-    /* background-color: rgb(10, 11, 11); */
+    /* background-color: ghostwhite; */
+    background-color: rgb(204, 204, 204);
+    color:  rgb(10, 11, 11);
 
   /*  font styling */
     font-family: "Open Sans", sans-serif;
 
     display: flex;
     align-items: center;
+    padding: 1cm;
+}
+
+.headerr {
+    color: whitesmoke;
+    background-color: rgb(10, 11, 11);
 }
 
 .no-flex {
@@ -19,7 +24,7 @@ body {
 }
 
 .section {
-    padding-left: 20px;
+    padding-left: 50px;
     padding-right: 20px;
 }
 
@@ -74,9 +79,8 @@ text {
     text-align: left;
     padding: 40px;
     margin-top: 20px;
-    background-color: #c9f3b0;
-    /* background-color: rgb(224, 227, 224);
-    color:  rgb(10, 11, 11); */
+    color: whitesmoke;
+    background-color: rgb(10, 11, 11);
 }
 
 .title-container {
