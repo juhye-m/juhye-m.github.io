@@ -6,13 +6,15 @@ body {
     color: black;
 
   /*  font styling */
-    font-family: "Open Sans";
+    font-family: "Open Sans", sans-serif;
 
     display: flex;
     align-items: center;
 }
 
-
+.no-flex {
+    flex: 0 !important;
+}
 
 .section {
     padding-left: 20px;
@@ -49,27 +51,27 @@ div > svg {
 .titles {
     margin-top: 3cm;
     text-align: center;
-    font-family: "Open Sans";
+    font-family: "Open Sans", sans-serif;
 }
 h1 {
     font-size: 60px;
     color: #0acf4f;
     margin-bottom: 40px;
-    font-family: "Open Sans";
+    font-family: "Open Sans", sans-serif;
 }
 
 text {
     fill: black;
-    font-family: "Open Sans";
+    font-family: "Open Sans", sans-serif;
 }
 
 .transition {
-    font-family: "Open Sans";
+    font-family: "Open Sans", sans-serif;
     font-weight: bolder;
     font-size: 25px;
     text-align: center;
     padding: 40px;
-    margin: 20px;
+    margin-top: 20px;
     background-color: lightgreen;
 }
 
@@ -97,8 +99,8 @@ text {
 
 h3 {
     text-decoration: none;
-    color:#6b6b71
-    font-family: "Open Sans";
+    color:#6b6b71;
+    font-family: "Open Sans", sans-serif;
 }
 
 /* flying music notes background */
@@ -111,7 +113,7 @@ h3 {
     width: 50%;
     min-width: 300px;
     height: 200px;
-    border: 0px solid #000;
+    border: 0 solid #000;
   }
 
   .noot-1,
@@ -247,7 +249,7 @@ input:checked + .slider:before {
 }
 
 .histogram-panel {
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: rgba(0, 0, 0, 0.05);
     border-radius: 20px;
     padding: 20px;
     text-align: left;
@@ -255,7 +257,7 @@ input:checked + .slider:before {
     flex-direction: column;
     justify-content: space-between;
     margin: 30px 0;
-    color: white;
+    color: black;
     width: 250px;
 }
 
@@ -263,7 +265,7 @@ input:checked + .slider:before {
     text-decoration-line: underline;
     text-decoration-style: wavy;
     margin: 10px;
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(0, 0, 0, 0.8);
     font-size: 14px;
 
 }
@@ -274,18 +276,18 @@ input:checked + .slider:before {
 /*}*/
 
 .histogram-panel-content  h3 {
-    color: white;
+    color: black;
 }
 
 .histogram-panel-content  h2 {
     font-size: 20px;
-    color: white;
+    color: black;
     font-weight: bolder;
 }
 
 .histogram-panel-content  p {
     font-size: 14px;
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(0, 0, 0, 0.8);
 }
 
 .toggle-container {
@@ -304,7 +306,7 @@ input:checked + .slider:before {
 
 .interaction-options-text {
     font-size: 12px;
-    color: rgba(255, 255, 255, 0.4);
+    color: rgba(0, 0, 0, 0.4);
     margin: 0;
 }
 
@@ -352,7 +354,7 @@ p.histogram-panel-songTopYear {
 
 .histogram-panel-playButton img {
     height: 18px;
-    fill: white;
+    fill: black;
     margin-left: 12px;
 }
 
@@ -426,8 +428,8 @@ p.histogram-panel-songTopYear {
 .hist-slider-label {
     width: 38px;
     font-size: 13px;
-    color: #ffffff;
-    background-color: rgba(255, 255, 255, 0.1);
+    color: black;
+    background-color: rgba(0, 0, 0, 0.1);
     padding: 2px 5px;
     border-radius: 3px;
     text-align: center;
@@ -438,7 +440,7 @@ p.histogram-panel-songTopYear {
 .event-tooltip-container {
     background-color: rgb(49, 49, 49);
     padding: 20px;
-    border: 1px rgba(255, 255, 255, 0.4) solid;
+    border: 1px rgba(0, 0, 0, 0.4) solid;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
@@ -459,7 +461,7 @@ p.histogram-panel-songTopYear {
 }
 
 .event-tooltip-eventName h3 {
-    color: white;
+    color: black;
     font-size: 17px;
     margin: 0;
     flex: 0;
@@ -468,7 +470,7 @@ p.histogram-panel-songTopYear {
 
 .event-tooltip-eventName p {
     font-size: 12px;
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(0, 0, 0, 0.6);
     margin-bottom: 0;
     margin-top: 0;
     font-weight: normal;
@@ -476,7 +478,7 @@ p.histogram-panel-songTopYear {
 
 .event-tooltip-eventDetails p {
     font-size: 14px;
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(0, 0, 0, 0.8);
     margin-bottom: 0;
     margin-top: 8px;
 }
@@ -484,15 +486,14 @@ p.histogram-panel-songTopYear {
 .timeline-select-container {
     margin-bottom: 30px;
     font-size: 12px;
-    color: rgba(255, 255, 255, 0.4);
+    color: rgba(0, 0, 0, 0.4);
 }
 
 .timeline-select-container select {
     font-size: 12px;
-    background-color: rgba(255, 255, 255, 1);
+    color: white;
+    background-color: rgba(0, 0, 0, 1);
 }
-
-
 
 /* diy song */
 .diy-song-section-container {
@@ -532,7 +533,7 @@ p.histogram-panel-songTopYear {
     width: 400px;
     background-color: rgba(82, 82, 82, 0.9);
     font-size: 14px;
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(0, 0, 0, 0.8);
     padding: 5px 10px;
     border-radius: 10px;
     margin: 0;
@@ -594,14 +595,14 @@ p.histogram-panel-songTopYear {
 
 .diy-song-slider-label {
     font-size: 13px;
-    color: #ffffff;
+    color: black;
     padding: 2px 5px;
     border-radius: 3px;
     text-align: center;
 }
 
 #generateSongButton {
-    background-color: white;
+    background-color: black;
     border: none;
     border-radius: 4px;
 }
@@ -614,14 +615,14 @@ p.histogram-panel-songTopYear {
 }
 
 #diy-song-output-container {
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: rgba(0, 0, 0, 0.05);
     border-radius: 20px;
     padding: 20px;
     width: 300px;
 }
 
 #diy-song-output-container  h3 {
-    color: white;
+    color: black;
     margin-top: 0;
 }
 
@@ -697,7 +698,7 @@ p.histogram-panel-songTopYear {
     padding: 10px;
     background-color: #33a02c;
     font-size: 14px;
-    color: white;
+    color: black;
 }
 
 #duration-btn:hover {

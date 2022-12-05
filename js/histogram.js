@@ -16,7 +16,7 @@ class Histogram {
         // create svg
         vis.margin = { top: 40, right: 40, bottom: 60, left: 60 };
 
-        vis.width = 550 - vis.margin.left - vis.margin.right;
+        vis.width = document.getElementById(vis.parentElement).getBoundingClientRect().width - vis.margin.left - vis.margin.right;
         vis.height = 750 - vis.margin.top - vis.margin.bottom;
 
         // vis.width = 500
@@ -252,7 +252,7 @@ class Histogram {
             })
             .on("mouseover", function(event, d) {
                 d3.select(this)
-                    .attr("stroke", "white")
+                    .attr("stroke", "black")
                     .transition().duration(200)
                     .attr('stroke-width', '1px')
             })

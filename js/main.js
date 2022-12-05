@@ -1,4 +1,4 @@
-
+$.fn.fullpage.moveTo(7);
 // skeleton stuff - left comments on places that need to be worked on
 let linegraph, histogram, bargraph, durationLineChart, timeline;
 
