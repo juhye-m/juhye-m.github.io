@@ -8,7 +8,7 @@ let randomImages = []
 let parseDate = d3.timeParse("%Y");
 
 // define global colors
-let LIGHTGREEN = "#b2df8a"
+let LIGHTGREEN = "#c9f3b0"
 let DARKGREEN = "#33a02c"
 let LIGHTBLUE = "#a6cee3"
 let DARKBLUE = "#1f78b4"
