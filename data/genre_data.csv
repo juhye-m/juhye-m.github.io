@@ -1,8 +1,8 @@
-Genre,Count,id
-dance pop,432,0
-latin,63,1
-pop,57,2
-atl hip hop,39,3
-rap,33,4
-kpop,30,5
+Genre,Count,id,x,y
+dance pop,432,0,400,300
+latin,63,1,280,200
+pop,57,2,300,400
+atl hip hop,39,3,250,300
+rap,33,4,500,400
+kpop,30,5,200,225
 
