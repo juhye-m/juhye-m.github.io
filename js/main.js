@@ -71,17 +71,18 @@ let promises = [
 
 		return row
 	}),
-	// fetch('https://api.unsplash.com/photos/random?client_id=mDk2A8Pk4OzkR-cdNX0xnp0QeBTD6D0sVrUT11jZjPE&count=26')
-	// 	.then(function(response) {
-	// 		return response.json();
-	// 	})
-	// 	.then(function(data) {
-	// 		let imageArrTemp = []
-	// 		for (let i = 0; i < data.length; i++) {
-	// 			imageArrTemp.push(data[i]['urls']['raw'] + "&w=300&h=300&crop=entropy&fit=clamp")
-	// 		}
-	// 		return imageArrTemp
-	// 	})
+	d3.json('data/images.json')
+		.then(function(data) {
+			let imageArrTemp = []
+			for (let i = 0; i < data.length; i++) {
+				imageArrTemp.push(data[i]['urls']['raw'] + "&w=300&h=300&crop=entropy&fit=clamp")
+			}
+
+			// randomize order
+			imageArrTemp = imageArrTemp.sort(() => (Math.random() > .5) ? 1 : -1);
+
+			return imageArrTemp
+		})
 ];
 
 Promise.all(promises)
