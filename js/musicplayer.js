@@ -42,9 +42,9 @@ new Vue({
             url: "https://youtu.be/4NRXx6U8ABQ",
             year: "2020",
             favorited: false,
-            genre: "Pop",
-						danceability: "0.561",
-						energy: "0.431"
+            genre: "Canadian Contemporary R&B",
+						danceability: "0.514",
+						energy: "0.73"
           },
           {
             name: "Señorita",
@@ -54,9 +54,9 @@ new Vue({
             url: "https://youtu.be/Pkh8UtuejGw",
             year: "2019",
             favorited: false,
-            genre: "Pop",
-						danceability: "0.561",
-						energy: "0.431"
+            genre: "Canadian Pop",
+						danceability: "0.759",
+						energy: "0.548"
           },
           {
             name: "God's Plan",

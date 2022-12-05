@@ -1,7 +1,7 @@
 Year,Title,Artist,Genre,Speechiness,Acousticness,Liveness,Danceability,Energy,Loudness,Valence,Duration,BPM
 2021,drivers license,Olivia Rodrigo,pop,0.0578,0.768,0.106,0.561,0.431,-8.81,0.137,242013,143.875
 2020,Blinding Lights,The Weeknd,canadian contemporary r&b,0.0598,0.00146,0.0897,0.514,0.73,-5.934,0.334,200040,171.005
-2019,Señorita,"Shawn Mendes, Camila Cabello"
+2019,Señorita,"Shawn Mendes, Camila Cabello",canadian pop,0.029,0.0392,0.0828,0.759,0.548,-6.049,0.749,190800,116.967
 2018,God's Plan,Drake
 2017,Shape of You,Ed Sheeran
 2016,One Dance,Drake
