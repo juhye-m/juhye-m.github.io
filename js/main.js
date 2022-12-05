@@ -48,6 +48,7 @@ let promises = [
 	}),
 	d3.csv("data/genre_data.csv", row => {
 		row.Count = +row.Count
+		row.id = +row.id
 		return row
 	}),
 	d3.csv("data/all_data.csv", row => {
@@ -102,11 +103,12 @@ function initMainPage(dataArray) {
 	let timelineData = dataArray[3]
 	randomImages = dataArray[4]
 
-	bargraph = new BarChart("chart1",genreData)
+	// bargraph = new BarChart("chart1",genreData)
 	histogram = new Histogram("histogram", allData)
 	linegraph = new LineChart("line-chart-area", averageByYearData)
 	durationLineChart = new DurationLineChart("duration-line-chart", averageByYearData, timelineData)
 	timeline = new Timeline("timeline", timelineData)
+	genrechart = new BubbleChart("genrechart",genreData)
 	let createYourOwnSong = new DIYSong(allData)
 }
 
