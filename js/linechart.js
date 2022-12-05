@@ -19,7 +19,7 @@ class LineChart {
         vis.margin = {top: 40, right: 40, bottom: 50, left: 50};
         // vis.width = document.getElementById(vis.parentElement).getBoundingClientRect().width - vis.margin.left - vis.margin.right;
         vis.height = 600 - vis.margin.top - vis.margin.bottom;
-        vis.width = 750
+        vis.width = 600
         //vis.height = 500
 
         // init drawing area

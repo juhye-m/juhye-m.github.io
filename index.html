@@ -18,7 +18,7 @@
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.15/fullpage.css" />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
 	<div id="fullpage" class="container-fluid">
@@ -56,13 +56,16 @@
 			</div>
 		</div>
 		<div class="section transition">
-			<p>What makes a song blow up and gain global popularity?</p>
-			<p>What do the most popular songs of the past decade have in common?</p>
-			<p>While we may all have differing music tastes and opinions on what makes a good song,
-			taking a look under the hood of the most popular songs of each year reveals that some technical factors
-			you may not even be aware of upon first listen can impact the popularity of the song.</p>
-			<p>Take a look at the #1 most popular song from each year and see if you notice any characteristics they have
-			in common.</p>
+			<div class="transition-content">
+				<h1>What makes a song blow up and gain global popularity?</h1>
+				<p>And what do the most popular songs of the past decade have in common?</p>
+				<p>While we may all have differing music tastes and opinions on what makes a good song,
+					taking a look under the hood of the most popular songs of each year reveals that some technical factors
+					you may not even be aware of upon first listen can impact the popularity of the song.</p>
+				<p><strong>Take a look at the #1 most popular song from each year and see if you notice any characteristics they have
+					in common.</strong></p>
+			</div>
+
 		</div>
 		<div class="section">
 			<div class="align-self-center hook">
@@ -196,9 +199,11 @@
 				</div>
 			</div>
 		</div>
-		<div class="section transition">
-			Let's take a look under the hood of Spotify's Top 100 Songs to see what the most popular songs of the past
-			decade have in common!
+		<div class="section transition center">
+			<div class="transition-content">
+				<h1>Diving deeper...</h1>
+				<p>Let's take a look under the hood of Spotify's Top 100 Songs to see what the most popular songs of the past decade have in common.</p>
+			</div>
 		</div>
 
 		<div class="section">
@@ -209,14 +214,15 @@
 					<div id="legend"></div>
 				</div>
 				<div class="col">
-					Average energy of songs has decreased over time, while acousticness of songs has increased over the
-					past decade. Danceabilty peaked in 2017 but has returned back to pre-2017 levels. Both speechiness
-					and valance have stayed fairly consistent over time.
+					Average energy of songs has decreased over time, while acousticness of songs has increased over the past decade. Danceabilty peaked in 2017 but has returned back to pre-2017 levels. Both speechiness and valence have stayed fairly consistent over time.
 				</div>
 			</div>
 		</div>
 		<div class="section transition">
-			Does timing of release impact popularity?
+			<div class="transition-content">
+				<h1>Do old songs or new songs tend to be more popular?</h1>
+				<p>Newer might not always be better...</p>
+			</div>
 		</div>
 		<div class="section">
 			<div class="row">
@@ -254,8 +260,12 @@
 				</div>
 			</div>
 		</div>
+
 		<div class="section transition">
-			Does it have something to do with genre?
+			<div class="transition-content">
+				<h1>Does genre matter?</h1>
+				<p>Genres can be bases for fans and foes to form (read: country music), and it might affect a song's rise to fame.</p>
+			</div>
 		</div>
 
 		<div class="section">
@@ -267,8 +277,12 @@
 				</div>
 			</div>
 		</div>
+
 		<div class="section transition">
-			Let's take a deep dive into a particular element of songs: duration.
+			<div class="transition-content">
+				<h1>Duration definitely matters.</h1>
+				<p>Let's take a deep dive into one specific characteristic of every song -- its duration.</p>
+			</div>
 		</div>
 
 		<div class="section">
@@ -281,7 +295,7 @@
 							<span class="slider round"></span>
 						</label>
 						<div>
-							<p class="interaction-options-text">Overlay timeline of some interesting events</p>
+							<p class="interaction-options-text">Overlay timeline of some interesting events (hover to learn more)</p>
 						</div>
 					</div>
 					<div class="descriptions row">
@@ -297,7 +311,10 @@
 			</div>
 		</div>
 		<div class="section transition">
-			What could be causing this trend of decreasing song duration?
+			<div class="transition-content">
+				<h1>Why are songs getting shorter?</h1>
+				<p>The decline has been rapid and massive, but why? Let's investigate some possible reasons for the decline.</p>
+			</div>
 		</div>
 
 		<div class="section">
@@ -314,15 +331,25 @@
 						<label for="timeline-select">See events in: </label>
 						<select name="timeline" id="timeline-select" onchange="timelineCategoryChange()">
 							<option value="all">All categories</option>
-							<option value="video">Short-form video</option>
+							<option value="video">Short-form media</option>
 							<option value="music">Music streaming</option>
 						</select>
 					</div>
 					<div class="descriptions">
-						<p>Experts say that pop songs will get shorter on average due to faltering attention spans and “skipping culture” on streaming services. According to research conducted by Samsung, the attention span of music fans has dropped from 12 seconds to 8 seconds since the year 2000. Two trends are emerging: the average hit song is getting shorter and longer songs are becoming hits less often.</p>
-						<p id="music">The dominance of streaming services could be causing songs to get shorter for financial, rather than artistic, reasons. Services like Spotify and Apple Music are responsible for 75% of the music industry’s overall revenue in 2018. One of the main things that has changed in the past decade is how musicians are getting paid, and it is affecting how songs are being written. Instead of getting paid by physical sales, artists are getting paid by stream, which only counts if a user listens to 30 seconds of a song. The low streaming music layouts have caused song length to decrease, and since Spotify pays major artists between $0.004 and $0.008 per stream, this gives artists an incentive to create shorter tracks.</p>
+						<p id="explanation-filler">Choose a category above to learn more about why song durations have decreased.</p>
 						<div>
-							Sources
+							<div class="transition-content explanation" id="video">
+								<h1>A Cultural Shift towards Fast and Easy Consumption of Media: The Rise of Short Form Media Trends</h1>
+								<p>Experts say that pop songs will get shorter on average due to faltering attention spans and “skipping culture” on streaming services. According to research conducted by Samsung, the attention span of music fans has dropped from 12 seconds to 8 seconds since the year 2000. Two trends are emerging: the average hit song is getting shorter and longer songs are becoming hits less often.</p>
+							</div>
+							<div class="transition-content explanation" id="music">
+								<h1>The Economics of Streaming Services</h1>
+								<p>The dominance of streaming services could be causing songs to get shorter for financial, rather than artistic, reasons. Services like Spotify and Apple Music are responsible for 75% of the music industry's overall revenue in 2018. One of the main things that has changed in the past decade is how musicians are getting paid, and it is affecting how songs are being written. Instead of getting paid by physical sales, artists are getting paid by stream, which only counts if a user listens to 30 seconds of a song. </p>
+								<p>The low streaming music layouts have caused song length to decrease, and since Spotify pays major artists between $0.004 and $0.008 per stream, this gives artists an incentive to create shorter tracks.</p>
+							</div>
+						</div>
+						<div class="sources">
+							Sources:
 							<a href="https://www.dailymail.co.uk/sciencetech/article-9085211/Pop-songs-shorter-decade-faltering-attention-spans.html">https://www.dailymail.co.uk/sciencetech/article-9085211/Pop-songs-shorter-decade-faltering-attention-spans.html</a>
 							<a href="https://www.dancemusicnw.com/science-behind-shorter-songs-2019/#:~:text=Streaming%20platforms%20like%20these%20two,incentive%20to%20create%20shorter%20tracks">https://www.dancemusicnw.com/science-behind-shorter-songs-2019/#:~:text=Streaming%20platforms%20like%20these%20two,incentive%20to%20create%20shorter%20tracks</a>
 							<a href="https://www.theverge.com/2019/5/28/18642978/music-streaming-spotify-song-length-distribution-production-switched-on-pop-vergecast-interview">https://www.theverge.com/2019/5/28/18642978/music-streaming-spotify-song-length-distribution-production-switched-on-pop-vergecast-interview</a>
@@ -332,36 +359,11 @@
 				</div>
 			</div>
 		</div>
+
 		<div class="section transition">
-			<div class="descriptions row">
-				<div class="col explanation-col">
-					A Cultural Shift towards Fast and Easy Consumption of Media: The Rise of Short Form Media Trends
-					<br>
-					Experts say that pop songs will get shorter on average due to faltering attention spans and
-					“skipping culture” on streaming services. According to research conducted by Samsung,
-					the attention span of music fans has dropped from 12 seconds to 8 seconds since the year 2000.
-					Two trends are emerging: the average hit song is getting shorter and longer songs are becoming
-					hits less often.
-				</div>
-				<div class="col explanation-col">
-					The Economics of Streaming Services
-					<br>
-					The dominance of streaming services could be causing songs to get shorter for financial,
-					rather than artistic, reasons. Services like Spotify and Apple Music are responsible for 75%
-					of the music industry's overall revenue in 2018. One of the main things that has changed in the
-					past decade is how musicians are getting paid, and it is affecting how songs are being written.
-					Instead of getting paid by physical sales, artists are getting paid by stream, which only counts
-					if a user listens to 30 seconds of a song. The low streaming music layouts have caused song length
-					to decrease, and since Spotify pays major artists between $0.004 and $0.008 per stream, this gives
-					artists an incentive to create shorter tracks.
-				</div>
-			</div>
-			<div class="descriptions row" style="font-size:10px">
-				Sources: https://www.dailymail.co.uk/sciencetech/article-9085211/Pop-songs-shorter-decade-faltering-attention-spans.html
-				<br>
-				https://www.dancemusicnw.com/science-behind-shorter-songs-2019/#:~:text=Streaming%20platforms%20like%20these%20two,incentive%20to%20create%20shorter%20tracks.
-				<br>
-				https://www.theverge.com/2019/5/28/18642978/music-streaming-spotify-song-length-distribution-production-switched-on-pop-vergecast-interview
+			<div class="transition-content">
+				<h1>So, do you have the prescription for popularity?</h1>
+				<p>Try creating your own viral hit based on what you've learned so far.</p>
 			</div>
 		</div>
 
@@ -369,8 +371,8 @@
 			<div class="row">
 				<div class="col diy-song-section-container">
 					<div class="row diy-song-header-container">
-						<h2>So, can you make a top 100 hit song?</h2>
-						<p>You can try creating a viral hit yourself.</p>
+						<h2>Create your own song</h2>
+						<p>Your song will be matched with the most similar top 100 song between 2010 and 2021. You'll be given a similarity score to see how close you got! <strong>To make it more exciting</strong>, you can even try to match one specific song or artist to test how well you really know them.  Don't know where to start? Try matching <i>Bad Blood</i> by Taylor Swift.</p>
 					</div>
 					<div class="row diy-song-vis-container">
 						<div class="col dj-panel" id="dj-panel">
@@ -463,10 +465,13 @@
 				</div>
 			</div>
 		</div>
-		<div class="section">
-			Made for CS171 by
-			<br>
-			JuHye Mun, Megan Cui, Juliet Chihaya
+		<div class="section transition">
+			<div class="transition-content">
+				<h1>Thank you, CS171 :)</h1>
+				<p>If you're interested in how we got our data, take a look at our <a href="https://github.com/juhye-m/cs171-spotify-100">GitHub repository (pending access)</a> under the data folder. We used a Jupyter Notebook and the Spotify API to pull data from top 100 playlists on Spotify.</p>
+				<p>Finally, if you're interested in the matching algorithm used in the DIY hit song section: we use an unweighted OLS algorithm, meaning that we take the sum of the square of the residuals of your song vs. every song in the data set (top 100 per year 2010-2021) along each numerical characteristic (note: genre not included because it's categorical, not ordinal or quantitative), then we rank by which have the lowest sum of the squares of residuals (SSRs). The similarity score assumes a uniform distribution of SSRs and standardizes it on a 100-point scale to create a percentage.</p>
+				<p style="text-decoration-style: wavy; text-decoration-line: underline">Made for CS171 by JuHye Mun, Megan Cui, Juliet Chihaya <3</p>
+			</div>
 		</div>
 	</div>
 
@@ -481,7 +486,7 @@
 
 	<!-- Fullpage -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.15/fullpage.js"></script>
-	<script> $(document).ready(function() { $('#fullpage').fullpage({licenseKey: 'gplv3-license'}); });</script>
+	<script> $(document).ready(function() { $('#fullpage').fullpage({licenseKey: 'gplv3-license', navigation: true}); });</script>
 
 	<!-- noUiSlider -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.4.0/nouislider.min.js"

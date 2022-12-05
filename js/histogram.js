@@ -69,11 +69,6 @@ class Histogram {
             .attr("text-anchor", "middle")
             .attr("font-size", "13px")
 
-        // append tooltip
-        vis.tooltip = d3.select("body").append('div')
-            .attr('class', "tooltip")
-            .attr('id', 'histogramTooltip')
-
         // append slider
         vis.slider = document.getElementById('histogramSlider');
         vis.lowerYear = document.getElementById('histLowerYear')

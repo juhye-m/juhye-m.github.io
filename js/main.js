@@ -144,6 +144,28 @@ function getRandomImage(year) {
 
 function timelineCategoryChange() {
 	selectedTimelineCategory = document.getElementById("timeline-select").value;
+
+	// change explanation display
+
+	if (selectedTimelineCategory === "music") {
+		document.getElementById("music").style.display = "block"
+		document.getElementById("music").className = "transition-content explanation toFadeIn"
+		document.getElementById("video").style.display = "none"
+		document.getElementById("explanation-filler").style.display = "none"
+	}
+	else if (selectedTimelineCategory === "video") {
+		document.getElementById("music").style.display = "none"
+		document.getElementById("video").style.display = "block"
+		document.getElementById("video").className = "transition-content explanation toFadeIn"
+		document.getElementById("explanation-filler").style.display = "none"
+	}
+	else {
+		document.getElementById("music").style.display = "none"
+		document.getElementById("video").style.display = "none"
+		document.getElementById("explanation-filler").style.display = "block"
+		document.getElementById("explanation-filler").className = "toFadeIn"
+	}
+
 	timeline.wrangleData()
 }
 
